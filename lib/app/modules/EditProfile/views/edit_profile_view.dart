@@ -363,22 +363,41 @@ class EditProfileView extends GetView<EditProfileController> {
                 SizedBox(
                   height: 6.h,
                 ),
-                MaterialButton(
-                  height: 50.h,
-                  minWidth: 170.w,
-                  shape: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(18),
-                      borderSide:
-                          BorderSide(color: AppColor.green.withOpacity(0.3))),
-                  onPressed: () {},
-                  color: AppColor.green,
-                  child: Text(
-                    'Save',
-                    style: TextStyle(
-                        color: AppColor.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16.r),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MaterialButton(
+                      height: 50.h,
+                      minWidth: 145.w,
+                      onPressed: () {},
+                      shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: const BorderSide(color: Colors.red)),
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17.r),
+                      ),
+                    ),
+                    MaterialButton(
+                      height: 50.h,
+                      minWidth: 145.w,
+                      onPressed: () {},
+                      color: AppColor.green,
+                      shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(color: AppColor.green)),
+                      child: Text(
+                        'Save',
+                        style: TextStyle(
+                            color: AppColor.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17.r),
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(
                   height: 1.h,

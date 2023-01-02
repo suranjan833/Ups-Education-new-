@@ -4,20 +4,30 @@ import '../modules/BottomNavigationBar/bindings/bottom_navigation_bar_binding.da
 import '../modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
 import '../modules/Cart/bindings/cart_binding.dart';
 import '../modules/Cart/views/cart_view.dart';
+import '../modules/CartDetails/bindings/cart_details_binding.dart';
+import '../modules/CartDetails/views/cart_details_view.dart';
 import '../modules/ChangePassword/bindings/change_password_binding.dart';
 import '../modules/ChangePassword/views/change_password_view.dart';
 import '../modules/EditProfile/bindings/edit_profile_binding.dart';
 import '../modules/EditProfile/views/edit_profile_view.dart';
+import '../modules/ExamInfo/bindings/exam_info_binding.dart';
+import '../modules/ExamInfo/views/exam_info_view.dart';
 import '../modules/Internship/bindings/internship_binding.dart';
 import '../modules/Internship/views/internship_view.dart';
 import '../modules/MyAccount/bindings/my_account_binding.dart';
 import '../modules/MyAccount/views/my_account_view.dart';
 import '../modules/MyCourse/bindings/my_course_binding.dart';
 import '../modules/MyCourse/views/my_course_view.dart';
+import '../modules/PsychologyEntrance/bindings/psychology_entrance_binding.dart';
+import '../modules/PsychologyEntrance/views/psychology_entrance_view.dart';
 import '../modules/Quiz/bindings/quiz_binding.dart';
 import '../modules/Quiz/views/quiz_view.dart';
 import '../modules/Wishlist/bindings/wishlist_binding.dart';
 import '../modules/Wishlist/views/wishlist_view.dart';
+import '../modules/Workshop/bindings/workshop_binding.dart';
+import '../modules/Workshop/views/workshop_view.dart';
+import '../modules/WorkshopDetails/bindings/workshop_details_binding.dart';
+import '../modules/WorkshopDetails/views/workshop_details_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -86,6 +96,31 @@ class AppPages {
       name: _Paths.QUIZ,
       page: () => const QuizView(),
       binding: QuizBinding(),
+    ),
+    GetPage(
+      name: _Paths.WORKSHOP,
+      page: () => const WorkshopView(),
+      binding: WorkshopBinding(),
+    ),
+    GetPage(
+      name: _Paths.WORKSHOP_DETAILS,
+      page: () => const WorkshopDetailsView(),
+      binding: WorkshopDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXAM_INFO,
+      page: () => const ExamInfoView(),
+      binding: ExamInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.PSYCHOLOGY_ENTRANCE,
+      page: () => const PsychologyEntranceView(),
+      binding: PsychologyEntranceBinding(),
+    ),
+    GetPage(
+      name: _Paths.CART_DETAILS,
+      page: () => const CartDetailsView(),
+      binding: CartDetailsBinding(),
     ),
   ];
 }

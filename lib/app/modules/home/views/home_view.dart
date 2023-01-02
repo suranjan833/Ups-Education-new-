@@ -7,8 +7,15 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/home_faculty_suggestions.dart';
+import 'package:ups_education/app/data/widgets/home_latest_update.dart';
+import 'package:ups_education/app/data/widgets/home_our_successful_student.dart';
+import 'package:ups_education/app/data/widgets/home_recent_quizz.dart';
+import 'package:ups_education/app/data/widgets/home_tetmonial.dart';
 import 'package:ups_education/app/data/widgets/self_assessment.dart';
+import 'package:ups_education/app/modules/ExamInfo/views/exam_info_view.dart';
+import 'package:ups_education/app/modules/PsychologyEntrance/views/psychology_entrance_view.dart';
 import 'package:ups_education/app/modules/Quiz/views/quiz_view.dart';
+import 'package:ups_education/app/modules/Workshop/views/workshop_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/home_controller.dart';
@@ -402,8 +409,12 @@ class HomeView extends GetView<HomeController> {
               buildCat('Quiz', AppColor.focolor, ontap: () {
                 Get.to(const QuizView());
               }),
-              buildCat('Course', AppColor.greenaa),
-              buildCat('Workshop', AppColor.focolor),
+              buildCat('Course', AppColor.greenaa, ontap: () {
+                Get.to(const PsychologyEntranceView());
+              }),
+              buildCat('Workshop', AppColor.focolor, ontap: () {
+                Get.to(const WorkshopView());
+              }),
             ],
           ),
           SizedBox(height: 10.h),
@@ -411,7 +422,9 @@ class HomeView extends GetView<HomeController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               buildCat('Free Notes', AppColor.greenaa),
-              buildCat('Exam info', AppColor.focolor),
+              buildCat('Exam info', AppColor.focolor, ontap: () {
+                Get.to(const ExamInfoView());
+              }),
               buildCat('Live', AppColor.greenaa),
             ],
           ),

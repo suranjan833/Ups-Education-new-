@@ -204,7 +204,7 @@ class InternshipView extends GetView<InternshipController> {
                                         image: const DecorationImage(
                                             fit: BoxFit.cover,
                                             image: NetworkImage(
-                                                "https://tse1.mm.bing.net/th?id=OIP.HxTHqLntcqIYHVSPq2JjtAHaHa&pid=Api&P=0"))),
+                                                "https://4.bp.blogspot.com/-zip2iduMjPI/TjiLt0dqrgI/AAAAAAAAACQ/1u8iRUWKJeU/s1600/Artwork.jpg"))),
                                   ),
                                   Text(
                                     'By DR. Arvind Otta',
@@ -308,7 +308,7 @@ class InternshipView extends GetView<InternshipController> {
                                         image: const DecorationImage(
                                             fit: BoxFit.cover,
                                             image: NetworkImage(
-                                                "https://tse1.mm.bing.net/th?id=OIP.HxTHqLntcqIYHVSPq2JjtAHaHa&pid=Api&P=0"))),
+                                                "https://i.pinimg.com/736x/64/17/44/641744638647da953229fd4423dc571c.jpg"))),
                                   ),
                                   Text(
                                     'By DR. Arvind Otta',
