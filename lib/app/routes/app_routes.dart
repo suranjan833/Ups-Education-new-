@@ -16,6 +16,11 @@ abstract class Routes {
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
   static const QUIZ = _Paths.QUIZ;
+  static const WORKSHOP = _Paths.WORKSHOP;
+  static const WORKSHOP_DETAILS = _Paths.WORKSHOP_DETAILS;
+  static const EXAM_INFO = _Paths.EXAM_INFO;
+  static const PSYCHOLOGY_ENTRANCE = _Paths.PSYCHOLOGY_ENTRANCE;
+  static const CART_DETAILS = _Paths.CART_DETAILS;
 }
 
 abstract class _Paths {
@@ -31,4 +36,9 @@ abstract class _Paths {
   static const EDIT_PROFILE = '/edit-profile';
   static const CHANGE_PASSWORD = '/change-password';
   static const QUIZ = '/quiz';
+  static const WORKSHOP = '/workshop';
+  static const WORKSHOP_DETAILS = '/workshop-details';
+  static const EXAM_INFO = '/exam-info';
+  static const PSYCHOLOGY_ENTRANCE = '/psychology-entrance';
+  static const CART_DETAILS = '/cart-details';
 }

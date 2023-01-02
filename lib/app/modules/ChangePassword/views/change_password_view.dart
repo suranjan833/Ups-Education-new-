@@ -152,22 +152,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                             borderSide: BorderSide(
                                 color: AppColor.black.withOpacity(0.3))),
                         hintText: 'Confirm Password',
-                        // suffixIcon: Padding(
-                        //   padding: const EdgeInsets.all(4.0),
-                        //   child: CircleAvatar(
-                        //     radius: 17,
-                        //     backgroundColor: AppColor.litegrey,
-                        //     child: InkWell(
-                        //       onTap: controller.toggle3,
-                        //       child: Icon(
-                        //         controller.obscureText3.value
-                        //             ? Icons.visibility
-                        //             : Icons.visibility_off,
-                        //         color: AppColor.grey,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
+                       
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: BorderSide(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
+import 'package:ups_education/app/modules/CartDetails/views/cart_details_view.dart';
 
 import '../controllers/cart_controller.dart';
 
@@ -37,7 +38,7 @@ class CartView extends GetView<CartController> {
                             ),
                             InkWell(
                               onTap: () {
-                               controller.buildRemove();
+                                controller.buildRemove();
                               },
                               child: CircleAvatar(
                                 radius: 19.r,
@@ -142,18 +143,22 @@ class CartView extends GetView<CartController> {
                 ),
                 const Spacer(),
                 Padding(
-                  padding: REdgeInsets.symmetric(horizontal: 74),
+                  padding: REdgeInsets.symmetric(horizontal: 4),
                   child: MaterialButton(
                     height: 50.h,
-                    minWidth: 80.w,
+                    minWidth: 150.w,
                     shape: OutlineInputBorder(
                         borderSide: BorderSide(color: AppColor.green),
-                        borderRadius: BorderRadius.circular(17.r)),
+                        borderRadius: BorderRadius.circular(18.r)),
                     color: AppColor.green,
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    onPressed: () {
+                      Get.to(const CartDetailsView());
+                    },
+                    child: Wrap(
+                      spacing: 6.w,
+                      alignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      runAlignment: WrapAlignment.center,
                       children: [
                         Text(
                           'Continue',
@@ -164,7 +169,7 @@ class CartView extends GetView<CartController> {
                         ),
                         Icon(
                           Icons.arrow_forward_ios,
-                          size: 13,
+                          size: 15,
                           color: AppColor.white,
                         )
                       ],
@@ -178,5 +183,4 @@ class CartView extends GetView<CartController> {
       ),
     );
   }
-
 }

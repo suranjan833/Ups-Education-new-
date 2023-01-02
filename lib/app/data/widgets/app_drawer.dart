@@ -5,6 +5,7 @@ import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/home_app_bar.dart';
 import 'package:ups_education/app/modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
 import 'package:ups_education/app/modules/Internship/views/internship_view.dart';
+import 'package:ups_education/app/modules/Workshop/views/workshop_view.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -157,6 +158,9 @@ class AppDrawer extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontSize: 14.r),
                 ),
+                onTap: () {
+                  Get.to(const WorkshopView());
+                },
               ),
               ListTile(
                 onTap: () {
@@ -177,7 +181,7 @@ class AppDrawer extends StatelessWidget {
                   ),
                 ),
                 title: Text(
-                  'Internship',
+                  'Intership',
                   style: TextStyle(
                       color: AppColor.black.withOpacity(0.7),
                       fontWeight: FontWeight.w400,
