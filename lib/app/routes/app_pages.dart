@@ -22,6 +22,10 @@ import '../modules/PsychologyEntrance/bindings/psychology_entrance_binding.dart'
 import '../modules/PsychologyEntrance/views/psychology_entrance_view.dart';
 import '../modules/Quiz/bindings/quiz_binding.dart';
 import '../modules/Quiz/views/quiz_view.dart';
+import '../modules/QuizResult/bindings/quiz_result_binding.dart';
+import '../modules/QuizResult/views/quiz_result_view.dart';
+import '../modules/QuizStart/bindings/quiz_start_binding.dart';
+import '../modules/QuizStart/views/quiz_start_view.dart';
 import '../modules/Wishlist/bindings/wishlist_binding.dart';
 import '../modules/Wishlist/views/wishlist_view.dart';
 import '../modules/Workshop/bindings/workshop_binding.dart';
@@ -32,6 +36,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/videos/bindings/videos_binding.dart';
+import '../modules/videos/views/videos_view.dart';
 
 part 'app_routes.dart';
 
@@ -121,6 +127,21 @@ class AppPages {
       name: _Paths.CART_DETAILS,
       page: () => const CartDetailsView(),
       binding: CartDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.QUIZ_RESULT,
+      page: () => const QuizResultView(),
+      binding: QuizResultBinding(),
+    ),
+    GetPage(
+      name: _Paths.QUIZ_START,
+      page: () => const QuizStartView(),
+      binding: QuizStartBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIDEOS,
+      page: () => const VideosView(),
+      binding: VideosBinding(),
     ),
   ];
 }
