@@ -16,6 +16,7 @@ import 'package:ups_education/app/modules/ExamInfo/views/exam_info_view.dart';
 import 'package:ups_education/app/modules/PsychologyEntrance/views/psychology_entrance_view.dart';
 import 'package:ups_education/app/modules/Quiz/views/quiz_view.dart';
 import 'package:ups_education/app/modules/Workshop/views/workshop_view.dart';
+import 'package:ups_education/app/modules/videos/views/videos_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/home_controller.dart';
@@ -406,13 +407,14 @@ class HomeView extends GetView<HomeController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              buildCat('Quiz', AppColor.focolor, ontap: () {
+              buildCat('Quiz', AppColor.focolor.withOpacity(0.4), ontap: () {
                 Get.to(const QuizView());
               }),
-              buildCat('Course', AppColor.greenaa, ontap: () {
+              buildCat('Course', AppColor.greenaa.withOpacity(0.3), ontap: () {
                 Get.to(const PsychologyEntranceView());
               }),
-              buildCat('Workshop', AppColor.focolor, ontap: () {
+              buildCat('Workshop', AppColor.focolor.withOpacity(0.4),
+                  ontap: () {
                 Get.to(const WorkshopView());
               }),
             ],
@@ -421,11 +423,14 @@ class HomeView extends GetView<HomeController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              buildCat('Free Notes', AppColor.greenaa),
-              buildCat('Exam info', AppColor.focolor, ontap: () {
+              buildCat('Free Notes', AppColor.greenaa.withOpacity(0.3)),
+              buildCat('Exam info', AppColor.focolor.withOpacity(0.4),
+                  ontap: () {
                 Get.to(const ExamInfoView());
               }),
-              buildCat('Live', AppColor.greenaa),
+              buildCat('Live', AppColor.greenaa.withOpacity(0.3), ontap: () {
+                Get.to(const VideosView());
+              }),
             ],
           ),
         ],

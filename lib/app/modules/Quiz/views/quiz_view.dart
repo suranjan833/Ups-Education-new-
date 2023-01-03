@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
+import 'package:ups_education/app/modules/QuizResult/views/quiz_result_view.dart';
+import 'package:ups_education/app/modules/QuizStart/views/quiz_start_view.dart';
 
 import '../controllers/quiz_controller.dart';
 
@@ -48,12 +50,11 @@ class QuizView extends GetView<QuizController> {
                   horizontalTitleGap: 4,
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 5.r, horizontal: 3.r),
-                  minLeadingWidth: 9,
                   title: Text(
                     'UPS Education Testing',
                     style: TextStyle(
                         color: AppColor.black,
-                        fontSize: 15.w,
+                        fontSize: 14.r,
                         fontWeight: FontWeight.w500),
                   ),
                   leading: Icon(
@@ -86,7 +87,9 @@ class QuizView extends GetView<QuizController> {
                         color: Colors.green.shade100,
                         borderRadius: BorderRadius.circular(12)),
                     child: TextButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const QuizResultView());
+                        },
                         icon: Icon(
                           Icons.visibility,
                           size: 18,
@@ -106,12 +109,11 @@ class QuizView extends GetView<QuizController> {
                   horizontalTitleGap: 4,
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 5.r, horizontal: 3.r),
-                  minLeadingWidth: 9,
                   title: Text(
                     'Personality Test',
                     style: TextStyle(
                         color: AppColor.black,
-                        fontSize: 15.w,
+                        fontSize: 14.r,
                         fontWeight: FontWeight.w500),
                   ),
                   leading: Icon(
@@ -144,7 +146,9 @@ class QuizView extends GetView<QuizController> {
                         color: Colors.green.shade100,
                         borderRadius: BorderRadius.circular(12)),
                     child: TextButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const QuizStartView());
+                        },
                         icon: Icon(
                           Icons.arrow_forward,
                           size: 18,
@@ -164,12 +168,11 @@ class QuizView extends GetView<QuizController> {
                   horizontalTitleGap: 4,
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 5.r, horizontal: 3.r),
-                  minLeadingWidth: 9,
                   title: Text(
                     'Research Method and State',
                     style: TextStyle(
                         color: AppColor.black,
-                        fontSize: 15.w,
+                        fontSize: 14.r,
                         fontWeight: FontWeight.w500),
                   ),
                   leading: Icon(
@@ -202,7 +205,9 @@ class QuizView extends GetView<QuizController> {
                         color: Colors.green.shade100,
                         borderRadius: BorderRadius.circular(12)),
                     child: TextButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const QuizStartView());
+                        },
                         icon: Icon(
                           Icons.arrow_forward,
                           size: 18,
@@ -222,12 +227,11 @@ class QuizView extends GetView<QuizController> {
                   horizontalTitleGap: 4,
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 5.r, horizontal: 3.r),
-                  minLeadingWidth: 9,
                   title: Text(
                     'Human Development',
                     style: TextStyle(
                         color: AppColor.black,
-                        fontSize: 15.w,
+                        fontSize: 14.r,
                         fontWeight: FontWeight.w500),
                   ),
                   leading: Icon(
@@ -260,7 +264,9 @@ class QuizView extends GetView<QuizController> {
                         color: Colors.green.shade100,
                         borderRadius: BorderRadius.circular(12)),
                     child: TextButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const QuizStartView());
+                        },
                         icon: Icon(
                           Icons.arrow_forward,
                           size: 18,

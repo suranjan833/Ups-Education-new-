@@ -21,6 +21,9 @@ abstract class Routes {
   static const EXAM_INFO = _Paths.EXAM_INFO;
   static const PSYCHOLOGY_ENTRANCE = _Paths.PSYCHOLOGY_ENTRANCE;
   static const CART_DETAILS = _Paths.CART_DETAILS;
+  static const QUIZ_RESULT = _Paths.QUIZ_RESULT;
+  static const QUIZ_START = _Paths.QUIZ_START;
+  static const VIDEOS = _Paths.VIDEOS;
 }
 
 abstract class _Paths {
@@ -41,4 +44,7 @@ abstract class _Paths {
   static const EXAM_INFO = '/exam-info';
   static const PSYCHOLOGY_ENTRANCE = '/psychology-entrance';
   static const CART_DETAILS = '/cart-details';
+  static const QUIZ_RESULT = '/quiz-result';
+  static const QUIZ_START = '/quiz-start';
+  static const VIDEOS = '/videos';
 }
