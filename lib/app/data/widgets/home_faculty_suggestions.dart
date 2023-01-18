@@ -1,10 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ups_education/app/data/config/appcolor.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:ups_education/app/data/config/config.dart';
 
 class HomeFacultySuggestions extends StatelessWidget {
   const HomeFacultySuggestions({Key? key}) : super(key: key);
@@ -13,44 +10,82 @@ class HomeFacultySuggestions extends StatelessWidget {
     return SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Wrap(spacing: 18, children: [
-          buildfacultvideo("https://youtu.be/3It49x562b0"),
-          buildfacultvideo(
-              "https://www.youtube.com/live/mCMd73gBL0s?feature=share"),
-          buildfacultvideo("https://youtu.be/Zff3rUY0iGg"),
-          buildfacultvideo("https://youtu.be/cGNvKV4u6zw"),
-          buildfacultvideo("https://youtu.be/JqfvfdmUo6k"),
+          buildfacultvideo(),
+          buildfacultvideo(),
+          buildfacultvideo(),
+          buildfacultvideo(),
+          buildfacultvideo()
+          // buildfacultvideo("https://youtu.be/3It49x562b0"),
+          // buildfacultvideo(
+          //     "https://www.youtube.com/live/mCMd73gBL0s?feature=share"),
+          // buildfacultvideo("https://youtu.be/Zff3rUY0iGg"),
+          // buildfacultvideo("https://youtu.be/cGNvKV4u6zw"),
+          // buildfacultvideo("https://youtu.be/JqfvfdmUo6k"),
         ]));
   }
 
-  buildfacultvideo(String link) {
+  buildfacultvideo() {
     return SizedBox(
       height: 175.h,
       width: 255.w,
       child: Stack(
         children: [
-          AnyLinkPreview(
-            urlLaunchMode: LaunchMode.platformDefault,
-            link: link,
-            displayDirection: UIDirection.uiDirectionVertical,
-            bodyMaxLines: 1,
-            bodyTextOverflow: TextOverflow.ellipsis,
-            titleStyle: TextStyle(
-              color: AppColor.black,
-              fontWeight: FontWeight.w400,
-              fontSize: 14.w,
+          Container(
+            decoration: BoxDecoration(
+                color: AppColor.white,
+                borderRadius: BorderRadius.circular(17.r)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  height: 100.h,
+                  width: 250.w,
+                  decoration: BoxDecoration(
+                      color: AppColor.green,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(17.r),
+                        topRight: Radius.circular(17.r),
+                      ),
+                      image: DecorationImage(
+                          colorFilter: const ColorFilter.srgbToLinearGamma(),
+                          fit: BoxFit.fill,
+                          image: AssetImage(AppImage.home_banner))),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 8.h, bottom: 8.h, left: 12.w, right: 45.w),
+                  child: Text(
+                    'Best 5 Books to Study for Bio Psychology',
+                    style:
+                        TextStyle(fontSize: 14.w, fontWeight: FontWeight.w400),
+                  ),
+                )
+              ],
             ),
-            bodyStyle: const TextStyle(color: Colors.grey, fontSize: 12),
-            backgroundColor: AppColor.white,
-            borderRadius: 17.r,
-            // removeElevation: true,
-            boxShadow: [BoxShadow(blurRadius: 3.r, color: Colors.grey)],
-            onTap: () async {
-              var url = link;
-              if (await canLaunch(url)) {
-                await launch(url);
-              }
-            },
           ),
+          // AnyLinkPreview(
+          //   urlLaunchMode: LaunchMode.platformDefault,
+          //   link: link,
+          //   displayDirection: UIDirection.uiDirectionVertical,
+          //   bodyMaxLines: 1,
+          //   bodyTextOverflow: TextOverflow.ellipsis,
+          //   titleStyle: TextStyle(
+          //     color: AppColor.black,
+          //     fontWeight: FontWeight.w400,
+          //     fontSize: 14.w,
+          //   ),
+          //   bodyStyle: const TextStyle(color: Colors.grey, fontSize: 12),
+          //   backgroundColor: AppColor.white,
+          //   borderRadius: 17.r,
+          //   // removeElevation: true,
+          //   boxShadow: [BoxShadow(blurRadius: 3.r, color: Colors.grey)],
+          //   onTap: () async {
+          //     var url = link;
+          //     if (await canLaunch(url)) {
+          //       await launch(url);
+          //     }
+          //   },
+          // ),
           Container(
             margin: REdgeInsets.only(right: 12, bottom: 10),
             alignment: Alignment.bottomRight,

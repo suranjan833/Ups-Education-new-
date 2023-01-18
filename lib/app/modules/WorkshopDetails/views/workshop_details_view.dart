@@ -9,6 +9,7 @@ class WorkshopDetailsView extends GetView<WorkshopDetailsController> {
   const WorkshopDetailsView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var controller = Get.put(WorkshopDetailsController());
     return Scaffold(
       appBar: AppBar(

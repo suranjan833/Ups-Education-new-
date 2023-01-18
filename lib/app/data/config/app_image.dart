@@ -1,5 +1,59 @@
+// ignore_for_file: non_constant_identifier_names
+
 class AppImage {
-  static var icon1 = 'assets/image/icon1.png';
-  static var icon2 = 'assets/image/icon2.png';
- 
+   static var home_banner = 'assets/image/home_b1.png';
+  static var logout = 'assets/image/logout.svg';
+  static var menubar = 'assets/image/324.svg';
+  static var about = 'assets/image/about.svg';
+  static var attach = 'assets/image/attach.svg';
+  static var cancel = 'assets/image/cancel.svg';
+  static var cart_svg = 'assets/image/cart_b.svg';
+  static var cart = 'assets/image/cart.svg';
+  static var course = 'assets/image/course.svg';
+  static var coupon = 'assets/image/coupon.svg';
+  static var del = 'assets/image/del.svg';
+  static var examinfo = 'assets/image/examinfo.svg';
+  static var eye = 'assets/image/eye.svg';
+  static var facebook = 'assets/image/facebook.svg';
+  static var file_add = 'assets/image/file_add.svg';
+  static var filter = 'assets/image/filter.svg';
+  static var for_arrow = 'assets/image/for_arrow.svg';
+  static var goal = 'assets/image/goal.svg';
+  static var headphone = 'assets/image/headphone.svg';
+  static var home_svg = 'assets/image/home_b.svg';
+  static var home = 'assets/image/home.svg';
+  static var insta = 'assets/image/insta.svg';
+  static var key = 'assets/image/key.svg';
+  static var linkdin = 'assets/image/linkdin.svg';
+  static var live = 'assets/image/live.svg';
+  static var location = 'assets/image/location.svg';
+  static var lock = 'assets/image/lock.svg';
+  static var mail = 'assets/image/mail.svg';
+  static var my_contact_svg = 'assets/image/my_contact.svg';
+  static var notes = 'assets/image/notes.svg';
+  static var noti = 'assets/image/noti.svg';
+  static var phone = 'assets/image/phone.svg';
+  static var quiz = 'assets/image/quiz.svg';
+  static var red_play = 'assets/image/red_play.svg';
+  static var share_e = 'assets/image/share_e.svg';
+  static var share = 'assets/image/share.svg';
+  static var star = 'assets/image/star.svg';
+  static var updates_svg = 'assets/image/updates.svg';
+  static var video = 'assets/image/video.svg';
+  static var wishlist_svg = 'assets/image/wishlist.svg';
+  static var workshop = 'assets/image/workshop.svg';
+  static var workshop_h = 'assets/image/workshop_h.svg';
+  static var youtube = 'assets/image/youtube.svg';
+  static var xce = 'assets/image/xce.svg';
+  static var a = 'assets/image/2.svg';
+   static var edu = 'assets/image/edu.svg';
+    static var internship = 'assets/image/internship.svg';
+     static var search = 'assets/image/search.svg';
+      static var id_card = 'assets/image/id-card.svg';
+      static var cart_b = 'assets/image/cart_b.png';
+      static var home_b = 'assets/image/home_b.png';
+      static var wishlist = 'assets/image/wishlist.png';
+      static var updates = 'assets/image/updates.png';
+      static var my_contact = 'assets/image/my_contact.png';
+      //  static var a = 'assets/image/2.svg';
 }

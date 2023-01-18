@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 import '../../BottomNavigationBar/views/bottom_navigation_bar_view.dart';
@@ -54,19 +52,18 @@ class MyCourseView extends GetView<MyCourseController> {
 
   buildContain() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.r, vertical: 15),
+      margin: EdgeInsets.symmetric(horizontal: 10.r, vertical: 15),
       child: Column(
         children: [
           Container(
-            height: 140.h,
-            width: 340.w,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                image: const DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                        "https://tse1.mm.bing.net/th?id=OIP.3YIsfbwJyOkqK96FcspqCwHaE8&pid=Api&P=0"))),
-          ),
+              height: 130.h,
+              width: 340.w,
+              decoration: BoxDecoration(
+                  color: AppColor.grey,
+                  borderRadius: BorderRadius.circular(19.r),
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage(AppImage.home_banner)))),
           SizedBox(
             height: 12.h,
           ),

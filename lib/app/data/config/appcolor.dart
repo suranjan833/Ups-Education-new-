@@ -10,8 +10,8 @@ class AppColor {
   static var purple = Colors.purple;
   static var white = Colors.white;
   static var grey = Colors.grey;
-  static var greenaa = const Color.fromARGB(255, 112, 198, 149);
+  static var greenaa = const Color(0xffCEFCDB);
   static var green = const Color(0xff00B74F);
   static var apcolor_dark = const Color.fromARGB(255, 2, 57, 81);
-  static var focolor = const Color.fromARGB(255, 216, 230, 238);
+  static var focolor = const Color(0xffECF3FF);
 }

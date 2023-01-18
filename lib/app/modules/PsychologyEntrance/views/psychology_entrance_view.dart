@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 import '../controllers/psychology_entrance_controller.dart';
@@ -154,14 +152,18 @@ class PsychologyEntranceView extends GetView<PsychologyEntranceController> {
                     spacing: 17.w,
                     runSpacing: 10.w,
                     children: [
-                      questionAnswer(
-                          "https://tse1.mm.bing.net/th?id=OIP.HxTHqLntcqIYHVSPq2JjtAHaHa&pid=Api&P=0"),
-                      questionAnswer(
-                          "https://4.bp.blogspot.com/-zip2iduMjPI/TjiLt0dqrgI/AAAAAAAAACQ/1u8iRUWKJeU/s1600/Artwork.jpg"),
-                      questionAnswer(
-                          "https://i.pinimg.com/736x/64/17/44/641744638647da953229fd4423dc571c.jpg"),
-                      questionAnswer(
-                          "https://www.winspireacademy.com/wp-content/uploads/2019/01/kaloor-church_ad_12x10cm587151311..jpg"),
+                      questionAnswer(),
+                      questionAnswer(),
+                      questionAnswer(),
+                      questionAnswer()
+                      // questionAnswer(
+                      //     "https://tse1.mm.bing.net/th?id=OIP.HxTHqLntcqIYHVSPq2JjtAHaHa&pid=Api&P=0"),
+                      // questionAnswer(
+                      //     "https://4.bp.blogspot.com/-zip2iduMjPI/TjiLt0dqrgI/AAAAAAAAACQ/1u8iRUWKJeU/s1600/Artwork.jpg"),
+                      // questionAnswer(
+                      //     "https://i.pinimg.com/736x/64/17/44/641744638647da953229fd4423dc571c.jpg"),
+                      // questionAnswer(
+                      //     "https://www.winspireacademy.com/wp-content/uploads/2019/01/kaloor-church_ad_12x10cm587151311..jpg"),
                     ],
                   ),
                 ),
@@ -171,14 +173,18 @@ class PsychologyEntranceView extends GetView<PsychologyEntranceController> {
                     spacing: 17.w,
                     runSpacing: 10.w,
                     children: [
-                      questionAnswer(
-                          "https://i.pinimg.com/736x/41/9e/47/419e479fb41da43dde09a70b429d7413.jpg"),
-                      questionAnswer(
-                          "https://i.pinimg.com/736x/e7/cf/63/e7cf633b919620e47edfd04125c3482e.jpg"),
-                      questionAnswer(
-                          "https://i.pinimg.com/originals/f3/c9/92/f3c992dd3415307c440c336147ba7328.jpg"),
-                      questionAnswer(
-                          "https://tse3.mm.bing.net/th?id=OIP.njhX6Y8Fzep8E9YiTmAAlgHaKT&pid=Api&P=0"),
+                      questionAnswer(),
+                      questionAnswer(),
+                      questionAnswer(),
+                      questionAnswer()
+                      // questionAnswer(
+                      //     "https://i.pinimg.com/736x/41/9e/47/419e479fb41da43dde09a70b429d7413.jpg"),
+                      // questionAnswer(
+                      //     "https://i.pinimg.com/736x/e7/cf/63/e7cf633b919620e47edfd04125c3482e.jpg"),
+                      // questionAnswer(
+                      //     "https://i.pinimg.com/originals/f3/c9/92/f3c992dd3415307c440c336147ba7328.jpg"),
+                      // questionAnswer(
+                      //     "https://tse3.mm.bing.net/th?id=OIP.njhX6Y8Fzep8E9YiTmAAlgHaKT&pid=Api&P=0"),
                     ],
                   ),
                 ),
@@ -199,14 +205,18 @@ class PsychologyEntranceView extends GetView<PsychologyEntranceController> {
                     spacing: 17.w,
                     runSpacing: 10.w,
                     children: [
-                      questionAnswer(
-                          "https://bizmagsb.com/wp-content/uploads/2019/08/ThinkNetwork_AD.jpg"),
-                      questionAnswer(
-                          "https://i.ytimg.com/vi/MvCuAcZZjVw/maxresdefault.jpg"),
-                      questionAnswer(
-                          "https://i.pinimg.com/originals/14/33/d2/1433d28a5b9338ddff9221be707cf7d0.jpg"),
-                      questionAnswer(
-                          "https://nili.uoregon.edu/files/2015/12/Summer-Institute-2016-ad.jpg"),
+                      questionAnswer(),
+                      questionAnswer(),
+                      questionAnswer(),
+                      questionAnswer()
+                      // questionAnswer(
+                      //     "https://bizmagsb.com/wp-content/uploads/2019/08/ThinkNetwork_AD.jpg"),
+                      // questionAnswer(
+                      //     "https://i.ytimg.com/vi/MvCuAcZZjVw/maxresdefault.jpg"),
+                      // questionAnswer(
+                      //     "https://i.pinimg.com/originals/14/33/d2/1433d28a5b9338ddff9221be707cf7d0.jpg"),
+                      // questionAnswer(
+                      //     "https://nili.uoregon.edu/files/2015/12/Summer-Institute-2016-ad.jpg"),
                     ],
                   ),
                 ),
@@ -218,24 +228,27 @@ class PsychologyEntranceView extends GetView<PsychologyEntranceController> {
     );
   }
 
-  Widget questionAnswer(String imglink) {
+  Widget questionAnswer() {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 15.r),
-      height: 270.h,
+      margin: EdgeInsets.symmetric(vertical: 8.r),
+      height: 250.h,
       width: 250.w,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(13.r)),
-      padding: EdgeInsets.all(2.r),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(13.r), color: AppColor.white),
+      padding: EdgeInsets.all(6.r),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-              height: 140.h,
+              height: 120.h,
               width: 250.w,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
+                  color: AppColor.green,
+                  borderRadius: BorderRadius.circular(10.r),
                   image: DecorationImage(
-                      fit: BoxFit.cover, image: NetworkImage(imglink)))),
+                      fit: BoxFit.cover,
+                      image: AssetImage(AppImage.home_banner)))),
           Text(
             'By DR. Arvind Otta',
             style: TextStyle(
@@ -291,7 +304,7 @@ class PsychologyEntranceView extends GetView<PsychologyEntranceController> {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 6.r, vertical: 3.r),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                     color: AppColor.green),
                 child: Text(
                   '9% off',

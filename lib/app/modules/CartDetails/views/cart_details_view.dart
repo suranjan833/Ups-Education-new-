@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 import '../controllers/cart_details_controller.dart';
@@ -45,7 +43,8 @@ class CartDetailsView extends GetView<CartDetailsController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 13.r),
+                  padding:
+                      EdgeInsets.symmetric(vertical: 13.r, horizontal: 2.r),
                   child: Text(
                     'Course Summary',
                     style: TextStyle(
@@ -54,26 +53,32 @@ class CartDetailsView extends GetView<CartDetailsController> {
                         color: AppColor.black),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'Course',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 4.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        'Course',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'Fee',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
+                      Text(
+                        'Fee',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                Divider(
-                  thickness: 1,
-                  color: AppColor.black,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  child: Divider(
+                    thickness: 1,
+                    color: AppColor.black,
+                  ),
                 ),
                 SizedBox(
                   height: 10.r,
@@ -94,15 +99,7 @@ class CartDetailsView extends GetView<CartDetailsController> {
                             onTap: () {
                               controller.buildRemove();
                             },
-                            child: CircleAvatar(
-                              radius: 13.r,
-                              backgroundColor: Colors.red,
-                              child: Icon(
-                                Icons.delete_forever_outlined,
-                                color: AppColor.white,
-                                size: 19,
-                              ),
-                            ),
+                            child: SvgPicture.asset(AppImage.del),
                           )
                         ],
                       ),
@@ -150,15 +147,7 @@ class CartDetailsView extends GetView<CartDetailsController> {
                               onTap: () {
                                 controller.buildRemove();
                               },
-                              child: CircleAvatar(
-                                radius: 13.r,
-                                backgroundColor: Colors.red,
-                                child: Icon(
-                                  Icons.delete_forever_outlined,
-                                  color: AppColor.white,
-                                  size: 19,
-                                ),
-                              ),
+                              child: SvgPicture.asset(AppImage.del),
                             )
                           ],
                         ),
@@ -190,8 +179,8 @@ class CartDetailsView extends GetView<CartDetailsController> {
                   margin: EdgeInsets.symmetric(vertical: 12.r),
                   padding: EdgeInsets.all(15.r),
                   decoration: BoxDecoration(
-                    color: AppColor.black.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(14.r),
+                    color: AppColor.grey.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,10 +199,16 @@ class CartDetailsView extends GetView<CartDetailsController> {
                               child: TextFormField(
                                 controller: controller.coupon,
                                 decoration: InputDecoration(
-                                  prefixIcon: const Icon(Icons.percent),
+                                  prefixIcon: Padding(
+                                    padding: EdgeInsets.all(10.0.r),
+                                    child: SvgPicture.asset(
+                                      AppImage.coupon,
+                                      height: 10.h,
+                                    ),
+                                  ),
                                   hintText: 'Enter Coupon Code',
                                   border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15.r),
+                                    borderRadius: BorderRadius.circular(10.r),
                                     borderSide:
                                         BorderSide(color: AppColor.white),
                                   ),
@@ -222,7 +217,7 @@ class CartDetailsView extends GetView<CartDetailsController> {
                                       vertical: 8.r, horizontal: 20.r),
                                   filled: true,
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15.r),
+                                    borderRadius: BorderRadius.circular(10.r),
                                     borderSide:
                                         BorderSide(color: AppColor.white),
                                   ),
@@ -307,7 +302,7 @@ class CartDetailsView extends GetView<CartDetailsController> {
                       horizontal: 4.r,
                     ),
                     child: MaterialButton(
-                      height: 54.h,
+                      height: 53.h,
                       minWidth: 150.w,
                       shape: OutlineInputBorder(
                           borderSide: BorderSide(color: AppColor.green),
@@ -319,7 +314,7 @@ class CartDetailsView extends GetView<CartDetailsController> {
                         style: TextStyle(
                             color: AppColor.white,
                             fontWeight: FontWeight.w500,
-                            fontSize: 17.r),
+                            fontSize: 14.w),
                       ),
                     ),
                   ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ups_education/app/data/config/appcolor.dart';
+import 'package:ups_education/app/data/config/config.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: EdgeInsets.only(right: 18.w, top: 5.h, bottom: 5.h),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,

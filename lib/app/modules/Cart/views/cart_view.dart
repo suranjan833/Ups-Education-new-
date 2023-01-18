@@ -43,15 +43,7 @@ class CartView extends GetView<CartController> {
                               child: CircleAvatar(
                                 radius: 19.r,
                                 backgroundColor: Colors.red.shade100,
-                                child: CircleAvatar(
-                                  radius: 13.r,
-                                  backgroundColor: Colors.red,
-                                  child: Icon(
-                                    Icons.delete_forever_outlined,
-                                    color: AppColor.white,
-                                    size: 19,
-                                  ),
-                                ),
+                                child: SvgPicture.asset(AppImage.del),
                               ),
                             )
                           ],
@@ -104,15 +96,7 @@ class CartView extends GetView<CartController> {
                               child: CircleAvatar(
                                 radius: 19.r,
                                 backgroundColor: Colors.red.shade100,
-                                child: CircleAvatar(
-                                  radius: 13.r,
-                                  backgroundColor: Colors.red,
-                                  child: Icon(
-                                    Icons.delete_forever_outlined,
-                                    color: AppColor.white,
-                                    size: 19,
-                                  ),
-                                ),
+                                child: SvgPicture.asset(AppImage.del),
                               ),
                             )
                           ],

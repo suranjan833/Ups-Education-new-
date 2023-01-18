@@ -1,0 +1,7 @@
+<svg id="Component_11_2" data-name="Component 11 – 2" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
+  <g id="Rectangle_611" data-name="Rectangle 611" fill="#e74c3c" stroke="#e5f8ed" stroke-width="3">
+    <rect width="45" height="45" rx="19" stroke="none"/>
+    <rect x="1.5" y="1.5" width="42" height="42" rx="17.5" fill="none"/>
+  </g>
+  <path id="cross_1_" data-name="cross (1)" d="M16.637,14.382,20.3,10.723A1.6,1.6,0,1,0,18.04,8.467l-3.658,3.658L10.723,8.467a1.6,1.6,0,1,0-2.256,2.256l3.658,3.658L8.467,18.04A1.6,1.6,0,1,0,10.724,20.3l3.658-3.658L18.04,20.3A1.6,1.6,0,1,0,20.3,18.04Z" transform="translate(8.365 8.365)" fill="#ffe7e4"/>
+</svg>

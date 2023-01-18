@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+  <g id="Group_1083" data-name="Group 1083" transform="translate(-836 -1295)">
+    <rect id="Rectangle_563" data-name="Rectangle 563" width="35" height="35" rx="11" transform="translate(836 1295)" fill="#f3f3fc"/>
+    <path id="headphones" d="M15.773,9.827V8.758a6.758,6.758,0,0,0-13.516,0V9.827a3.755,3.755,0,0,0,1.5,7.191,1.5,1.5,0,0,0,1.5-1.5V11.011a1.5,1.5,0,0,0-1.5-1.5V8.758a5.256,5.256,0,0,1,10.513,0v.751a1.5,1.5,0,0,0-1.5,1.5v4.505a1.5,1.5,0,0,0,1.5,1.5,3.755,3.755,0,0,0,1.5-7.191ZM3.758,15.516h0a2.253,2.253,0,1,1,0-4.505Zm10.513,0V11.011a2.253,2.253,0,0,1,0,4.505Z" transform="translate(844.985 1303)" fill="#43465e"/>
+  </g>
+</svg>

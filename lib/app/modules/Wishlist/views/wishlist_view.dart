@@ -1,8 +1,6 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 import '../controllers/wishlist_controller.dart';
@@ -69,15 +67,7 @@ class WishlistView extends GetView<WishlistController> {
                       child: CircleAvatar(
                         radius: 19.r,
                         backgroundColor: Colors.red.shade100,
-                        child: CircleAvatar(
-                          radius: 13.r,
-                          backgroundColor: Colors.red,
-                          child: Icon(
-                            Icons.delete_forever_outlined,
-                            color: AppColor.white,
-                            size: 19,
-                          ),
-                        ),
+                        child: SvgPicture.asset(AppImage.del),
                       ),
                     )
                   ],
