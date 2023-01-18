@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ups_education/app/data/config/app_image.dart';
 import 'package:ups_education/app/data/config/appcolor.dart';
 import 'package:ups_education/app/modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
 
@@ -89,10 +90,8 @@ class InternshipView extends GetView<InternshipController> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
-                              height: 250.h,
+                              height: 190,
                               width: 150.w,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(13.r)),
                               padding: EdgeInsets.all(2.r),
                               child: Column(
                                 mainAxisAlignment:
@@ -100,14 +99,16 @@ class InternshipView extends GetView<InternshipController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    height: 100.h,
+                                    // padding: EdgeInsets.all(10.r),
+                                    height: 78.h,
                                     width: 150.w,
                                     decoration: BoxDecoration(
+                                        color: Colors.teal,
                                         borderRadius: BorderRadius.circular(15),
-                                        image: const DecorationImage(
+                                        image: DecorationImage(
                                             fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                "https://tse1.mm.bing.net/th?id=OIP.HxTHqLntcqIYHVSPq2JjtAHaHa&pid=Api&P=0"))),
+                                            image: AssetImage(
+                                                AppImage.home_banner))),
                                   ),
                                   Text(
                                     'By DR. Arvind Otta',
@@ -116,12 +117,20 @@ class InternshipView extends GetView<InternshipController> {
                                         // fontWeight: FontWeight.w600,
                                         color: AppColor.black.withOpacity(0.6)),
                                   ),
-                                  Text(
-                                    'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14.r,
-                                        color: AppColor.black),
+                                  Expanded(
+                                    flex: 1,
+                                    child: SizedBox(
+                                      height: 70.h,
+                                      width: 140.w,
+                                      child: Text(
+                                        'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
+                                        maxLines: 2,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14.r,
+                                            color: AppColor.black),
+                                      ),
+                                    ),
                                   ),
                                   Wrap(
                                     children: [
@@ -187,7 +196,7 @@ class InternshipView extends GetView<InternshipController> {
                               ),
                             ),
                             Container(
-                              height: 250,
+                              height: 190,
                               width: 150.w,
                               padding: EdgeInsets.all(2.r),
                               child: Column(
@@ -197,14 +206,15 @@ class InternshipView extends GetView<InternshipController> {
                                 children: [
                                   Container(
                                     // padding: EdgeInsets.all(10.r),
-                                    height: 100.h,
+                                    height: 78.h,
                                     width: 150.w,
                                     decoration: BoxDecoration(
+                                        color: Colors.teal,
                                         borderRadius: BorderRadius.circular(15),
-                                        image: const DecorationImage(
+                                        image: DecorationImage(
                                             fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                "https://4.bp.blogspot.com/-zip2iduMjPI/TjiLt0dqrgI/AAAAAAAAACQ/1u8iRUWKJeU/s1600/Artwork.jpg"))),
+                                            image: AssetImage(
+                                                AppImage.home_banner))),
                                   ),
                                   Text(
                                     'By DR. Arvind Otta',
@@ -213,12 +223,20 @@ class InternshipView extends GetView<InternshipController> {
                                         // fontWeight: FontWeight.w600,
                                         color: AppColor.black.withOpacity(0.6)),
                                   ),
-                                  Text(
-                                    'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14.r,
-                                        color: AppColor.black),
+                                  Expanded(
+                                    flex: 1,
+                                    child: SizedBox(
+                                      height: 70.h,
+                                      width: 140.w,
+                                      child: Text(
+                                        'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
+                                        maxLines: 2,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14.r,
+                                            color: AppColor.black),
+                                      ),
+                                    ),
                                   ),
                                   Wrap(
                                     children: [
@@ -288,8 +306,8 @@ class InternshipView extends GetView<InternshipController> {
                           // padding: EdgeInsets.all(7.r),
                           scrollDirection: Axis.vertical,
                           crossAxisCount: 2,
-                          crossAxisSpacing: 10.0,
-                          mainAxisSpacing: 30.0,
+                          crossAxisSpacing: 20.0,
+                          mainAxisSpacing: 20.0,
                           shrinkWrap: true,
                           children: List.generate(
                             4,
@@ -301,14 +319,16 @@ class InternshipView extends GetView<InternshipController> {
                                 children: [
                                   Container(
                                     padding: EdgeInsets.all(6.r),
-                                    height: 60.h,
+                                    height: 78.h,
                                     width: 170.w,
                                     decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        image: const DecorationImage(
+                                        color: Colors.teal,
+                                        borderRadius:
+                                            BorderRadius.circular(10.r),
+                                        image: DecorationImage(
                                             fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                "https://i.pinimg.com/736x/64/17/44/641744638647da953229fd4423dc571c.jpg"))),
+                                            image: AssetImage(
+                                                AppImage.home_banner))),
                                   ),
                                   Text(
                                     'By DR. Arvind Otta',
@@ -317,12 +337,19 @@ class InternshipView extends GetView<InternshipController> {
                                         // fontWeight: FontWeight.w600,
                                         color: AppColor.black.withOpacity(0.6)),
                                   ),
-                                  Text(
-                                    'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14.r,
-                                        color: AppColor.black),
+                                  Expanded(
+                                    flex: 1,
+                                    child: SizedBox(
+                                      height: 70.h,
+                                      width: 140.w,
+                                      child: Text(
+                                        'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14.r,
+                                            color: AppColor.black),
+                                      ),
+                                    ),
                                   ),
                                   Wrap(
                                     children: [

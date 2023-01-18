@@ -14,6 +14,8 @@ import '../modules/ExamInfo/bindings/exam_info_binding.dart';
 import '../modules/ExamInfo/views/exam_info_view.dart';
 import '../modules/Internship/bindings/internship_binding.dart';
 import '../modules/Internship/views/internship_view.dart';
+import '../modules/Login/bindings/login_binding.dart';
+import '../modules/Login/views/login_view.dart';
 import '../modules/MyAccount/bindings/my_account_binding.dart';
 import '../modules/MyAccount/views/my_account_view.dart';
 import '../modules/MyCourse/bindings/my_course_binding.dart';
@@ -142,6 +144,11 @@ class AppPages {
       name: _Paths.VIDEOS,
       page: () => const VideosView(),
       binding: VideosBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
     ),
   ];
 }

@@ -1,8 +1,6 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 import '../controllers/quiz_result_controller.dart';
@@ -43,7 +41,7 @@ class QuizResultView extends GetView<QuizResultController> {
           Container(
             color: AppColor.green.withOpacity(0.1),
             // height: 810.h,
-            padding: EdgeInsets.symmetric(horizontal: 16.r, vertical: 12.r),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 7.h),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                 // mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -74,7 +72,7 @@ class QuizResultView extends GetView<QuizResultController> {
                           Text(
                             'Ajay Kumar',
                             style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 15.r),
+                                fontWeight: FontWeight.w600, fontSize: 13.w),
                           ),
                           SizedBox(
                             height: 6.h,
@@ -83,23 +81,30 @@ class QuizResultView extends GetView<QuizResultController> {
                             '8/10',
                             style: TextStyle(
                                 color: AppColor.green,
-                                fontSize: 40,
+                                fontSize: 30.w,
                                 fontWeight: FontWeight.bold),
                           ),
                           const Text('Your marks'),
                         ],
-                      ),
+                      ), //
+                      // CircleAvatar(
+                      //   radius: 60.r,
+                      //   backgroundColor: const Color.fromARGB(255, 146, 40, 32),
+                      //   child:
                       Image(
-                          height: 120.h,
-                          width: 170.w,
-                          fit: BoxFit.fill,
+                          height: 100.h,
+                          width: 150.w,
+                          fit: BoxFit
+                              .fill, //TODO UI PROBLEM DOES NOT LOAD AppImage.goal
                           image: const NetworkImage(
-                              "https://webstockreview.net/images/goal-clipart-goal-target-9.png"))
+                              "https://webstockreview.net/images/goal-clipart-goal-target-9.png")),
+                      // )
                     ],
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 14.r),
-                    padding: EdgeInsets.all(18.r),
+                    margin: EdgeInsets.symmetric(vertical: 7.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 15.w, vertical: 9.h),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.r),
                         color: AppColor.green),
@@ -114,12 +119,12 @@ class QuizResultView extends GetView<QuizResultController> {
                           children: [
                             Container(
                               margin: EdgeInsets.symmetric(
-                                vertical: 5.r,
+                                vertical: 5.h,
                               ),
                               padding: EdgeInsets.symmetric(
-                                  vertical: 10.r, horizontal: 17.r),
+                                  vertical: 8.h, horizontal: 12.w),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12.r),
+                                borderRadius: BorderRadius.circular(8.r),
                                 color: AppColor.white,
                               ),
                               child: Text(
@@ -127,13 +132,13 @@ class QuizResultView extends GetView<QuizResultController> {
                                 style: TextStyle(
                                     color: Colors.red,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 21.r),
+                                    fontSize: 17.w),
                               ),
                             ),
                             Text(
                               'Wrong\nanswers',
                               style: TextStyle(
-                                  color: AppColor.white, fontSize: 13.r),
+                                  color: AppColor.white, fontSize: 12.w),
                             ),
                           ],
                         ),
@@ -153,9 +158,9 @@ class QuizResultView extends GetView<QuizResultController> {
                                 vertical: 5.r,
                               ),
                               padding: EdgeInsets.symmetric(
-                                  vertical: 10.r, horizontal: 17.r),
+                                  vertical: 8.h, horizontal: 12.w),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12.r),
+                                borderRadius: BorderRadius.circular(8.r),
                                 color: AppColor.white,
                               ),
                               child: Text(
@@ -163,13 +168,13 @@ class QuizResultView extends GetView<QuizResultController> {
                                 style: TextStyle(
                                     color: AppColor.green,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 21.r),
+                                    fontSize: 17.w),
                               ),
                             ),
                             Text(
                               'Correct\nanswers',
                               style: TextStyle(
-                                  color: AppColor.white, fontSize: 13.r),
+                                  color: AppColor.white, fontSize: 12.w),
                             ),
                           ],
                         ),
@@ -189,9 +194,9 @@ class QuizResultView extends GetView<QuizResultController> {
                                 vertical: 5.r,
                               ),
                               padding: EdgeInsets.symmetric(
-                                  vertical: 10.r, horizontal: 17.r),
+                                  vertical: 8.h, horizontal: 12.w),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12.r),
+                                borderRadius: BorderRadius.circular(8.r),
                                 color: AppColor.white,
                               ),
                               child: Text(
@@ -199,13 +204,13 @@ class QuizResultView extends GetView<QuizResultController> {
                                 style: TextStyle(
                                     color: AppColor.grey,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 21.r),
+                                    fontSize: 17.w),
                               ),
                             ),
                             Text(
                               'Unattempted\nquestions',
                               style: TextStyle(
-                                  color: AppColor.white, fontSize: 14.r),
+                                  color: AppColor.white, fontSize: 12.w),
                             ),
                           ],
                         ),
@@ -222,7 +227,7 @@ class QuizResultView extends GetView<QuizResultController> {
                           style: TextStyle(
                               fontFamily: 'Quicksand',
                               color: AppColor.apcolor,
-                              fontSize: 25,
+                              fontSize: 24.9.w,
                               fontWeight: FontWeight.bold),
                         ),
                         Wrap(
@@ -236,7 +241,7 @@ class QuizResultView extends GetView<QuizResultController> {
                               style: TextStyle(
                                   fontFamily: 'Quicksand',
                                   color: AppColor.black,
-                                  fontSize: 10.r,
+                                  fontSize: 10.w,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
@@ -263,15 +268,9 @@ class QuizResultView extends GetView<QuizResultController> {
                     onPressed: () {
                       controller.buildFilter();
                     },
-                    icon: Container(
-                      padding: EdgeInsets.all(7.r),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12.r),
-                          color: AppColor.grey.withOpacity(0.3)),
-                      child: Icon(
-                        Icons.filter_alt_outlined,
-                        color: AppColor.black.withOpacity(0.4),
-                      ),
+                    icon: SvgPicture.asset(
+                      AppImage.filter,
+                      height: 35.h,
                     ),
                     label: Text(
                       'Questions',
@@ -300,8 +299,8 @@ class QuizResultView extends GetView<QuizResultController> {
                         Container(
                           padding: EdgeInsets.all(7.r),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12.r),
-                              color: AppColor.grey.withOpacity(0.3)),
+                              borderRadius: BorderRadius.circular(10.r),
+                              color: AppColor.grey.withOpacity(0.1)),
                           child: Icon(
                             controller.collapse.value == true
                                 ? Icons.remove

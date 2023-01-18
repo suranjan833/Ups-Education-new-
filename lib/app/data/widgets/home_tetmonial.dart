@@ -1,7 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 class HomeTestimonials extends StatelessWidget {
@@ -28,49 +25,64 @@ class HomeTestimonials extends StatelessWidget {
         buildDetailspop();
       },
       child: Container(
-        padding: REdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        padding: REdgeInsets.symmetric(horizontal: 10, vertical: 5),
         width: 240.w,
-        height: 150.h,
+        height: 138.h,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(16.r),
           color: AppColor.white,
         ),
         child: Column(
           children: [
             Container(
-              margin: REdgeInsets.all(5),
-              width: 250.w,
-              height: 70.h,
-              child: ListTile(
-                contentPadding: REdgeInsets.all(10),
-                horizontalTitleGap: 10,
-                minVerticalPadding: 5,
-                minLeadingWidth: 2,
-                leading: Container(
-                  width: 35.w,
-                  height: 130.h,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: const DecorationImage(
-                          fit: BoxFit.fill,
-                          image: NetworkImage(
-                              "https://pbs.twimg.com/media/DkAWrHQUcAEklkt.jpg"))),
-                  // child: Image.network(
-                  //     "https://pbs.twimg.com/media/DkAWrHQUcAEklkt.jpg"),
+                margin: EdgeInsets.only(
+                  top: 6.h,
                 ),
-                title: Text(
-                  'Sushruta Sahu',
-                  style: TextStyle(
-                      color: AppColor.black, fontWeight: FontWeight.w500),
-                ),
-                subtitle: Text(
-                  'NET Qualified Dec 2018',
-                  style: TextStyle(fontSize: 15.r),
-                ),
-              ),
-            ),
+                width: 250.w,
+                height: 70.h,
+                child: Wrap(
+                  spacing: 10,
+                  children: [
+                    Container(
+                      width: 45.w,
+                      height: 58.h,
+                      decoration: BoxDecoration(
+                          color: AppColor.greenaa,
+                          borderRadius: BorderRadius.circular(11.r),
+                          image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage(AppImage.home_banner))),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 12.h),
+                      child: Wrap(
+                        spacing: 3,
+                        direction: Axis.vertical,
+                        alignment: WrapAlignment.center,
+                        runAlignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.start,
+                        children: [
+                          Text(
+                            'Sushruta Sahu',
+                            style: TextStyle(
+                                color: AppColor.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14.w),
+                          ),
+                          Text(
+                            'NET Qualified Dec 2018',
+                            style: TextStyle(fontSize: 14.w),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                )),
             const Text(
-                'I would give them more than 5 star if I\ncould. Joining UPS Education has been\none of the best decisioons I took while...')
+              'I would give them more than 5 star if I could. Joining UPS Education has been one of the best decisioons I took while...',
+              maxLines: 3,
+              style: TextStyle(),
+            )
           ],
         ),
       ),
@@ -133,10 +145,9 @@ class HomeTestimonials extends StatelessWidget {
                 height: 100.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
+                    image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/media/DkAWrHQUcAEklkt.jpg"))),
+                        image: AssetImage(AppImage.home_banner))),
               ),
               title: Text(
                 'Sushruta Sahu',

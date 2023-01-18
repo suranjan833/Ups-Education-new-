@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 class HomeRecentQuizze extends StatelessWidget {
@@ -23,9 +21,10 @@ class HomeRecentQuizze extends StatelessWidget {
 
   buildCard() {
     return Container(
-      height: 170.h,
-      width: 150.w,
-      padding: REdgeInsets.all(8),
+      height: 160.h,
+      width: 160.w,
+      padding:
+          EdgeInsets.only(left: 10.w, right: 12.w, top: 10.h, bottom: 10.h),
       decoration: BoxDecoration(
         color: AppColor.white,
         borderRadius: BorderRadius.circular(15),
@@ -33,38 +32,50 @@ class HomeRecentQuizze extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Icon(
-            Icons.beach_access,
-            size: 36.w,
-            color: AppColor.apcolor,
+          SvgPicture.asset(
+            AppImage.quiz,
+            height: 40.h,
           ),
-          Text(
-            'UPS Education Testing',
-            style: TextStyle(fontSize: 15.r, fontWeight: FontWeight.w400),
+          SizedBox(
+            width: 135.w,
+            child: Text(
+              'UPS Education Testing',
+              maxLines: 1,
+              style: TextStyle(
+                fontSize: 13.w,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
-          Wrap(
-            spacing: 8,
-            children: [
-              Text(
-                '5 Questions',
-                style: TextStyle(
-                  fontSize: 12.r,
+          SizedBox(
+            width: 135.w,
+            child: Wrap(
+              alignment: WrapAlignment.start,
+              crossAxisAlignment: WrapCrossAlignment.start,
+              spacing: 12.w,
+              children: [
+                Text(
+                  '5 Questions',
+                  style: TextStyle(
+                    fontSize: 12.w,
+                  ),
                 ),
-              ),
-              Text(
-                '|',
-                style: TextStyle(fontSize: 19.r, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                '20 min',
-                style: TextStyle(
-                  fontSize: 12.r,
+                Container(
+                  height: 13.h,
+                  width: 1,
+                  color: AppColor.black,
                 ),
-              )
-            ],
+                Text(
+                  '20 min',
+                  style: TextStyle(
+                    fontSize: 12.w,
+                  ),
+                )
+              ],
+            ),
           ),
           Container(
-            height: 36.h,
+            height: 33.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               gradient: const LinearGradient(

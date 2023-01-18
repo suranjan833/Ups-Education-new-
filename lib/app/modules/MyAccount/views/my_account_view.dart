@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/modules/ChangePassword/views/change_password_view.dart';
 import 'package:ups_education/app/modules/EditProfile/views/edit_profile_view.dart';
@@ -12,6 +10,7 @@ class MyAccountView extends GetView<MyAccountController> {
   const MyAccountView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var controller = Get.put(MyAccountController());
     return Scaffold(
         backgroundColor: AppColor.black,
@@ -26,13 +25,13 @@ class MyAccountView extends GetView<MyAccountController> {
                     height: 100.h,
                     width: 95.w,
                     margin: REdgeInsets.only(
-                        top: 10, bottom: 10, left: 10, right: 10),
+                        top: 20, bottom: 10, left: 10, right: 10),
                     decoration: BoxDecoration(
+                        color: Colors.cyanAccent,
                         borderRadius: BorderRadius.circular(13.r),
-                        image: const DecorationImage(
+                        image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: NetworkImage(
-                                "https://tse2.mm.bing.net/th?id=OIP.PZsMLTIgXaEsdCA0VjTo7gHaLH&pid=Api&P=0"))),
+                            image: AssetImage(AppImage.home_banner))),
                     child: Container(
                       alignment: Alignment.bottomRight,
                       child: CircleAvatar(
@@ -54,14 +53,15 @@ class MyAccountView extends GetView<MyAccountController> {
                         fontSize: 16.7.r),
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 10.h,
                   )
                 ],
               ),
               Container(
                 alignment: Alignment.bottomCenter,
-                height: 400.9.h,
+                height: 390.h,
                 width: 360.w,
+                margin: EdgeInsets.only(top: 30.h),
                 padding: REdgeInsets.all(12),
                 decoration: BoxDecoration(
                     color: AppColor.white,
@@ -78,15 +78,17 @@ class MyAccountView extends GetView<MyAccountController> {
                           width: 160.w,
                           child: ListTile(
                             leading: Container(
-                              height: 44.h,
+                              height: 40.h,
                               width: 40.w,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 7.w, vertical: 7.h),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(14.r),
+                                borderRadius: BorderRadius.circular(10.r),
                                 color: AppColor.litegrey,
                               ),
-                              child: Icon(
-                                Icons.school_outlined,
-                                color: AppColor.purple,
+                              child: SvgPicture.asset(
+                                AppImage.course,
+                                height: 20.h,
                               ),
                             ),
                             title: Text(
@@ -106,15 +108,17 @@ class MyAccountView extends GetView<MyAccountController> {
                           width: 175.w,
                           child: ListTile(
                             leading: Container(
-                              height: 44.h,
+                              height: 40.h,
                               width: 40.w,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 7.w, vertical: 7.h),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(14.r),
+                                borderRadius: BorderRadius.circular(10.r),
                                 color: AppColor.litegrey,
                               ),
-                              child: Icon(
-                                Icons.shopping_bag_outlined,
-                                color: Colors.amber.shade300,
+                              child: SvgPicture.asset(
+                                AppImage.course,
+                                height: 20.h,
                               ),
                             ),
                             title: Text(
@@ -152,13 +156,8 @@ class MyAccountView extends GetView<MyAccountController> {
                         ), ontap: () {
                       Get.to(const EditProfileView());
                     }),
-                    builList(
-                        'Change Password',
-                        Icon(
-                          Icons.key,
-                          color: AppColor.black,
-                          size: 20,
-                        ), ontap: () {
+                    builList('Change Password', SvgPicture.asset(AppImage.key),
+                        ontap: () {
                       Get.to(const ChangePasswordView());
                     }),
                     builList(
@@ -169,24 +168,16 @@ class MyAccountView extends GetView<MyAccountController> {
                           size: 20,
                         )),
                     ListTile(
-                      leading: Container(
-                          height: 34.h,
-                          width: 30.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.r),
-                            color: Colors.red.shade100,
-                          ),
-                          child: const Icon(
-                            Icons.power_settings_new_outlined,
-                            color: Colors.red,
-                            size: 22,
-                          )),
+                      leading: SvgPicture.asset(AppImage.logout),
                       title: Text(
                         'Logout',
                         style: TextStyle(
                             fontSize: 15.r, fontWeight: FontWeight.w400),
                       ),
-                    )
+                    ),
+                    SizedBox(
+                      height: 17.h,
+                    ),
                   ],
                 ),
               ),
@@ -197,30 +188,34 @@ class MyAccountView extends GetView<MyAccountController> {
 
   builList(String title, Widget leading, {void Function()? ontap}) {
     return InkWell(
-      onTap: ontap,
-      child: SizedBox(
-        height: 45.h,
-        width: 360.w,
-        child: ListTile(
-          leading: Container(
-              height: 34.h,
-              width: 30.w,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.r),
-                color: AppColor.litegrey,
-              ),
-              child: leading),
-          title: Text(
-            title,
-            style: TextStyle(fontSize: 15.r, fontWeight: FontWeight.w400),
-          ),
-          trailing: const Icon(
-            Icons.arrow_forward_ios,
-            color: Colors.red,
-            size: 15,
-          ),
-        ),
-      ),
-    );
+        onTap: ontap,
+        child: Row(
+          children: [
+            SizedBox(
+              width: 13.w,
+            ),
+            Container(
+                height: 30.h,
+                width: 30.w,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6.r),
+                  color: AppColor.litegrey,
+                ),
+                child: leading),
+            SizedBox(
+              width: 17.w,
+            ),
+            Text(
+              title,
+              style: TextStyle(fontSize: 15.r, fontWeight: FontWeight.w400),
+            ),
+            const Spacer(),
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.red,
+              size: 15,
+            ),
+          ],
+        ));
   }
 }

@@ -24,6 +24,7 @@ abstract class Routes {
   static const QUIZ_RESULT = _Paths.QUIZ_RESULT;
   static const QUIZ_START = _Paths.QUIZ_START;
   static const VIDEOS = _Paths.VIDEOS;
+  static const LOGIN = _Paths.LOGIN;
 }
 
 abstract class _Paths {
@@ -47,4 +48,5 @@ abstract class _Paths {
   static const QUIZ_RESULT = '/quiz-result';
   static const QUIZ_START = '/quiz-start';
   static const VIDEOS = '/videos';
+  static const LOGIN = '/login';
 }

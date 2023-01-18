@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
 import 'package:ups_education/app/modules/QuizResult/views/quiz_result_view.dart';
@@ -12,6 +10,7 @@ class QuizView extends GetView<QuizController> {
   const QuizView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var controller = Get.put(QuizController());
     return Scaffold(
       appBar: AppBar(
@@ -57,11 +56,7 @@ class QuizView extends GetView<QuizController> {
                         fontSize: 14.r,
                         fontWeight: FontWeight.w500),
                   ),
-                  leading: Icon(
-                    Icons.menu_book,
-                    size: 35,
-                    color: AppColor.purple,
-                  ),
+                  leading: SvgPicture.asset(AppImage.quiz),
                   subtitle: Wrap(
                     spacing: 10,
                     children: [
@@ -116,11 +111,7 @@ class QuizView extends GetView<QuizController> {
                         fontSize: 14.r,
                         fontWeight: FontWeight.w500),
                   ),
-                  leading: Icon(
-                    Icons.menu_book,
-                    size: 35,
-                    color: AppColor.purple,
-                  ),
+                  leading: SvgPicture.asset(AppImage.quiz),
                   subtitle: Wrap(
                     spacing: 10,
                     children: [
@@ -175,11 +166,7 @@ class QuizView extends GetView<QuizController> {
                         fontSize: 14.r,
                         fontWeight: FontWeight.w500),
                   ),
-                  leading: Icon(
-                    Icons.menu_book,
-                    size: 35,
-                    color: AppColor.purple,
-                  ),
+                  leading: SvgPicture.asset(AppImage.quiz),
                   subtitle: Wrap(
                     spacing: 10,
                     children: [
@@ -234,11 +221,7 @@ class QuizView extends GetView<QuizController> {
                         fontSize: 14.r,
                         fontWeight: FontWeight.w500),
                   ),
-                  leading: Icon(
-                    Icons.menu_book,
-                    size: 35,
-                    color: AppColor.purple,
-                  ),
+                  leading: SvgPicture.asset(AppImage.quiz),
                   subtitle: Wrap(
                     spacing: 10,
                     children: [

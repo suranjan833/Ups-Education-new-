@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 class HomeOurSuccessfulStudent extends StatelessWidget {
@@ -11,47 +9,39 @@ class HomeOurSuccessfulStudent extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            buildImage(
-                "http://www.alpenglowimagesphotography.com/blog/wp-content/uploads/2019/12/joshua-tree-snow1a-1024x683.jpg"),
-            buildImage(
-                "https://smoodock45.files.wordpress.com/2021/08/bearing-the-image.jpg"),
-          ],
+          children: [buildImage(), buildImage()],
         ),
         SizedBox(
           height: 10.h,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            buildImage("https://pbs.twimg.com/media/DkAWrHQUcAEklkt.jpg"),
-            buildImage(
-                "http://www.alpenglowimagesphotography.com/blog/wp-content/uploads/2019/12/joshua-tree-snow1a-1024x683.jpg"),
-          ],
+          children: [buildImage(), buildImage()],
         ),
       ],
     );
   }
 
-  buildImage(String link) {
+  buildImage() {
     return Stack(
       children: [
         Container(
-          height: 115.h,
+          height: 100.h,
           width: 160.w,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            color: Colors.amber,
+            borderRadius: BorderRadius.circular(12.r),
             image: DecorationImage(
-              image: NetworkImage(link),
-              fit: BoxFit.cover,
+              image: AssetImage(AppImage.home_banner),
+              fit: BoxFit.fill,
             ),
           ),
         ),
         Container(
-          margin: REdgeInsets.only(left: 5, top: 70),
+          margin: REdgeInsets.only(left: 5, top: 63),
           alignment: Alignment.bottomLeft,
           child: CircleAvatar(
-            radius: 17.r,
+            radius: 13.r,
             backgroundColor: AppColor.greenaa.withOpacity(0.4),
             child: CircleAvatar(
               radius: 10.r,

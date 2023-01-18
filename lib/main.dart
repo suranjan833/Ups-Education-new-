@@ -8,13 +8,14 @@ void main() {
   runApp(
     ScreenUtilInit(
         designSize: const Size(360, 690),
+        // designSize: ScreenUtil.defaultSize,
         minTextAdapt: true,
         splitScreenMode: true,
 
         // allowFontScaling: false,
         builder: (BuildContext context, Widget? child) {
           return GetMaterialApp(
-            title: "Application",
+            title: "UPS Education",
             initialRoute: AppPages.INITIAL,
             getPages: AppPages.routes,
             debugShowCheckedModeBanner: false,

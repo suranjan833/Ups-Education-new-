@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/app_drawer.dart';
 import 'package:ups_education/app/data/widgets/home_app_bar.dart';
@@ -38,51 +36,41 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             unselectedLabelStyle: unselectedLabelStyle,
             selectedLabelStyle: selectedLabelStyle,
             items: [
-              BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(bottom: 2),
-                  child: const Icon(
-                    Icons.home_filled,
+               BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    size: 22,
+                    AssetImage(AppImage.home_b),
                   ),
-                ),
                 label: 'Home',
                 backgroundColor: Colors.white,
               ),
-              BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(bottom: 2),
-                  child: const Icon(
-                    Icons.person,
+             BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    size: 22,
+                    AssetImage(AppImage.my_contact),
                   ),
-                ),
                 label: 'My account',
                 backgroundColor: Colors.white,
               ),
               BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(bottom: 2),
-                  child: const Icon(
-                    Icons.shopping_cart_rounded,
+                  icon: ImageIcon(
+                    size: 22,
+                    AssetImage(AppImage.cart_b),
                   ),
-                ),
                 label: 'Cart',
               ),
-              BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(bottom: 2),
-                  child: const Icon(
-                    Icons.bookmark,
+             BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    size: 22,
+                    AssetImage(AppImage.wishlist),
                   ),
-                ),
                 label: 'Wishlist',
               ),
-              BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(bottom: 2),
-                  child: const Icon(
-                    Icons.update,
+             BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    size: 22,
+                    AssetImage(AppImage.updates),
                   ),
-                ),
                 label: 'updates',
               ),
             ],
@@ -101,7 +89,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
       ),
       bottomNavigationBar: buildBottomNavigationMenu(context, controller),
       appBar: AppBar(
-        elevation: 2,
+        elevation: 1,
         backgroundColor: AppColor.litegrey,
         iconTheme: IconThemeData(
           color: AppColor.apcolor,
@@ -109,25 +97,24 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
         leading: Builder(
           builder: (BuildContext context) {
             return Container(
-              padding: REdgeInsets.symmetric(horizontal: 10),
-              margin: REdgeInsets.only(left: 20, top: 5, bottom: 5).r,
+              // padding: REdgeInsets.symmetric(horizontal: 10),
+              margin:
+                  REdgeInsets.only(left: 12, top: 6, bottom: 6, right: 17).r,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(ScreenUtil().radius(10)),
+                  borderRadius: BorderRadius.circular(11.r),
                   color: AppColor.lite),
               child: InkWell(
                 onTap: () {
                   Scaffold.of(context).openDrawer();
                 },
-                child: Icon(
-                  Icons.menu,
-                  size: 30,
-                  color: AppColor.black,
+                child: SvgPicture.asset(
+                  AppImage.menubar,
                 ),
               ),
             );
           },
         ),
-        leadingWidth: ScreenUtil().setWidth(72),
+        leadingWidth: 68.w,
         actions: const [HomeAppBar()],
       ),
       body: Obx(() => IndexedStack(

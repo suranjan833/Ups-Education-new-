@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 import '../../BottomNavigationBar/views/bottom_navigation_bar_view.dart';
@@ -50,15 +48,10 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                     controller: controller.password,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
-                        prefixIcon: Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 12.r, vertical: 2.r),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 14.r, vertical: 13.r),
-                            decoration: BoxDecoration(
-                                color: AppColor.litegrey,
-                                borderRadius: BorderRadius.circular(12)),
-                            child: const Icon(Icons.lock_outline_sharp)),
+                        prefixIcon: SvgPicture.asset(
+                          AppImage.lock,
+                          height: 30.h,
+                        ),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: BorderSide(
@@ -73,8 +66,8 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                               onTap: controller.toggle1,
                               child: Icon(
                                 controller.obscureText1.value
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
                                 color: AppColor.grey,
                               ),
                             ),
@@ -94,15 +87,10 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                     controller: controller.npassword,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
-                        prefixIcon: Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 12.r, vertical: 2.r),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 14.r, vertical: 13.r),
-                            decoration: BoxDecoration(
-                                color: AppColor.litegrey,
-                                borderRadius: BorderRadius.circular(12)),
-                            child: const Icon(Icons.lock_outline_sharp)),
+                        prefixIcon: SvgPicture.asset(
+                          AppImage.lock,
+                          height: 30.h,
+                        ),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: BorderSide(
@@ -117,8 +105,8 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                               onTap: controller.toggle2,
                               child: Icon(
                                 controller.obscureText2.value
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
                                 color: AppColor.grey,
                               ),
                             ),
@@ -138,21 +126,15 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                     controller: controller.cpassword,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
-                        prefixIcon: Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 12.r, vertical: 2.r),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 14.r, vertical: 13.r),
-                            decoration: BoxDecoration(
-                                color: AppColor.litegrey,
-                                borderRadius: BorderRadius.circular(12)),
-                            child: const Icon(Icons.lock_outline_sharp)),
+                        prefixIcon: SvgPicture.asset(
+                          AppImage.lock,
+                          height: 30.h,
+                        ),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: BorderSide(
                                 color: AppColor.black.withOpacity(0.3))),
                         hintText: 'Confirm Password',
-                       
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14),
                             borderSide: BorderSide(
