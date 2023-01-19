@@ -24,7 +24,7 @@ class HomeLatestUpdate extends StatelessWidget {
       color: AppColor.litegrey,
       elevation: 0.6,
       child: SizedBox(
-        height: 104.h,
+        height: 88.h,
         width: 400.w,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,7 @@ class HomeLatestUpdate extends StatelessWidget {
           children: [
             Container(
               margin: EdgeInsets.only(top: 2.h, bottom: 2.h),
-              height: 100.h,
+              height: 74.h,
               width: 125.w,
               decoration: BoxDecoration(
                   color: AppColor.green,
@@ -47,17 +47,17 @@ class HomeLatestUpdate extends StatelessWidget {
                 Container(
                   width: 200.w,
                   padding: EdgeInsets.only(
-                      bottom: 8.h, top: 2.h, left: 10.w, right: 10.w),
+                      bottom: 4.h, top: 2.h, left: 10.w, right: 10.w),
                   child: Text(
                     title,
                     maxLines: 3,
                     style:
-                        TextStyle(fontSize: 15.w, fontWeight: FontWeight.w400),
+                        TextStyle(fontSize: 13.w, fontWeight: FontWeight.w400),
                   ),
                 ),
                 Container(
                     margin: EdgeInsets.only(
-                        top: 13.h, right: 13.w, left: 10.w, bottom: 6.h),
+                        top: 2.h, right: 13.w, left: 10.w, bottom: 6.h),
                     // alignment: Alignment.center,
                     child: Text(time)),
               ],

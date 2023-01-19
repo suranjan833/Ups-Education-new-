@@ -19,7 +19,7 @@ class AppDrawer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: REdgeInsets.only(left: 8, right: 8, top: 30),
+                  padding: REdgeInsets.only(left: 8, right: 8, top: 20),
                   child: const HomeAppBar(),
                 ),
                 Padding(

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 import '../controllers/workshop_details_controller.dart';
@@ -37,8 +35,7 @@ class WorkshopDetailsView extends GetView<WorkshopDetailsController> {
               TextStyle(color: AppColor.black.withOpacity(0.8), fontSize: 15.w),
         ),
       ),
-      body: SafeArea(
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -590,7 +587,7 @@ class WorkshopDetailsView extends GetView<WorkshopDetailsController> {
                 ),
               ),
             ]),
-      )),
+      ),
     );
   }
 }

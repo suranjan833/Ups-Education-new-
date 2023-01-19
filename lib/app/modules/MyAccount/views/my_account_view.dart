@@ -14,176 +14,175 @@ class MyAccountView extends GetView<MyAccountController> {
     var controller = Get.put(MyAccountController());
     return Scaffold(
         backgroundColor: AppColor.black,
-        body: SafeArea(
-            child: SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
             children: [
-              Column(
-                children: [
-                  Container(
-                    height: 100.h,
-                    width: 95.w,
-                    margin: REdgeInsets.only(
-                        top: 20, bottom: 10, left: 10, right: 10),
-                    decoration: BoxDecoration(
-                        color: Colors.cyanAccent,
-                        borderRadius: BorderRadius.circular(13.r),
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage(AppImage.home_banner))),
-                    child: Container(
-                      alignment: Alignment.bottomRight,
-                      child: CircleAvatar(
-                        radius: 14.r,
-                        backgroundColor: AppColor.white,
-                        child: const Icon(
-                          Icons.mode_edit_outline_outlined,
-                          color: Colors.red,
-                          size: 22,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Text(
-                    'Hello! Ajay Kumar',
-                    style: TextStyle(
-                        color: AppColor.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16.7.r),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  )
-                ],
-              ),
               Container(
-                alignment: Alignment.bottomCenter,
-                height: 390.h,
-                width: 360.w,
-                margin: EdgeInsets.only(top: 30.h),
-                padding: REdgeInsets.all(12),
+                height: 100.h,
+                width: 95.w,
+                margin: REdgeInsets.only(
+                    top: 20, bottom: 10, left: 10, right: 10),
                 decoration: BoxDecoration(
+                    color: Colors.cyanAccent,
+                    borderRadius: BorderRadius.circular(13.r),
+                    image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage(AppImage.home_banner))),
+                child: Container(
+                  alignment: Alignment.bottomRight,
+                  child: CircleAvatar(
+                    radius: 14.r,
+                    backgroundColor: AppColor.white,
+                    child: const Icon(
+                      Icons.mode_edit_outline_outlined,
+                      color: Colors.red,
+                      size: 22,
+                    ),
+                  ),
+                ),
+              ),
+              Text(
+                'Hello! Ajay Kumar',
+                style: TextStyle(
                     color: AppColor.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(29.r),
-                        topRight: Radius.circular(29.r))),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.7.r),
+              ),
+              SizedBox(
+                height: 10.h,
+              )
+            ],
+          ),
+          Container(
+            alignment: Alignment.bottomCenter,
+            height: 390.h,
+            width: 360.w,
+            margin: EdgeInsets.only(top: 30.h),
+            padding: REdgeInsets.all(12),
+            decoration: BoxDecoration(
+                color: AppColor.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(29.r),
+                    topRight: Radius.circular(29.r))),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          height: 60.h,
-                          width: 160.w,
-                          child: ListTile(
-                            leading: Container(
-                              height: 40.h,
-                              width: 40.w,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 7.w, vertical: 7.h),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.r),
-                                color: AppColor.litegrey,
-                              ),
-                              child: SvgPicture.asset(
-                                AppImage.course,
-                                height: 20.h,
-                              ),
-                            ),
-                            title: Text(
-                              '04',
-                              style: TextStyle(
-                                  color: AppColor.black,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            subtitle: Text(
-                              'Total Courses',
-                              style: TextStyle(color: AppColor.black),
-                            ),
+                    SizedBox(
+                      height: 60.h,
+                      width: 160.w,
+                      child: ListTile(
+                        leading: Container(
+                          height: 40.h,
+                          width: 40.w,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 7.w, vertical: 7.h),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.r),
+                            color: AppColor.litegrey,
+                          ),
+                          child: SvgPicture.asset(
+                            AppImage.course,
+                            height: 20.h,
                           ),
                         ),
-                        SizedBox(
-                          height: 60.h,
-                          width: 175.w,
-                          child: ListTile(
-                            leading: Container(
-                              height: 40.h,
-                              width: 40.w,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 7.w, vertical: 7.h),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.r),
-                                color: AppColor.litegrey,
-                              ),
-                              child: SvgPicture.asset(
-                                AppImage.course,
-                                height: 20.h,
-                              ),
-                            ),
-                            title: Text(
-                              '04',
-                              style: TextStyle(
-                                  color: AppColor.black,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            subtitle: Text(
-                              'Wishlist Courses',
-                              style: TextStyle(color: AppColor.black),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    const Divider(
-                      thickness: 1.8,
-                    ),
-                    builList(
-                        'My Course',
-                        Icon(
-                          Icons.note_alt_outlined,
-                          color: AppColor.black,
-                          size: 20,
-                        ), ontap: () {
-                      Get.to(const MyCourseView());
-                    }),
-                    builList(
-                        'Edit Profile',
-                        Icon(
-                          Icons.person_add_alt,
-                          color: AppColor.black,
-                          size: 20,
-                        ), ontap: () {
-                      Get.to(const EditProfileView());
-                    }),
-                    builList('Change Password', SvgPicture.asset(AppImage.key),
-                        ontap: () {
-                      Get.to(const ChangePasswordView());
-                    }),
-                    builList(
-                        'My Report',
-                        Icon(
-                          Icons.report_problem_outlined,
-                          color: AppColor.black,
-                          size: 20,
-                        )),
-                    ListTile(
-                      leading: SvgPicture.asset(AppImage.logout),
-                      title: Text(
-                        'Logout',
-                        style: TextStyle(
-                            fontSize: 15.r, fontWeight: FontWeight.w400),
+                        title: Text(
+                          '04',
+                          style: TextStyle(
+                              color: AppColor.black,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        subtitle: Text(
+                          'Total Courses',
+                          style: TextStyle(color: AppColor.black),
+                        ),
                       ),
                     ),
                     SizedBox(
-                      height: 17.h,
-                    ),
+                      height: 60.h,
+                      width: 175.w,
+                      child: ListTile(
+                        leading: Container(
+                          height: 40.h,
+                          width: 40.w,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 7.w, vertical: 7.h),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.r),
+                            color: AppColor.litegrey,
+                          ),
+                          child: SvgPicture.asset(
+                            AppImage.course,
+                            height: 20.h,
+                          ),
+                        ),
+                        title: Text(
+                          '04',
+                          style: TextStyle(
+                              color: AppColor.black,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        subtitle: Text(
+                          'Wishlist Courses',
+                          style: TextStyle(color: AppColor.black),
+                        ),
+                      ),
+                    )
                   ],
                 ),
-              ),
-            ],
+                const Divider(
+                  thickness: 1.8,
+                ),
+                builList(
+                    'My Course',
+                    Icon(
+                      Icons.note_alt_outlined,
+                      color: AppColor.black,
+                      size: 20,
+                    ), ontap: () {
+                  Get.to(const MyCourseView());
+                }),
+                builList(
+                    'Edit Profile',
+                    Icon(
+                      Icons.person_add_alt,
+                      color: AppColor.black,
+                      size: 20,
+                    ), ontap: () {
+                  Get.to(const EditProfileView());
+                }),
+                builList('Change Password', SvgPicture.asset(AppImage.key),
+                    ontap: () {
+                  Get.to(const ChangePasswordView());
+                }),
+                builList(
+                    'My Report',
+                    Icon(
+                      Icons.report_problem_outlined,
+                      color: AppColor.black,
+                      size: 20,
+                    )),
+                ListTile(
+                  leading: SvgPicture.asset(AppImage.logout),
+                  title: Text(
+                    'Logout',
+                    style: TextStyle(
+                        fontSize: 15.r, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                SizedBox(
+                  height: 17.h,
+                ),
+              ],
+            ),
           ),
-        )));
+        ],
+          ),
+        ));
   }
 
   builList(String title, Widget leading, {void Function()? ontap}) {

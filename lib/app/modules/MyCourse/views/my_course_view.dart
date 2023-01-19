@@ -35,16 +35,14 @@ class MyCourseView extends GetView<MyCourseController> {
           style: TextStyle(color: AppColor.black, fontSize: 15.w),
         ),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              buildContain(),
-              buildContain(),
-              buildContain(),
-              buildContain()
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            buildContain(),
+            buildContain(),
+            buildContain(),
+            buildContain()
+          ],
         ),
       ),
     );

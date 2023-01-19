@@ -35,152 +35,150 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
           style: TextStyle(color: AppColor.black, fontSize: 15.w),
         ),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 12.r),
-            child: Obx(
-              () => Column(
-                children: [
-                  TextFormField(
-                    obscureText: controller.obscureText1.value,
-                    keyboardType: TextInputType.streetAddress,
-                    controller: controller.password,
-                    textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(
-                        prefixIcon: SvgPicture.asset(
-                          AppImage.lock,
-                          height: 30.h,
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(14),
-                            borderSide: BorderSide(
-                                color: AppColor.black.withOpacity(0.3))),
-                        hintText: 'Current Password',
-                        suffixIcon: Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: CircleAvatar(
-                            radius: 17,
-                            backgroundColor: AppColor.litegrey,
-                            child: InkWell(
-                              onTap: controller.toggle1,
-                              child: Icon(
-                                controller.obscureText1.value
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                                color: AppColor.grey,
-                              ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 12.r),
+          child: Obx(
+            () => Column(
+              children: [
+                TextFormField(
+                  obscureText: controller.obscureText1.value,
+                  keyboardType: TextInputType.streetAddress,
+                  controller: controller.password,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                      prefixIcon: SvgPicture.asset(
+                        AppImage.lock,
+                        height: 30.h,
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: BorderSide(
+                              color: AppColor.black.withOpacity(0.3))),
+                      hintText: 'Current Password',
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: CircleAvatar(
+                          radius: 17,
+                          backgroundColor: AppColor.litegrey,
+                          child: InkWell(
+                            onTap: controller.toggle1,
+                            child: Icon(
+                              controller.obscureText1.value
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: AppColor.grey,
                             ),
                           ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(14),
-                            borderSide: BorderSide(
-                                color: AppColor.black.withOpacity(0.3)))),
-                  ),
-                  SizedBox(
-                    height: 25.h,
-                  ),
-                  TextFormField(
-                    obscureText: controller.obscureText2.value,
-                    keyboardType: TextInputType.streetAddress,
-                    controller: controller.npassword,
-                    textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(
-                        prefixIcon: SvgPicture.asset(
-                          AppImage.lock,
-                          height: 30.h,
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(14),
-                            borderSide: BorderSide(
-                                color: AppColor.black.withOpacity(0.3))),
-                        hintText: 'New Password',
-                        suffixIcon: Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: CircleAvatar(
-                            radius: 17,
-                            backgroundColor: AppColor.litegrey,
-                            child: InkWell(
-                              onTap: controller.toggle2,
-                              child: Icon(
-                                controller.obscureText2.value
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                                color: AppColor.grey,
-                              ),
-                            ),
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(14),
-                            borderSide: BorderSide(
-                                color: AppColor.black.withOpacity(0.3)))),
-                  ),
-                  SizedBox(
-                    height: 8.h,
-                  ),
-                  TextFormField(
-                    obscureText: controller.obscureText3.value,
-                    keyboardType: TextInputType.text,
-                    controller: controller.cpassword,
-                    textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(
-                        prefixIcon: SvgPicture.asset(
-                          AppImage.lock,
-                          height: 30.h,
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(14),
-                            borderSide: BorderSide(
-                                color: AppColor.black.withOpacity(0.3))),
-                        hintText: 'Confirm Password',
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(14),
-                            borderSide: BorderSide(
-                                color: AppColor.black.withOpacity(0.3)))),
-                  ),
-                  SizedBox(
-                    height: 250.h,
-                  ),
-                  Wrap(
-                    spacing: 40,
-                    children: [
-                      MaterialButton(
-                        height: 50,
-                        minWidth: 150,
-                        onPressed: () {},
-                        shape: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16),
-                            borderSide: const BorderSide(color: Colors.red)),
-                        child: Text(
-                          'Cancel',
-                          style: TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 17.r),
                         ),
                       ),
-                      MaterialButton(
-                        height: 50,
-                        minWidth: 150,
-                        onPressed: () {},
-                        color: AppColor.green,
-                        shape: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16),
-                            borderSide: BorderSide(color: AppColor.green)),
-                        child: Text(
-                          'Save',
-                          style: TextStyle(
-                              color: AppColor.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 17.r),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: BorderSide(
+                              color: AppColor.black.withOpacity(0.3)))),
+                ),
+                SizedBox(
+                  height: 25.h,
+                ),
+                TextFormField(
+                  obscureText: controller.obscureText2.value,
+                  keyboardType: TextInputType.streetAddress,
+                  controller: controller.npassword,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                      prefixIcon: SvgPicture.asset(
+                        AppImage.lock,
+                        height: 30.h,
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: BorderSide(
+                              color: AppColor.black.withOpacity(0.3))),
+                      hintText: 'New Password',
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: CircleAvatar(
+                          radius: 17,
+                          backgroundColor: AppColor.litegrey,
+                          child: InkWell(
+                            onTap: controller.toggle2,
+                            child: Icon(
+                              controller.obscureText2.value
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: AppColor.grey,
+                            ),
+                          ),
                         ),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: BorderSide(
+                              color: AppColor.black.withOpacity(0.3)))),
+                ),
+                SizedBox(
+                  height: 8.h,
+                ),
+                TextFormField(
+                  obscureText: controller.obscureText3.value,
+                  keyboardType: TextInputType.text,
+                  controller: controller.cpassword,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                      prefixIcon: SvgPicture.asset(
+                        AppImage.lock,
+                        height: 30.h,
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: BorderSide(
+                              color: AppColor.black.withOpacity(0.3))),
+                      hintText: 'Confirm Password',
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: BorderSide(
+                              color: AppColor.black.withOpacity(0.3)))),
+                ),
+                SizedBox(
+                  height: 250.h,
+                ),
+                Wrap(
+                  spacing: 40,
+                  children: [
+                    MaterialButton(
+                      height: 50,
+                      minWidth: 150,
+                      onPressed: () {},
+                      shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: const BorderSide(color: Colors.red)),
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17.r),
+                      ),
+                    ),
+                    MaterialButton(
+                      height: 50,
+                      minWidth: 150,
+                      onPressed: () {},
+                      color: AppColor.green,
+                      shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(color: AppColor.green)),
+                      child: Text(
+                        'Save',
+                        style: TextStyle(
+                            color: AppColor.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17.r),
+                      ),
+                    )
+                  ],
+                )
+              ],
             ),
           ),
         ),

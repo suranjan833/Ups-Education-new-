@@ -8,6 +8,7 @@ final getBox = GetStorage();
 const String USER_ID = "user_id";
 const String USER_EMAIL = "user_email";
 const String LOGIN_TRUE = "login_true";
+var isDebugMode = true.obs;
 void SHOW_SNACKBAR({int? duration, String? message, bool? isSuccess}) {
   final snackbar = GetSnackBar(
       backgroundColor: (isSuccess ?? true) ? Colors.green : Colors.red,

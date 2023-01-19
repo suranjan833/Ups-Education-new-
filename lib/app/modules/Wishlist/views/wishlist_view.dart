@@ -12,23 +12,21 @@ class WishlistView extends GetView<WishlistController> {
     var controller = Get.put(WishlistController());
     return Scaffold(
       backgroundColor: AppColor.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-            child: Column(
-          children: [
-            SizedBox(
-              height: 10.h,
-            ),
-            buildCard(),
-            buildCard(),
-            buildCard(),
-            buildCard(),
-            SizedBox(
-              height: 10.h,
-            ),
-          ],
-        )),
-      ),
+      body: SingleChildScrollView(
+          child: Column(
+        children: [
+          SizedBox(
+            height: 10.h,
+          ),
+          buildCard(),
+          buildCard(),
+          buildCard(),
+          buildCard(),
+          SizedBox(
+            height: 10.h,
+          ),
+        ],
+      )),
     );
   }
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/app_drawer.dart';
-import 'package:ups_education/app/data/widgets/home_app_bar.dart';
 import 'package:ups_education/app/modules/Cart/views/cart_view.dart';
 import 'package:ups_education/app/modules/MyAccount/views/my_account_view.dart';
 import 'package:ups_education/app/modules/Wishlist/views/wishlist_view.dart';
@@ -36,41 +35,41 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             unselectedLabelStyle: unselectedLabelStyle,
             selectedLabelStyle: selectedLabelStyle,
             items: [
-               BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    size: 22,
-                    AssetImage(AppImage.home_b),
-                  ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  size: 22,
+                  AssetImage(AppImage.home_b),
+                ),
                 label: 'Home',
                 backgroundColor: Colors.white,
               ),
-             BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    size: 22,
-                    AssetImage(AppImage.my_contact),
-                  ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  size: 22,
+                  AssetImage(AppImage.my_contact),
+                ),
                 label: 'My account',
                 backgroundColor: Colors.white,
               ),
               BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    size: 22,
-                    AssetImage(AppImage.cart_b),
-                  ),
+                icon: ImageIcon(
+                  size: 22,
+                  AssetImage(AppImage.cart_b),
+                ),
                 label: 'Cart',
               ),
-             BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    size: 22,
-                    AssetImage(AppImage.wishlist),
-                  ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  size: 22,
+                  AssetImage(AppImage.wishlist),
+                ),
                 label: 'Wishlist',
               ),
-             BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    size: 22,
-                    AssetImage(AppImage.updates),
-                  ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  size: 22,
+                  AssetImage(AppImage.updates),
+                ),
                 label: 'updates',
               ),
             ],
@@ -115,7 +114,49 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
           },
         ),
         leadingWidth: 68.w,
-        actions: const [HomeAppBar()],
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 18.w, top: 5.h, bottom: 5.h),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'UPS Education',
+                  style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      color: AppColor.apcolor,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                ),
+                Wrap(
+                  spacing: 5,
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  runAlignment: WrapAlignment.center,
+                  children: [
+                    Text(
+                      'A unit of',
+                      style: TextStyle(
+                          fontFamily: 'Quicksand',
+                          color: AppColor.black,
+                          fontSize: 9,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const Text(
+                      'Utsaah Psychological Services',
+                      style: TextStyle(
+                          fontFamily: 'Quicksand',
+                          color: Colors.orange,
+                          fontSize: 9,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
       ),
       body: Obx(() => IndexedStack(
             index: controller.tabIndex.value,
