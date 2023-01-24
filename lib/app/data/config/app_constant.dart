@@ -12,6 +12,7 @@ class ApiUrls {
   static String countryData = baseUrl("mobile-master");
   static String homePage(String userId) => baseUrl(
       "apphome?user_id=$userId&appVersion=${AppInfo.appVersionDisplay}&appType=${AppInfo.getPlatform()}"); //${AppInfo.getPlatform()}
+ 
   static String cousePurchased = baseUrl("appiospurchase");
   static String myAccount = baseUrl("appmyaccount");
   static String update = baseUrl("appupdates");

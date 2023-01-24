@@ -32,7 +32,7 @@ class ExamInfoView extends GetView<ExamInfoController> {
           ),
         ),
         title: Text(
-          'Intership',
+          'Exam Info',
           style: TextStyle(color: AppColor.black, fontSize: 16.w),
         ),
       ),

@@ -9,17 +9,17 @@ class HomeTestimonials extends StatelessWidget {
     // ignore: unused_local_variable
     var controller = Get.put(HomeController());
     return Obx(
-      () => controller.homeviewModel.value.upsstudentsay?.items != null
+      () => controller.homeviewModel.value.data?.upsstudentsay?.items != null
           ? SizedBox(
               width: 428.w,
               height: 148.h,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: controller
-                      .homeviewModel.value.upsstudentsay!.items!.length,
+                      .homeviewModel.value.data?.upsstudentsay?.items!.length,
                   itemBuilder: (context, index) {
                     var data = controller
-                        .homeviewModel.value.upsstudentsay!.items![index];
+                        .homeviewModel.value.data?.upsstudentsay?.items![index];
                     return InkWell(
                       onTap: () {
                         buildDetailspop(
@@ -59,7 +59,7 @@ class HomeTestimonials extends StatelessWidget {
                                           image: DecorationImage(
                                               fit: BoxFit.fill,
                                               image: NetworkImage(
-                                                  data.image.toString()))),
+                                                  data!.image.toString()))),
                                     ),
                                     Padding(
                                       padding: EdgeInsets.only(top: 12.h),
@@ -101,7 +101,7 @@ class HomeTestimonials extends StatelessWidget {
                             //   height: 10.h,
                             // ),
                             Text(
-                              controller.homeviewModel.value.upsstudentsay!
+                              controller.homeviewModel.value.data!.upsstudentsay!
                                   .items![index].description
                                   .toString(),
                               // 'I would give them more than 5 star if I could. Joining UPS Education has been one of the best decisioons I took while...',
@@ -283,3 +283,4 @@ class HomeTestimonials extends StatelessWidget {
     );
   }
 }
+

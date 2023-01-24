@@ -1,15 +1,22 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/home_app_bar.dart';
+import 'package:ups_education/app/modules/AboutUs/views/about_us_view.dart';
 import 'package:ups_education/app/modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
+import 'package:ups_education/app/modules/ContactUs/views/contact_us_view.dart';
 import 'package:ups_education/app/modules/Internship/views/internship_view.dart';
 import 'package:ups_education/app/modules/Login/views/login_view.dart';
 import 'package:ups_education/app/modules/Workshop/views/workshop_view.dart';
+import 'package:ups_education/app/modules/home/controllers/home_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(HomeController());
     return Scaffold(
       body: Drawer(
         child: Padding(
@@ -81,7 +88,7 @@ class AppDrawer extends StatelessWidget {
                     ),
                   ),
                   title: Text(
-                    'Home',
+                    "${controller.homeviewModel.value.data?.sidebarmenu![0].name}",
                     style: TextStyle(
                         color: AppColor.black.withOpacity(0.7),
                         fontWeight: FontWeight.w400,
@@ -115,6 +122,9 @@ class AppDrawer extends StatelessWidget {
                   ),
                 ),
                 ListTile(
+                    onTap: () {
+                    Get.to(const AboutUsView());
+                  },
                   minLeadingWidth: 2,
                   horizontalTitleGap: 12,
                   leading: Container(
@@ -128,8 +138,8 @@ class AppDrawer extends StatelessWidget {
                       AppImage.about,
                     ),
                   ),
-                  title: Text(
-                    'About us',
+                  title: Text("${controller.homeviewModel.value.data?.sidebarmenu![1].name}"
+                     ,
                     style: TextStyle(
                         color: AppColor.black.withOpacity(0.7),
                         fontWeight: FontWeight.w400,
@@ -151,7 +161,7 @@ class AppDrawer extends StatelessWidget {
                         AppImage.workshop), //AppImage.internship
                   ),
                   title: Text(
-                    'Psychology Entrance',
+                    "${controller.homeviewModel.value.data?.sidebarmenu![3].name}",
                     style: TextStyle(
                         color: AppColor.black.withOpacity(0.7),
                         fontWeight: FontWeight.w400,
@@ -174,7 +184,7 @@ class AppDrawer extends StatelessWidget {
                     ),
                   ),
                   title: Text(
-                    'Workshops',
+                    "${controller.homeviewModel.value.data?.sidebarmenu![2].name}",
                     style: TextStyle(
                         color: AppColor.black.withOpacity(0.7),
                         fontWeight: FontWeight.w400,
@@ -202,7 +212,7 @@ class AppDrawer extends StatelessWidget {
                         'assets/image/workshop.svg'), //internship.svg
                   ),
                   title: Text(
-                    'Intership',
+                    "Internship",
                     style: TextStyle(
                         color: AppColor.black.withOpacity(0.7),
                         fontWeight: FontWeight.w400,
@@ -214,6 +224,9 @@ class AppDrawer extends StatelessWidget {
                   // height: 40,
                 ),
                 ListTile(
+                    onTap: () {
+                    Get.to(const ContactUsView());
+                  },
                   minLeadingWidth: 2,
                   horizontalTitleGap: 12,
                   leading: Container(
@@ -279,52 +292,84 @@ class AppDrawer extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Container(
-                        margin: REdgeInsets.symmetric(horizontal: 12),
-                        height: 28.h,
-                        width: 28.w,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColor.grey),
-                          borderRadius: BorderRadius.circular(7.r),
-                        ),
-                        child: SvgPicture.asset(
-                          AppImage.insta,
-                        ),
-                      ),
-                      Container(
-                        margin: REdgeInsets.symmetric(horizontal: 9),
-                        height: 28.h,
-                        width: 28.w,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColor.grey),
-                          borderRadius: BorderRadius.circular(7.r),
-                        ),
-                        child: SvgPicture.asset(
-                          AppImage.facebook,
+                      GestureDetector(
+                        onTap: () async {
+                          var instaurl = controller.homeviewModel.value.data?.instagramlink;
+                          if (await canLaunch(instaurl!)) {
+                            await launch(instaurl);
+                          }
+                        },
+                        child: Container(
+                          margin: REdgeInsets.symmetric(horizontal: 12),
+                          height: 28.h,
+                          width: 28.w,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: AppColor.grey),
+                            borderRadius: BorderRadius.circular(7.r),
+                          ),
+                          child: SvgPicture.asset(
+                            AppImage.insta,
+                          ),
                         ),
                       ),
-                      Container(
-                        margin: REdgeInsets.symmetric(horizontal: 8),
-                        height: 28.h,
-                        width: 28.w,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColor.grey),
-                          borderRadius: BorderRadius.circular(7.r),
-                        ),
-                        child: SvgPicture.asset(
-                          AppImage.linkdin,
+                   GestureDetector(
+                        onTap: () async {
+                          var facebookurl = controller.homeviewModel.value.data?.facebooklink;
+                          if (await canLaunch(facebookurl!)) {
+                            await launch(facebookurl);
+                          }
+                        },
+                        child: Container(
+                          margin: REdgeInsets.symmetric(horizontal: 9),
+                          height: 28.h,
+                          width: 28.w,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: AppColor.grey),
+                            borderRadius: BorderRadius.circular(7.r),
+                          ),
+                          child: SvgPicture.asset(
+                            AppImage.facebook,
+                          ),
                         ),
                       ),
-                      Container(
-                        margin: REdgeInsets.symmetric(horizontal: 12),
-                        height: 28.h,
-                        width: 28.w,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColor.grey),
-                          borderRadius: BorderRadius.circular(7.r),
+                 GestureDetector(
+                        onTap: () async {
+                          var linkedinurl = controller.homeviewModel.value.data?.linkedinlink;
+                          if (await canLaunch(linkedinurl!)) {
+                            await launch(linkedinurl);
+                          }
+                        },
+                        child: Container(
+                          margin: REdgeInsets.symmetric(horizontal: 8),
+                          height: 28.h,
+                          width: 28.w,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: AppColor.grey),
+                            borderRadius: BorderRadius.circular(7.r),
+                          ),
+                          child: SvgPicture.asset(
+                            AppImage.linkdin,
+                          ),
                         ),
-                        child: SvgPicture.asset(
-                          AppImage.youtube,
+                      ),
+                     GestureDetector(
+                        onTap: () async {
+                          var youtubeUrl = controller.homeviewModel.value.data?.twitterlink;
+                          if (await canLaunch(youtubeUrl!)) {
+                            await launch(youtubeUrl);
+                          }
+                        },
+                        child: Container(
+                          margin: REdgeInsets.symmetric(horizontal: 12),
+                          height: 28.h,
+                          width: 28.w,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: AppColor.grey),
+                            borderRadius: BorderRadius.circular(7.r),
+                          ),
+                          child: SvgPicture.asset(
+                            AppImage.youtube,
+                          ),
                         ),
                       ),
                     ],
@@ -337,4 +382,10 @@ class AppDrawer extends StatelessWidget {
       ),
     );
   }
+
+  // Future<void> llaunchUrl() async {
+  //   if (!await launchUrl(url)) {
+  //     throw Exception('Could not launch $url');
+  //   }
+  // }
 }

@@ -13,10 +13,17 @@ import 'package:ups_education/app/data/widgets/home_suggested_videos.dart';
 import 'package:ups_education/app/data/widgets/home_tetmonial.dart';
 import 'package:ups_education/app/data/widgets/self_assessment.dart';
 import 'package:ups_education/app/modules/ExamInfo/views/exam_info_view.dart';
+import 'package:ups_education/app/modules/FreeNotes/views/free_notes_view.dart';
+import 'package:ups_education/app/modules/LatestUpdate/views/latest_update_view.dart';
+import 'package:ups_education/app/modules/Live/views/live_view.dart';
+import 'package:ups_education/app/modules/MyCourse/views/my_course_view.dart';
+import 'package:ups_education/app/modules/OurSuccessfulStudent/views/our_successful_student_view.dart';
 import 'package:ups_education/app/modules/PsychologyEntrance/views/psychology_entrance_view.dart';
 import 'package:ups_education/app/modules/Quiz/views/quiz_view.dart';
+import 'package:ups_education/app/modules/Search/views/search_view.dart';
+import 'package:ups_education/app/modules/SuggestedVideos/views/suggested_videos_view.dart';
+import 'package:ups_education/app/modules/Testimonials/views/testimonials_view.dart';
 import 'package:ups_education/app/modules/Workshop/views/workshop_view.dart';
-import 'package:ups_education/app/modules/videos/views/videos_view.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -40,7 +47,10 @@ class HomeView extends GetView<HomeController> {
                   Padding(
                     padding: EdgeInsets.only(top: 14.h, bottom: 5.h),
                     child: TextFormField(
-                      controller: controller.searchController,
+                      readOnly: true,
+                      onTap: () {
+                        Get.to(const SearchView());
+                      },
                       decoration: InputDecoration(
                         focusColor: AppColor.white,
                         hoverColor: AppColor.white,
@@ -86,7 +96,9 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                                 TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      // Get.to(const SuggestedVideosView());
+                                    },
                                     child: const Text('View all'))
                               ],
                             ),
@@ -104,7 +116,9 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                                 TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      // Get.to(const FreeNotesView());
+                                    },
                                     child: const Text('View all'))
                               ],
                             ),
@@ -122,7 +136,9 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                                 TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      // Get.to(const MyCourseView());
+                                    },
                                     child: const Text('View all'))
                               ],
                             ),
@@ -140,7 +156,9 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                                 TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      // Get.to(const QuizView());
+                                    },
                                     child: const Text('View all'))
                               ],
                             ),
@@ -168,7 +186,9 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                                 TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      // Get.to(const LatestUpdateView());
+                                    },
                                     child: const Text('View all'))
                               ],
                             ),
@@ -179,14 +199,16 @@ class HomeView extends GetView<HomeController> {
                                 Padding(
                                   padding: REdgeInsets.symmetric(vertical: 19),
                                   child: Text(
-                                    'Our successful students',
+                                    'Our Successful Students',
                                     style: TextStyle(
                                         fontSize: 15.w,
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ),
                                 TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      // Get.to(const OurSuccessfulStudentView());
+                                    },
                                     child: const Text('View all'))
                               ],
                             ),
@@ -204,7 +226,9 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                                 TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      // Get.to(const TestimonialsView());
+                                    },
                                     child: const Text('View all'))
                               ],
                             ),
@@ -478,7 +502,10 @@ class HomeView extends GetView<HomeController> {
                                                   ),
                                                 ),
                                                 TextButton(
-                                                    onPressed: () {},
+                                                    onPressed: () {
+                                                      // Get.to(
+                                                      //     const LatestUpdateView());
+                                                    },
                                                     child:
                                                         const Text('View all'))
                                               ],
@@ -502,7 +529,10 @@ class HomeView extends GetView<HomeController> {
                                                   ),
                                                 ),
                                                 TextButton(
-                                                    onPressed: () {},
+                                                    onPressed: () {
+                                                      // Get.to(
+                                                      //     const OurSuccessfulStudentView());
+                                                    },
                                                     child:
                                                         const Text('View all'))
                                               ],
@@ -526,7 +556,10 @@ class HomeView extends GetView<HomeController> {
                                                   ),
                                                 ),
                                                 TextButton(
-                                                    onPressed: () {},
+                                                    onPressed: () {
+                                                      // Get.to(
+                                                      //     const TestimonialsView());
+                                                    },
                                                     child:
                                                         const Text('View all'))
                                               ],
@@ -548,7 +581,7 @@ class HomeView extends GetView<HomeController> {
 
   Widget scrollablePage() {
     return Obx(
-      () => controller.homeviewModel.value.allbanner != null
+      () => controller.homeviewModel.value.data?.allbanner != null
           ? Column(
               children: [
                 Container(
@@ -562,8 +595,8 @@ class HomeView extends GetView<HomeController> {
                     child: PageView.builder(
                       scrollDirection: Axis.horizontal,
                       controller: controller.pageController,
-                      itemCount:
-                          controller.homeviewModel.value.allbanner?.length,
+                      itemCount: controller
+                          .homeviewModel.value.data?.allbanner?.length,
                       itemBuilder: (context, index) {
                         return Container(
                           height: 140.h,
@@ -571,8 +604,8 @@ class HomeView extends GetView<HomeController> {
                               borderRadius: BorderRadius.circular(14.r),
                               image: DecorationImage(
                                 fit: BoxFit.fitWidth,
-                                image: NetworkImage(controller
-                                    .homeviewModel.value.allbanner![index].image
+                                image: NetworkImage(controller.homeviewModel
+                                    .value.data!.allbanner![index].image
                                     .toString()),
                               )),
                         );
@@ -581,7 +614,7 @@ class HomeView extends GetView<HomeController> {
                 SmoothPageIndicator(
                   axisDirection: Axis.horizontal,
                   controller: controller.pageController,
-                  count: controller.homeviewModel.value.allbanner!.length,
+                  count: controller.homeviewModel.value.data!.allbanner!.length,
                   effect: SlideEffect(
                       spacing: 2,
                       radius: 3,
@@ -624,13 +657,16 @@ class HomeView extends GetView<HomeController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              buildCat('Free Notes', AppColor.greenaa, AppImage.notes),
+              buildCat('Free Notes', AppColor.greenaa, AppImage.notes,
+                  ontap: () {
+                Get.to(const FreeNotesView());
+              }),
               buildCat('Exam info', AppColor.focolor, AppImage.examinfo,
                   ontap: () {
                 Get.to(const ExamInfoView());
               }),
               buildCat('Live', AppColor.greenaa, AppImage.live, ontap: () {
-                Get.to(const VideosView());
+                Get.to(const LiveView());
               }),
             ],
           ),
@@ -684,25 +720,102 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget scrollVideo() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Wrap(
-        spacing: 18,
-        children: [
-          buildVideoScroll(),
-          buildVideoScroll(),
-          buildVideoScroll(),
-          buildVideoScroll(),
-          buildVideoScroll()
-          // buildVideoScroll(
-          //     "https://www.youtube.com/live/3xKq9CtYLqw?feature=share"),
-          // buildVideoScroll("https://youtu.be/lE6RYpe9IT0"),
-          // buildVideoScroll("https://youtu.be/eKFTSSKCzWA"),
-          // buildVideoScroll("https://youtu.be/Hg1-NHJ7-sY"),
-          // buildVideoScroll("https://www.youtube.com/watch?v=jPwWa6InIHU"),
-        ],
-      ),
+    return Obx(
+      () => controller.studentSuggestedModel.value.data != null
+          ? SizedBox(
+              height: 145.h,
+              width: 428.w,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount:
+                      controller.studentSuggestedModel.value.data?.length,
+                  itemBuilder: (context, index) {
+                    var data =
+                        controller.studentSuggestedModel.value.data![index];
+                    return SizedBox(
+                      height: 135.h,
+                      width: 235.w,
+                      child: Stack(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(right: 10.w),
+                            decoration: BoxDecoration(
+                                color: AppColor.white,
+                                borderRadius: BorderRadius.circular(15.r)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  height: 85.h,
+                                  width: 230.w,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10.r),
+                                        topRight: Radius.circular(10.r),
+                                      ),
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(
+                                              data.image.toString()))),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 8.h, horizontal: 18.w),
+                                  child: Text(
+                                    data.name.toString(),
+                                    maxLines: 2,
+                                    style: TextStyle(
+                                        fontSize: 14.w,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: REdgeInsets.only(right: 20, top: 40),
+                            alignment: Alignment.centerRight,
+                            child: CircleAvatar(
+                              radius: 20,
+                              backgroundColor:
+                                  AppColor.greenaa.withOpacity(0.4),
+                              child: CircleAvatar(
+                                radius: 15,
+                                backgroundColor: AppColor.white,
+                                child: Icon(
+                                  Icons.play_arrow,
+                                  size: 25.w,
+                                  color: AppColor.green,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  }),
+            )
+          : const Center(child: CircularProgressIndicator()),
     );
+    // SingleChildScrollView(
+    //   scrollDirection: Axis.horizontal,
+    //   child: Wrap(
+    //     spacing: 18,
+    //     children: [
+    //       buildVideoScroll(),
+    //       buildVideoScroll(),
+    //       buildVideoScroll(),
+    //       buildVideoScroll(),
+    //       buildVideoScroll()
+    //       // buildVideoScroll(
+    //       //     "https://www.youtube.com/live/3xKq9CtYLqw?feature=share"),
+    //       // buildVideoScroll("https://youtu.be/lE6RYpe9IT0"),
+    //       // buildVideoScroll("https://youtu.be/eKFTSSKCzWA"),
+    //       // buildVideoScroll("https://youtu.be/Hg1-NHJ7-sY"),
+    //       // buildVideoScroll("https://www.youtube.com/watch?v=jPwWa6InIHU"),
+    //     ],
+    //   ),
+    // );
   }
 
   buildVideoScroll() {

@@ -7,7 +7,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    Timer(const Duration(seconds: 4), () {
+    Timer(const Duration(seconds: 1), () {
       Get.offAll(BottomNavigationBarView());
     });
   }

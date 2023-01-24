@@ -1,7 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
+import 'package:ups_education/app/data/function/dio_post.dart';
+import 'package:ups_education/app/data/model/cart_model.dart';
 
 class CartController extends GetxController {
+
+
+   var cartModel = CartModel().obs;
+
+  @override
+  void onInit() {
+    cartData();
+    super.onInit();
+  }
+
+  Future cartData() async {
+    String? userid = getBox.read(USER_ID);
+    var data = {
+      "user_id": "1"//userid
+    };
+    var response = await dioPost(endUrl: ApiUrls.myAccount, data: data);
+
+    if (response.statusCode == 200) {
+      return cartModel(CartModel.fromJson(response.data));
+    }
+  }
   buildRemove() {
     Get.defaultDialog(
         title: '',
