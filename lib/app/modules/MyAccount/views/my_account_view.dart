@@ -52,12 +52,14 @@ class MyAccountView extends GetView<MyAccountController> {
                               ),
                             ),
                           ),
-                          Text(
-                            "Hello! ${controller.myAccountModel.value.data!.userdata!.firstname} ${controller.myAccountModel.value.data!.userdata!.lastname}",
-                            style: TextStyle(
-                                color: AppColor.white,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16.7.r),
+                          Obx(
+                            () => Text(
+                              "Hello! ${controller.myAccountModel.value.data!.userdata!.firstname} ${controller.myAccountModel.value.data!.userdata!.lastname}",
+                              style: TextStyle(
+                                  color: AppColor.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16.7.r),
+                            ),
                           ),
                           SizedBox(
                             height: 10.h,
@@ -175,6 +177,9 @@ class MyAccountView extends GetView<MyAccountController> {
                                   size: 20,
                                 )),
                             ListTile(
+                              onTap: () {
+                                controller.deleteMyAccount();
+                              },
                               leading: SvgPicture.asset(AppImage.logout),
                               title: Text(
                                 'Logout',

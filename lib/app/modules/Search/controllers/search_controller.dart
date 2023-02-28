@@ -16,15 +16,8 @@ class SearchController extends GetxController {
   }
 
   @override
-  void onInit() {
-
-    super.onInit();
-  }
-
-  @override
   void refresh() {
     searchModel;
     super.refresh();
   }
-
 }

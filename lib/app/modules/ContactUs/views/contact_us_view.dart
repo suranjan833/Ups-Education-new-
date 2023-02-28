@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/appcolor.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 import '../controllers/contact_us_controller.dart';
 
@@ -28,11 +27,11 @@ class ContactUsView extends GetView<ContactUsController> {
         ),
         // centerTitle: true,
       ),
-      body: Center(
-        // child: WebViewWidget(
-        //   controller: controller.controller,
-        // ),
-      ),
+      body: const Center(
+          // child: WebViewWidget(
+          //   controller: controller.controller,
+          // ),
+          ),
     );
   }
 }

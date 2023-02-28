@@ -12,9 +12,8 @@ class OurSuccessfulStudentController extends GetxController {
   }
 
   Future getHomePageData() async {
-    String? userid = "1";
-   // getBox.read(USER_ID);
-    var response = await dioGet(ApiUrls.homePage(userid.toString()));
+    String? userid = getBox.read(USER_ID);
+    var response = await dioGet("/appstudentreview");
 
     if (response.statusCode == 200) {
       return homeviewModel(HomePageModel.fromJson(response.data));

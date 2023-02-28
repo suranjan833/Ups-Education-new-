@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 import '../controllers/search_controller.dart';
@@ -13,7 +12,7 @@ class SearchView extends GetView<SearchController> {
         key: controller.scaffoldKey,
         appBar: AppBar(
           backgroundColor: Colors.white,
-          leading:   Padding(
+          leading: Padding(
             padding: EdgeInsets.all(8.0.r),
             child: InkWell(
               onTap: () {

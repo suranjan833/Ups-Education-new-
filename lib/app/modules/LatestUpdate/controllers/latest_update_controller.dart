@@ -12,7 +12,7 @@ class LatestUpdateController extends GetxController {
   }
 
   Future getHomePageData() async {
-    String? userid = "1"; // getBox.read(USER_ID);
+    String? userid =  getBox.read(USER_ID);
     var response = await dioGet(ApiUrls.homePage(userid.toString()));
 
     if (response.statusCode == 200) {

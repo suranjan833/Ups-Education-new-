@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/app_drawer.dart';
 import 'package:ups_education/app/modules/Cart/views/cart_view.dart';
@@ -158,7 +159,8 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
           )
         ],
       ),
-      body: Obx(() => IndexedStack(
+      body: Obx(
+        () => IndexedStack(
             index: controller.tabIndex.value,
             children: const [
               HomeView(),
@@ -167,7 +169,9 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
               WishlistView(),
               HomeView(),
             ],
-          )),
+          ),
+        ),
+      
     );
   }
 }

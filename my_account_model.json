@@ -1,0 +1,42 @@
+{
+    "data": {
+        "totalcourse": {
+            "icon": "http://mob.psycourse.in/front/assets/image/my-course-icon.jpg",
+            "link": "http://mob.upseducation.in/mobiletoken/yourtoken?redirect_to=customer/mycourse",
+            "title": "Total Courses",
+            "totalcount": 0
+        },
+        "totalwishlistcourses": {
+            "icon": "http://mob.psycourse.in/front/assets/image/wish-lIst-icon.jpg",
+            "link": "http://mob.upseducation.in/mobiletoken/yourtoken?redirect_to=customer/mywishlist",
+            "title": "Total Wishlist Courses",
+            "totalcount": 0
+        },
+        "totalfreecourses": {
+            "icon": "http://mob.psycourse.in/front/assets/image/free-test-icon.jpg",
+            "title": "Free Test",
+            "link": "http://mob.upseducation.in/mobiletoken/yourtoken?redirect_to=customer/myfreetest",
+            "totalcount": 0
+        },
+        "userdata": {
+            "userid": 8546,
+            "firstname": "Amit",
+            "lastname": "kumar",
+            "email": "amit12@gmail.com",
+            "mobile": "1234567890",
+            "city": "",
+            "address": "NSP",
+            "gender": "male",
+            "image": "http://mob.upseducation.in/upload/no_image.png",
+            "pincode": "110092",
+            "country_id": 99,
+            "state_id": 1,
+            "state": "Andra Pradesh",
+            "dyear": "1991",
+            "dmonth": "12",
+            "dday": "18"
+        }
+    },
+    "status": 1,
+    "message": "Data Successfully"
+}

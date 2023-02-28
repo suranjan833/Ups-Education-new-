@@ -8,23 +8,23 @@ import 'package:ups_education/app/data/config/config.dart';
 
 Future<DIO.Response<dynamic>> dioGet(String endUrl) async {
   var dio = DIO.Dio();
-  // if (getBox.read(LOGIN_TRUE) ?? false) {
-  // dio.options.headers['Authorization'] =
-  //     "Bearer ${getBox.read(USER_ID) ?? ''}";
-  // }
+  if (getBox.read(USER_LOGIN) ?? false) {
+  dio.options.headers['Authorization'] =
+      "Bearer ${getBox.read(USER_ID) ?? ''}";
+  }
 
   var response = await dio.get(
-    endUrl,
+    "$BASE_URL$endUrl",
     options: DIO.Options(
       validateStatus: (status) => true,
       sendTimeout: 100000,
       receiveTimeout: 15000,
     ),
   );
-  // isDebugMode.value
-  //     ? log(
-  //         "\n\nGET: $endUrl\nSTATUS CODE: ${response.statusCode}\n${jsonEncode(response.data)}\n\n")
-  //     : null;
+  isDebugMode.value
+      ? log(
+          "\n\nGET: $endUrl\nSTATUS CODE: ${response.statusCode}\n${jsonEncode(response.data)}\n\n")
+      : null;
   return response;
 }
 

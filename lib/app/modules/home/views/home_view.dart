@@ -14,15 +14,10 @@ import 'package:ups_education/app/data/widgets/home_tetmonial.dart';
 import 'package:ups_education/app/data/widgets/self_assessment.dart';
 import 'package:ups_education/app/modules/ExamInfo/views/exam_info_view.dart';
 import 'package:ups_education/app/modules/FreeNotes/views/free_notes_view.dart';
-import 'package:ups_education/app/modules/LatestUpdate/views/latest_update_view.dart';
 import 'package:ups_education/app/modules/Live/views/live_view.dart';
-import 'package:ups_education/app/modules/MyCourse/views/my_course_view.dart';
-import 'package:ups_education/app/modules/OurSuccessfulStudent/views/our_successful_student_view.dart';
 import 'package:ups_education/app/modules/PsychologyEntrance/views/psychology_entrance_view.dart';
 import 'package:ups_education/app/modules/Quiz/views/quiz_view.dart';
 import 'package:ups_education/app/modules/Search/views/search_view.dart';
-import 'package:ups_education/app/modules/SuggestedVideos/views/suggested_videos_view.dart';
-import 'package:ups_education/app/modules/Testimonials/views/testimonials_view.dart';
 import 'package:ups_education/app/modules/Workshop/views/workshop_view.dart';
 
 import '../controllers/home_controller.dart';
@@ -31,7 +26,9 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+  
     var controller = Get.put(HomeController());
+    controller.getHomePageData();
     return Scaffold(
         backgroundColor: AppColor.litegrey,
         body: SingleChildScrollView(
@@ -79,7 +76,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                   categoryCard(),
                   // //start   before registrations page
-                  (getBox.read(LOGIN_TRUE) == null)
+                  getBox.read(USER_ID) == null
                       ? Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -721,17 +718,16 @@ class HomeView extends GetView<HomeController> {
 
   Widget scrollVideo() {
     return Obx(
-      () => controller.studentSuggestedModel.value.data != null
+      () => controller.suggestedVideoModel.value.data != null
           ? SizedBox(
               height: 145.h,
               width: 428.w,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount:
-                      controller.studentSuggestedModel.value.data?.length,
+                  itemCount: controller.suggestedVideoModel.value.data?.length,
                   itemBuilder: (context, index) {
                     var data =
-                        controller.studentSuggestedModel.value.data![index];
+                        controller.suggestedVideoModel.value.data![index];
                     return SizedBox(
                       height: 135.h,
                       width: 235.w,

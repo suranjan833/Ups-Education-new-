@@ -12,8 +12,8 @@ class LiveController extends GetxController {
   }
 
   Future liveVideoData() async {
-    String? userid = "1";
-   // getBox.read(USER_ID);
+    String? userid = 
+   getBox.read(USER_ID);
     var response = await dioGet(ApiUrls.live(userid.toString()));
 
     if (response.statusCode == 200) {

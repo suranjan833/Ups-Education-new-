@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/function/dio_post.dart';
 import 'package:ups_education/app/data/model/cart_model.dart';
 
 class CartController extends GetxController {
-
+var refreshControllerForCart = RefreshController();
 
    var cartModel = CartModel().obs;
 
@@ -15,11 +16,10 @@ class CartController extends GetxController {
   }
 
   Future cartData() async {
-    String? userid = getBox.read(USER_ID);
     var data = {
-      "user_id": "1"//userid
+      "user_id": getBox.read(USER_ID)
     };
-    var response = await dioPost(endUrl: ApiUrls.myAccount, data: data);
+    var response = await dioPost(endUrl: "/appcartlist",data: data);
 
     if (response.statusCode == 200) {
       return cartModel(CartModel.fromJson(response.data));
