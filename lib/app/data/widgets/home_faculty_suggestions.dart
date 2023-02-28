@@ -2,26 +2,123 @@
 
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
+import 'package:ups_education/app/modules/home/controllers/home_controller.dart';
 
 class HomeFacultySuggestions extends StatelessWidget {
   const HomeFacultySuggestions({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Wrap(spacing: 18, children: [
-          buildfacultvideo(),
-          buildfacultvideo(),
-          buildfacultvideo(),
-          buildfacultvideo(),
-          buildfacultvideo()
-          // buildfacultvideo("https://youtu.be/3It49x562b0"),
-          // buildfacultvideo(
-          //     "https://www.youtube.com/live/mCMd73gBL0s?feature=share"),
-          // buildfacultvideo("https://youtu.be/Zff3rUY0iGg"),
-          // buildfacultvideo("https://youtu.be/cGNvKV4u6zw"),
-          // buildfacultvideo("https://youtu.be/JqfvfdmUo6k"),
-        ]));
+    // ignore: unused_local_variable
+    var controller = Get.put(HomeController());
+    return Obx(() => controller.homeviewModel.value.data?.upshomepaid != null
+        ? SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Wrap(spacing: 18, children: [
+              buildfacultvideo(),
+              buildfacultvideo(),
+              buildfacultvideo(),
+              buildfacultvideo(),
+              buildfacultvideo()
+            ]))
+        : SizedBox(
+            height: 214.h,
+            width: 428.w,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount:
+                    controller.homeviewModel.value.data?.upshomepaid!.length,
+                itemBuilder: (context, index) {
+                  if (controller.homeviewModel.value.data?.upshomepaid![index]
+                          .title ==
+                      "Faculty Suggestion") {
+                    return SizedBox(
+                      height: 214.h,
+                      width: 420.w,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: controller.homeviewModel.value.data
+                              ?.upshomepaid![index].items!.length,
+                          itemBuilder: (context, i) {
+                            var data = controller.homeviewModel.value.data
+                                ?.upshomepaid![index].items![i];
+                            return SizedBox(
+                              height: 175.h,
+                              width: 255.w,
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: AppColor.white,
+                                        borderRadius:
+                                            BorderRadius.circular(17.r)),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Container(
+                                          height: 100.h,
+                                          width: 250.w,
+                                          decoration: BoxDecoration(
+                                              color: AppColor.green,
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(17.r),
+                                                topRight: Radius.circular(17.r),
+                                              ),
+                                              image: DecorationImage(
+                                                  colorFilter: const ColorFilter
+                                                      .srgbToLinearGamma(),
+                                                  fit: BoxFit.cover,
+                                                  image: NetworkImage(
+                                                      data!.image.toString()))),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 8.h,
+                                              bottom: 8.h,
+                                              left: 12.w,
+                                              right: 45.w),
+                                          child: Text(
+                                            data.name.toString(),
+                                            style: TextStyle(
+                                                fontSize: 14.w,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin:
+                                        REdgeInsets.only(right: 12, bottom: 10),
+                                    alignment: Alignment.bottomRight,
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      size: 26.w,
+                                      color: AppColor.green,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            );
+                          }),
+                    );
+                  } else {
+                    return const SizedBox();
+                  }
+                }),
+          ));
+    // : const Center(child: CircularProgressIndicator()));
+
+    // return SingleChildScrollView(
+    //     scrollDirection: Axis.horizontal,
+    //     child: Wrap(spacing: 18, children: [
+    //       buildfacultvideo(),
+    //       buildfacultvideo(),
+    //       buildfacultvideo(),
+    //       buildfacultvideo(),
+    //       buildfacultvideo()
+
+    //     ]));
   }
 
   buildfacultvideo() {

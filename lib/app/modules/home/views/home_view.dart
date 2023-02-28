@@ -13,10 +13,12 @@ import 'package:ups_education/app/data/widgets/home_suggested_videos.dart';
 import 'package:ups_education/app/data/widgets/home_tetmonial.dart';
 import 'package:ups_education/app/data/widgets/self_assessment.dart';
 import 'package:ups_education/app/modules/ExamInfo/views/exam_info_view.dart';
+import 'package:ups_education/app/modules/FreeNotes/views/free_notes_view.dart';
+import 'package:ups_education/app/modules/Live/views/live_view.dart';
 import 'package:ups_education/app/modules/PsychologyEntrance/views/psychology_entrance_view.dart';
 import 'package:ups_education/app/modules/Quiz/views/quiz_view.dart';
+import 'package:ups_education/app/modules/Search/views/search_view.dart';
 import 'package:ups_education/app/modules/Workshop/views/workshop_view.dart';
-import 'package:ups_education/app/modules/videos/views/videos_view.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -24,544 +26,550 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+  
     var controller = Get.put(HomeController());
+    controller.getHomePageData();
     return Scaffold(
         backgroundColor: AppColor.litegrey,
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Container(
-              margin: REdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child:
-                  //  Obx(
-                  //   () =>
-                  Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 14.h, bottom: 5.h),
-                      child: TextFormField(
-                        controller: controller.searchController,
-                        decoration: InputDecoration(
-                          focusColor: AppColor.white,
-                          hoverColor: AppColor.white,
-                          contentPadding: EdgeInsets.symmetric(
-                              vertical: 10.h, horizontal: 16.w),
-                          hintText: 'What do you want to learn?',
-                          suffixIcon: const Icon(Icons.search),
-                          filled: true,
-                          fillColor: AppColor.white,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.r)),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: AppColor.white),
-                              borderRadius: BorderRadius.circular(15.r)),
-                        ),
+        body: SingleChildScrollView(
+          child: Container(
+            margin: REdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child:
+                //  Obx(
+                //   () =>
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 14.h, bottom: 5.h),
+                    child: TextFormField(
+                      readOnly: true,
+                      onTap: () {
+                        Get.to(const SearchView());
+                      },
+                      decoration: InputDecoration(
+                        focusColor: AppColor.white,
+                        hoverColor: AppColor.white,
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical: 10.h, horizontal: 16.w),
+                        hintText: 'What do you want to learn?',
+                        suffixIcon: const Icon(Icons.search),
+                        filled: true,
+                        fillColor: AppColor.white,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.r)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: AppColor.white),
+                            borderRadius: BorderRadius.circular(15.r)),
                       ),
                     ),
-                    scrollablePage(),
-                    Padding(
-                      padding: REdgeInsets.symmetric(vertical: 17),
-                      child: Text(
-                        'Explore categories',
-                        style: TextStyle(
-                            fontSize: 16.w, fontWeight: FontWeight.w500),
-                      ),
+                  ),
+                  scrollablePage(),
+                  Padding(
+                    padding: REdgeInsets.symmetric(vertical: 17),
+                    child: Text(
+                      'Explore categories',
+                      style: TextStyle(
+                          fontSize: 16.w, fontWeight: FontWeight.w500),
                     ),
-                    categoryCard(),
-                    // //start   before registrations page
-                    (getBox.read(LOGIN_TRUE) == null)
-                        ? Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        REdgeInsets.symmetric(vertical: 19),
-                                    child: Text(
-                                      'Suggested Videos',
-                                      style: TextStyle(
-                                          fontSize: 15.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                  ),
+                  categoryCard(),
+                  // //start   before registrations page
+                  getBox.read(USER_ID) == null
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Suggested Videos',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: const Text('View all'))
-                                ],
-                              ),
-                              const HomeSuggestedVideos(),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        REdgeInsets.symmetric(vertical: 19),
-                                    child: Text(
-                                      'Free Notes',
-                                      style: TextStyle(
-                                          fontSize: 15.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const SuggestedVideosView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeSuggestedVideos(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Free Notes',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: const Text('View all'))
-                                ],
-                              ),
-                              const HomeFreeNotes(),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        REdgeInsets.symmetric(vertical: 19),
-                                    child: Text(
-                                      'Featured Course',
-                                      style: TextStyle(
-                                          fontSize: 15.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const FreeNotesView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeFreeNotes(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Featured Course',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: const Text('View all'))
-                                ],
-                              ),
-                              const HomeFeatureCourse(),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        REdgeInsets.symmetric(vertical: 19),
-                                    child: Text(
-                                      'Recent Quizzes',
-                                      style: TextStyle(
-                                          fontSize: 15.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const MyCourseView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeFeatureCourse(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Recent Quizzes',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: const Text('View all'))
-                                ],
-                              ),
-                              const HomeRecentQuizze(),
-                              Container(
-                                margin: EdgeInsets.only(top: 14.h),
-                                color: AppColor.apcolor,
-                                child: Image(
-                                    color: Colors.amber,
-                                    height: 150.h,
-                                    width: 400.w,
-                                    fit: BoxFit.fill,
-                                    image: AssetImage(AppImage.home_banner)),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        REdgeInsets.symmetric(vertical: 19),
-                                    child: Text(
-                                      'Latest Updates',
-                                      style: TextStyle(
-                                          fontSize: 15.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const QuizView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeRecentQuizze(),
+                            Container(
+                              margin: EdgeInsets.only(top: 14.h),
+                              color: AppColor.apcolor,
+                              child: Image(
+                                  color: Colors.amber,
+                                  height: 150.h,
+                                  width: 400.w,
+                                  fit: BoxFit.fill,
+                                  image: AssetImage(AppImage.home_banner)),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Latest Updates',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: const Text('View all'))
-                                ],
-                              ),
-                              const HomeLatestUpdate(),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        REdgeInsets.symmetric(vertical: 19),
-                                    child: Text(
-                                      'Our successful students',
-                                      style: TextStyle(
-                                          fontSize: 15.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const LatestUpdateView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeLatestUpdate(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Our Successful Students',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: const Text('View all'))
-                                ],
-                              ),
-                              const HomeOurSuccessfulStudent(),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        REdgeInsets.symmetric(vertical: 19),
-                                    child: Text(
-                                      'Testmonials',
-                                      style: TextStyle(
-                                          fontSize: 15.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const OurSuccessfulStudentView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeOurSuccessfulStudent(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Testmonials',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: const Text('View all'))
-                                ],
-                              ),
-                              const HomeTestimonials(),
-                            ],
-                          )
-                        :
-                        //   //  //end before registeation page
-                        //    //start after register page
-                        Obx(
-                            () => Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        REdgeInsets.symmetric(vertical: 19),
-                                    child: Text(
-                                      'UGC NET JRF & Clinical psychology\nentrance coaching',
-                                      style: TextStyle(
-                                          fontSize: 15.w,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const TestimonialsView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeTestimonials(),
+                          ],
+                        )
+                      :
+                      //   //  //end before registeation page
+                      //    //start after register page
+                      Obx(
+                          () => Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'UGC NET JRF & Clinical psychology\nentrance coaching',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  Wrap(
-                                    spacing: 14.w,
-                                    alignment: WrapAlignment.spaceBetween,
-                                    runAlignment: WrapAlignment.spaceBetween,
-                                    runSpacing: 12.w,
-                                    children: [
-                                      InkWell(
-                                        onTap: () {
-                                          controller.assessment.value == true
-                                              ? controller.assessment.value =
-                                                  false
-                                              : controller.assessment.value =
-                                                  true;
-                                        },
-                                        child: Container(
-                                          padding: REdgeInsets.symmetric(
-                                              horizontal: 15.r, vertical: 9.r),
-                                          decoration: BoxDecoration(
+                                ),
+                                Wrap(
+                                  spacing: 14.w,
+                                  alignment: WrapAlignment.spaceBetween,
+                                  runAlignment: WrapAlignment.spaceBetween,
+                                  runSpacing: 12.w,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        controller.assessment.value == true
+                                            ? controller.assessment.value =
+                                                false
+                                            : controller.assessment.value =
+                                                true;
+                                      },
+                                      child: Container(
+                                        padding: REdgeInsets.symmetric(
+                                            horizontal: 15.r, vertical: 9.r),
+                                        decoration: BoxDecoration(
+                                            color:
+                                                controller.assessment.value ==
+                                                        true
+                                                    ? AppColor.white
+                                                    : AppColor.green,
+                                            borderRadius:
+                                                BorderRadius.circular(12.r)),
+                                        child: Text(
+                                          'Videos',
+                                          style: TextStyle(
+                                              color:
+                                                  controller.assessment.value ==
+                                                          true
+                                                      ? AppColor.black
+                                                          .withOpacity(0.5)
+                                                      : AppColor.white,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        controller.assessment.value == true
+                                            ? controller.assessment.value =
+                                                false
+                                            : controller.assessment.value =
+                                                true;
+                                      },
+                                      child: Container(
+                                        padding: REdgeInsets.symmetric(
+                                            horizontal: 15.r, vertical: 9.r),
+                                        decoration: BoxDecoration(
+                                            color:
+                                                controller.assessment.value ==
+                                                        true
+                                                    ? AppColor.green
+                                                    : AppColor.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10.r)),
+                                        child: Text(
+                                          'Self assessment',
+                                          style: TextStyle(
                                               color:
                                                   controller.assessment.value ==
                                                           true
                                                       ? AppColor.white
-                                                      : AppColor.green,
-                                              borderRadius:
-                                                  BorderRadius.circular(12.r)),
-                                          child: Text(
-                                            'Videos',
-                                            style: TextStyle(
-                                                color: controller
-                                                            .assessment.value ==
-                                                        true
-                                                    ? AppColor.black
-                                                        .withOpacity(0.5)
-                                                    : AppColor.white,
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                        ),
-                                      ),
-                                      InkWell(
-                                        onTap: () {
-                                          controller.assessment.value == true
-                                              ? controller.assessment.value =
-                                                  false
-                                              : controller.assessment.value =
-                                                  true;
-                                        },
-                                        child: Container(
-                                          padding: REdgeInsets.symmetric(
-                                              horizontal: 15.r, vertical: 9.r),
-                                          decoration: BoxDecoration(
-                                              color:
-                                                  controller.assessment.value ==
-                                                          true
-                                                      ? AppColor.green
-                                                      : AppColor.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(10.r)),
-                                          child: Text(
-                                            'Self assessment',
-                                            style: TextStyle(
-                                                color: controller
-                                                            .assessment.value ==
-                                                        true
-                                                    ? AppColor.white
-                                                    : AppColor.black
-                                                        .withOpacity(0.5),
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: REdgeInsets.symmetric(
-                                            horizontal: 15.r, vertical: 9.r),
-                                        decoration: BoxDecoration(
-                                            color: AppColor.white,
-                                            borderRadius:
-                                                BorderRadius.circular(10.r)),
-                                        child: Text(
-                                          'Mock test',
-                                          style: TextStyle(
-                                              color: AppColor.black
-                                                  .withOpacity(0.5),
+                                                      : AppColor.black
+                                                          .withOpacity(0.5),
                                               fontWeight: FontWeight.w400),
                                         ),
                                       ),
-                                      Container(
-                                        padding: REdgeInsets.symmetric(
-                                            horizontal: 15.r, vertical: 9.r),
-                                        decoration: BoxDecoration(
-                                            color: AppColor.white,
-                                            borderRadius:
-                                                BorderRadius.circular(10.r)),
-                                        child: Text(
-                                          'Practice set',
-                                          style: TextStyle(
-                                              color: AppColor.black
-                                                  .withOpacity(0.5),
-                                              fontWeight: FontWeight.w400),
-                                        ),
+                                    ),
+                                    Container(
+                                      padding: REdgeInsets.symmetric(
+                                          horizontal: 15.r, vertical: 9.r),
+                                      decoration: BoxDecoration(
+                                          color: AppColor.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10.r)),
+                                      child: Text(
+                                        'Mock test',
+                                        style: TextStyle(
+                                            color:
+                                                AppColor.black.withOpacity(0.5),
+                                            fontWeight: FontWeight.w400),
                                       ),
-                                      TextButton(
-                                          onPressed: () {},
-                                          child: const Text('View all'))
-                                    ],
-                                  ),
-                                  controller.assessment.value == true
-                                      ? const SelfAssessment()
-                                      : SizedBox(
-                                          // height: 500.h,
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              scrollVideo(),
-                                              Padding(
-                                                padding: REdgeInsets.symmetric(
-                                                    vertical: 19),
-                                                child: Text(
-                                                  'M.Phil Clinical Psychology Entrance\nCoaching',
-                                                  style: TextStyle(
-                                                      fontSize: 15.w,
-                                                      fontWeight:
-                                                          FontWeight.w500),
-                                                ),
+                                    ),
+                                    Container(
+                                      padding: REdgeInsets.symmetric(
+                                          horizontal: 15.r, vertical: 9.r),
+                                      decoration: BoxDecoration(
+                                          color: AppColor.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10.r)),
+                                      child: Text(
+                                        'Practice set',
+                                        style: TextStyle(
+                                            color:
+                                                AppColor.black.withOpacity(0.5),
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ),
+                                    TextButton(
+                                        onPressed: () {},
+                                        child: const Text('View all'))
+                                  ],
+                                ),
+                                controller.assessment.value == true
+                                    ? const SelfAssessment()
+                                    : SizedBox(
+                                        // height: 500.h,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            scrollVideo(),
+                                            Padding(
+                                              padding: REdgeInsets.symmetric(
+                                                  vertical: 19),
+                                              child: Text(
+                                                'M.Phil Clinical Psychology Entrance\nCoaching',
+                                                style: TextStyle(
+                                                    fontSize: 15.w,
+                                                    fontWeight:
+                                                        FontWeight.w500),
                                               ),
-                                              Padding(
-                                                padding: REdgeInsets.symmetric(
-                                                    vertical: 8),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceAround,
-                                                  children: [
-                                                    Container(
-                                                      padding:
-                                                          REdgeInsets.symmetric(
-                                                              horizontal: 15.r,
-                                                              vertical: 9.r),
-                                                      decoration: BoxDecoration(
-                                                          color: AppColor.green,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.r)),
-                                                      child: Text(
-                                                        'Videos',
-                                                        style: TextStyle(
-                                                            color:
-                                                                AppColor.white,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w400),
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      margin: REdgeInsets.only(
-                                                          left: 18),
-                                                      padding:
-                                                          REdgeInsets.symmetric(
-                                                              horizontal: 15.r,
-                                                              vertical: 9.r),
-                                                      decoration: BoxDecoration(
+                                            ),
+                                            Padding(
+                                              padding: REdgeInsets.symmetric(
+                                                  vertical: 8),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceAround,
+                                                children: [
+                                                  Container(
+                                                    padding:
+                                                        REdgeInsets.symmetric(
+                                                            horizontal: 15.r,
+                                                            vertical: 9.r),
+                                                    decoration: BoxDecoration(
+                                                        color: AppColor.green,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    12.r)),
+                                                    child: Text(
+                                                      'Videos',
+                                                      style: TextStyle(
                                                           color: AppColor.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.r)),
-                                                      child: Text(
-                                                        'Mock test',
-                                                        style: TextStyle(
-                                                            color: AppColor
-                                                                .black
-                                                                .withOpacity(
-                                                                    0.5),
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w400),
-                                                      ),
+                                                          fontWeight:
+                                                              FontWeight.w400),
                                                     ),
-                                                    const Spacer(),
-                                                    TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
-                                                            'View all'))
-                                                  ],
+                                                  ),
+                                                  Container(
+                                                    margin: REdgeInsets.only(
+                                                        left: 18),
+                                                    padding:
+                                                        REdgeInsets.symmetric(
+                                                            horizontal: 15.r,
+                                                            vertical: 9.r),
+                                                    decoration: BoxDecoration(
+                                                        color: AppColor.white,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    10.r)),
+                                                    child: Text(
+                                                      'Mock test',
+                                                      style: TextStyle(
+                                                          color: AppColor.black
+                                                              .withOpacity(0.5),
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    ),
+                                                  ),
+                                                  const Spacer(),
+                                                  TextButton(
+                                                      onPressed: () {},
+                                                      child: const Text(
+                                                          'View all'))
+                                                ],
+                                              ),
+                                            ),
+                                            scrollVideo(),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      REdgeInsets.symmetric(
+                                                          vertical: 19),
+                                                  child: Text(
+                                                    'Recent Quizzes',
+                                                    style: TextStyle(
+                                                        fontSize: 15.w,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                  ),
                                                 ),
-                                              ),
-                                              scrollVideo(),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        REdgeInsets.symmetric(
-                                                            vertical: 19),
-                                                    child: Text(
-                                                      'Recent Quizzes',
-                                                      style: TextStyle(
-                                                          fontSize: 15.w,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
+                                                TextButton(
+                                                    onPressed: () {},
+                                                    child:
+                                                        const Text('View all'))
+                                              ],
+                                            ),
+                                            const HomeRecentQuizze(),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      REdgeInsets.symmetric(
+                                                          vertical: 19),
+                                                  child: Text(
+                                                    'Faculty Suggestions:',
+                                                    style: TextStyle(
+                                                        fontSize: 15.w,
+                                                        fontWeight:
+                                                            FontWeight.w500),
                                                   ),
-                                                  TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text(
-                                                          'View all'))
-                                                ],
-                                              ),
-                                              const HomeRecentQuizze(),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        REdgeInsets.symmetric(
-                                                            vertical: 19),
-                                                    child: Text(
-                                                      'Faculty Suggestions:',
-                                                      style: TextStyle(
-                                                          fontSize: 15.w,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
+                                                ),
+                                                TextButton(
+                                                    onPressed: () {},
+                                                    child:
+                                                        const Text('View all'))
+                                              ],
+                                            ),
+                                            const HomeFacultySuggestions(),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      REdgeInsets.symmetric(
+                                                          vertical: 19),
+                                                  child: Text(
+                                                    'Latest Updates',
+                                                    style: TextStyle(
+                                                        fontSize: 15.w,
+                                                        fontWeight:
+                                                            FontWeight.w500),
                                                   ),
-                                                  TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text(
-                                                          'View all'))
-                                                ],
-                                              ),
-                                              const HomeFacultySuggestions(),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        REdgeInsets.symmetric(
-                                                            vertical: 19),
-                                                    child: Text(
-                                                      'Latest Updates',
-                                                      style: TextStyle(
-                                                          fontSize: 15.w,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
+                                                ),
+                                                TextButton(
+                                                    onPressed: () {
+                                                      // Get.to(
+                                                      //     const LatestUpdateView());
+                                                    },
+                                                    child:
+                                                        const Text('View all'))
+                                              ],
+                                            ),
+                                            const HomeLatestUpdate(),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      REdgeInsets.symmetric(
+                                                          vertical: 19),
+                                                  child: Text(
+                                                    'Our Successful students',
+                                                    style: TextStyle(
+                                                        fontSize: 15.w,
+                                                        fontWeight:
+                                                            FontWeight.w500),
                                                   ),
-                                                  TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text(
-                                                          'View all'))
-                                                ],
-                                              ),
-                                              const HomeLatestUpdate(),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        REdgeInsets.symmetric(
-                                                            vertical: 19),
-                                                    child: Text(
-                                                      'Our Successful students',
-                                                      style: TextStyle(
-                                                          fontSize: 15.w,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
+                                                ),
+                                                TextButton(
+                                                    onPressed: () {
+                                                      // Get.to(
+                                                      //     const OurSuccessfulStudentView());
+                                                    },
+                                                    child:
+                                                        const Text('View all'))
+                                              ],
+                                            ),
+                                            const HomeOurSuccessfulStudent(),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      REdgeInsets.symmetric(
+                                                          vertical: 19),
+                                                  child: Text(
+                                                    'Testmonials',
+                                                    style: TextStyle(
+                                                        fontSize: 15.w,
+                                                        fontWeight:
+                                                            FontWeight.w500),
                                                   ),
-                                                  TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text(
-                                                          'View all'))
-                                                ],
-                                              ),
-                                              const HomeOurSuccessfulStudent(),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        REdgeInsets.symmetric(
-                                                            vertical: 19),
-                                                    child: Text(
-                                                      'Testmonials',
-                                                      style: TextStyle(
-                                                          fontSize: 15.w,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
-                                                  ),
-                                                  TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text(
-                                                          'View all'))
-                                                ],
-                                              ),
-                                              const HomeTestimonials(),
-                                            ],
-                                          ),
+                                                ),
+                                                TextButton(
+                                                    onPressed: () {
+                                                      // Get.to(
+                                                      //     const TestimonialsView());
+                                                    },
+                                                    child:
+                                                        const Text('View all'))
+                                              ],
+                                            ),
+                                            const HomeTestimonials(),
+                                          ],
                                         ),
-                                ]),
-                          )
+                                      ),
+                              ]),
+                        )
 
-                    // //end after registration page
-                  ]),
-            ),
+                  // //end after registration page
+                ]),
           ),
         )
         // )
@@ -569,59 +577,51 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget scrollablePage() {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              color: AppColor.green, borderRadius: BorderRadius.circular(14.r)),
-          height: 145.h,
-          // width: 255.w,
-          margin: EdgeInsets.symmetric(vertical: 5.h),
+    return Obx(
+      () => controller.homeviewModel.value.data?.allbanner != null
+          ? Column(
+              children: [
+                Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14.r)),
+                    height: 145.h,
+                    // width: 255.w,
+                    margin: EdgeInsets.symmetric(vertical: 5.h),
 
-          // pageviews
-          child: PageView(
-            controller: controller.pageController,
-            children: <Widget>[
-              Container(
-                height: 140.h,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.r),
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: Image.asset(AppImage.home_banner).image)),
-              ),
-              Container(
-                height: 140.h,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20).r,
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: Image.asset(AppImage.home_banner).image)),
-              ),
-              Container(
-                height: 140.h,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.r),
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: Image.asset(AppImage.home_banner).image)),
-              ),
-            ],
-          ),
-        ),
-        SmoothPageIndicator(
-          axisDirection: Axis.horizontal,
-          controller: controller.pageController,
-          count: 3,
-          textDirection: TextDirection.ltr,
-          effect: SlideEffect(
-              spacing: 2,
-              radius: 3,
-              dotWidth: 27,
-              dotHeight: 4,
-              activeDotColor: AppColor.apcolor),
-        ),
-      ],
+                    // pageviews
+                    child: PageView.builder(
+                      scrollDirection: Axis.horizontal,
+                      controller: controller.pageController,
+                      itemCount: controller
+                          .homeviewModel.value.data?.allbanner?.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          height: 140.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(14.r),
+                              image: DecorationImage(
+                                fit: BoxFit.fitWidth,
+                                image: NetworkImage(controller.homeviewModel
+                                    .value.data!.allbanner![index].image
+                                    .toString()),
+                              )),
+                        );
+                      },
+                    )),
+                SmoothPageIndicator(
+                  axisDirection: Axis.horizontal,
+                  controller: controller.pageController,
+                  count: controller.homeviewModel.value.data!.allbanner!.length,
+                  effect: SlideEffect(
+                      spacing: 2,
+                      radius: 3,
+                      dotWidth: 27,
+                      dotHeight: 4,
+                      activeDotColor: AppColor.apcolor),
+                )
+              ],
+            )
+          : const Center(child: CircularProgressIndicator()),
     );
   }
 
@@ -654,13 +654,16 @@ class HomeView extends GetView<HomeController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              buildCat('Free Notes', AppColor.greenaa, AppImage.notes),
+              buildCat('Free Notes', AppColor.greenaa, AppImage.notes,
+                  ontap: () {
+                Get.to(const FreeNotesView());
+              }),
               buildCat('Exam info', AppColor.focolor, AppImage.examinfo,
                   ontap: () {
                 Get.to(const ExamInfoView());
               }),
               buildCat('Live', AppColor.greenaa, AppImage.live, ontap: () {
-                Get.to(const VideosView());
+                Get.to(const LiveView());
               }),
             ],
           ),
@@ -673,7 +676,7 @@ class HomeView extends GetView<HomeController> {
     return InkWell(
       onTap: ontap,
       child: Container(
-        width: 95.w,
+        width: 87.w,
         height: 100.h,
         padding: EdgeInsets.all(14.r),
         decoration: BoxDecoration(
@@ -697,10 +700,11 @@ class HomeView extends GetView<HomeController> {
                 child: Center(
                   child: Text(
                     title,
+                    textAlign: TextAlign.center,
                     // maxLines: 1,
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: 13.w,
+                      fontSize: 12.5.w,
                     ),
                   ),
                 ),
@@ -713,25 +717,101 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget scrollVideo() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Wrap(
-        spacing: 18,
-        children: [
-          buildVideoScroll(),
-          buildVideoScroll(),
-          buildVideoScroll(),
-          buildVideoScroll(),
-          buildVideoScroll()
-          // buildVideoScroll(
-          //     "https://www.youtube.com/live/3xKq9CtYLqw?feature=share"),
-          // buildVideoScroll("https://youtu.be/lE6RYpe9IT0"),
-          // buildVideoScroll("https://youtu.be/eKFTSSKCzWA"),
-          // buildVideoScroll("https://youtu.be/Hg1-NHJ7-sY"),
-          // buildVideoScroll("https://www.youtube.com/watch?v=jPwWa6InIHU"),
-        ],
-      ),
+    return Obx(
+      () => controller.suggestedVideoModel.value.data != null
+          ? SizedBox(
+              height: 145.h,
+              width: 428.w,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.suggestedVideoModel.value.data?.length,
+                  itemBuilder: (context, index) {
+                    var data =
+                        controller.suggestedVideoModel.value.data![index];
+                    return SizedBox(
+                      height: 135.h,
+                      width: 235.w,
+                      child: Stack(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(right: 10.w),
+                            decoration: BoxDecoration(
+                                color: AppColor.white,
+                                borderRadius: BorderRadius.circular(15.r)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  height: 85.h,
+                                  width: 230.w,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10.r),
+                                        topRight: Radius.circular(10.r),
+                                      ),
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(
+                                              data.image.toString()))),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 8.h, horizontal: 18.w),
+                                  child: Text(
+                                    data.name.toString(),
+                                    maxLines: 2,
+                                    style: TextStyle(
+                                        fontSize: 14.w,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: REdgeInsets.only(right: 20, top: 40),
+                            alignment: Alignment.centerRight,
+                            child: CircleAvatar(
+                              radius: 20,
+                              backgroundColor:
+                                  AppColor.greenaa.withOpacity(0.4),
+                              child: CircleAvatar(
+                                radius: 15,
+                                backgroundColor: AppColor.white,
+                                child: Icon(
+                                  Icons.play_arrow,
+                                  size: 25.w,
+                                  color: AppColor.green,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  }),
+            )
+          : const Center(child: CircularProgressIndicator()),
     );
+    // SingleChildScrollView(
+    //   scrollDirection: Axis.horizontal,
+    //   child: Wrap(
+    //     spacing: 18,
+    //     children: [
+    //       buildVideoScroll(),
+    //       buildVideoScroll(),
+    //       buildVideoScroll(),
+    //       buildVideoScroll(),
+    //       buildVideoScroll()
+    //       // buildVideoScroll(
+    //       //     "https://www.youtube.com/live/3xKq9CtYLqw?feature=share"),
+    //       // buildVideoScroll("https://youtu.be/lE6RYpe9IT0"),
+    //       // buildVideoScroll("https://youtu.be/eKFTSSKCzWA"),
+    //       // buildVideoScroll("https://youtu.be/Hg1-NHJ7-sY"),
+    //       // buildVideoScroll("https://www.youtube.com/watch?v=jPwWa6InIHU"),
+    //     ],
+    //   ),
+    // );
   }
 
   buildVideoScroll() {

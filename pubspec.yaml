@@ -16,6 +16,13 @@ dependencies:
   any_link_preview: ^2.0.9
   get_storage: ^2.0.3
   flutter_svg: ^1.1.6
+  metadata_fetch: ^0.4.1
+  dio: ^4.0.6
+  flutter_widget_from_html_core: ^0.9.1
+  cached_network_image: ^3.2.3
+  youtube_plyr_iframe: ^2.0.7
+  webview_flutter: ^4.0.2
+  pull_to_refresh: ^2.0.0
 
 dev_dependencies: 
   flutter_lints: ^2.0.0

@@ -38,385 +38,384 @@ class InternshipView extends GetView<InternshipController> {
                 color: AppColor.black.withOpacity(0.8), fontSize: 15.w),
           ),
         ),
-        body: SafeArea(
-            child: SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Container(
-            // height: 1290.h,
-            margin: REdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            // padding: REdgeInsets.all(15.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: REdgeInsets.symmetric(vertical: 14),
-                  child: TextFormField(
-                    controller: controller.searchController,
-                    decoration: InputDecoration(
-                      focusColor: AppColor.white,
-                      hoverColor: AppColor.white,
-                      contentPadding:
-                          REdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                      hintText: 'What do you want to learn?',
-                      suffixIcon: const Icon(Icons.search),
-                      filled: true,
-                      fillColor: AppColor.white,
-                      border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(ScreenUtil().radius(15))),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: AppColor.black.withOpacity(0.6)),
-                          borderRadius:
-                              BorderRadius.circular(ScreenUtil().radius(20))),
-                    ),
-                  ),
+        // height: 1290.h,
+        margin: REdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        // padding: REdgeInsets.all(15.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: REdgeInsets.symmetric(vertical: 14),
+              child: TextFormField(
+                controller: controller.searchController,
+                decoration: InputDecoration(
+                  focusColor: AppColor.white,
+                  hoverColor: AppColor.white,
+                  contentPadding:
+                      REdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  hintText: 'What do you want to learn?',
+                  suffixIcon: const Icon(Icons.search),
+                  filled: true,
+                  fillColor: AppColor.white,
+                  border: OutlineInputBorder(
+                      borderRadius:
+                          BorderRadius.circular(ScreenUtil().radius(15))),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColor.black.withOpacity(0.6)),
+                      borderRadius:
+                          BorderRadius.circular(ScreenUtil().radius(20))),
                 ),
-                Padding(
-                  padding: REdgeInsets.symmetric(vertical: 10),
-                  child: Text(
-                    'Intership',
-                    style:
-                        TextStyle(fontSize: 18.w, fontWeight: FontWeight.w600),
-                  ),
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
+              ),
+            ),
+            Padding(
+              padding: REdgeInsets.symmetric(vertical: 10),
+              child: Text(
+                'Intership',
+                style:
+                    TextStyle(fontSize: 18.w, fontWeight: FontWeight.w600),
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              height: 190,
-                              width: 150.w,
-                              padding: EdgeInsets.all(2.r),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    // padding: EdgeInsets.all(10.r),
-                                    height: 78.h,
-                                    width: 150.w,
-                                    decoration: BoxDecoration(
-                                        color: Colors.teal,
-                                        borderRadius: BorderRadius.circular(15),
-                                        image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: AssetImage(
-                                                AppImage.home_banner))),
-                                  ),
-                                  Text(
-                                    'By DR. Arvind Otta',
+                        Container(
+                          height: 190,
+                          width: 150.w,
+                          padding: EdgeInsets.all(2.r),
+                          child: Column(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                // padding: EdgeInsets.all(10.r),
+                                height: 78.h,
+                                width: 150.w,
+                                decoration: BoxDecoration(
+                                    color: Colors.teal,
+                                    borderRadius: BorderRadius.circular(15),
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                            AppImage.home_banner))),
+                              ),
+                              Text(
+                                'By DR. Arvind Otta',
+                                style: TextStyle(
+                                    fontSize: 15.r,
+                                    // fontWeight: FontWeight.w600,
+                                    color: AppColor.black.withOpacity(0.6)),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: SizedBox(
+                                  height: 70.h,
+                                  width: 140.w,
+                                  child: Text(
+                                    'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
+                                    maxLines: 2,
                                     style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 14.r,
+                                        color: AppColor.black),
+                                  ),
+                                ),
+                              ),
+                              Wrap(
+                                children: [
+                                  Text(
+                                    '4.5',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
                                         fontSize: 15.r,
-                                        // fontWeight: FontWeight.w600,
-                                        color: AppColor.black.withOpacity(0.6)),
+                                        color: AppColor.black),
                                   ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: SizedBox(
-                                      height: 70.h,
-                                      width: 140.w,
-                                      child: Text(
-                                        'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
-                                        maxLines: 2,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 14.r,
-                                            color: AppColor.black),
-                                      ),
-                                    ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
                                   ),
-                                  Wrap(
-                                    children: [
-                                      Text(
-                                        '4.5',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 15.r,
-                                            color: AppColor.black),
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      )
-                                    ],
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
                                   ),
-                                  Divider(
-                                    color: AppColor.black.withOpacity(0.3),
-                                    thickness: 1.3,
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 6.r, vertical: 3.r),
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: AppColor.green),
-                                        child: Text(
-                                          '9% off',
-                                          style:
-                                              TextStyle(color: AppColor.white),
-                                        ),
-                                      ),
-                                      Text(
-                                        '\u{20B9} 42000.00',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            color: AppColor.black),
-                                      ),
-                                    ],
-                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
+                                  )
                                 ],
                               ),
-                            ),
-                            Container(
-                              height: 190,
-                              width: 150.w,
-                              padding: EdgeInsets.all(2.r),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    // padding: EdgeInsets.all(10.r),
-                                    height: 78.h,
-                                    width: 150.w,
-                                    decoration: BoxDecoration(
-                                        color: Colors.teal,
-                                        borderRadius: BorderRadius.circular(15),
-                                        image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: AssetImage(
-                                                AppImage.home_banner))),
-                                  ),
-                                  Text(
-                                    'By DR. Arvind Otta',
-                                    style: TextStyle(
-                                        fontSize: 15.r,
-                                        // fontWeight: FontWeight.w600,
-                                        color: AppColor.black.withOpacity(0.6)),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: SizedBox(
-                                      height: 70.h,
-                                      width: 140.w,
-                                      child: Text(
-                                        'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
-                                        maxLines: 2,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 14.r,
-                                            color: AppColor.black),
-                                      ),
-                                    ),
-                                  ),
-                                  Wrap(
-                                    children: [
-                                      Text(
-                                        '4.5',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 15.r,
-                                            color: AppColor.black),
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      )
-                                    ],
-                                  ),
-                                  Divider(
-                                    color: AppColor.black.withOpacity(0.3),
-                                    thickness: 1.3,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '\u{20B9} 53000.00',
-                                        style: TextStyle(
-                                            decoration:
-                                                TextDecoration.lineThrough,
-                                            fontWeight: FontWeight.w400,
-                                            color: AppColor.black
-                                                .withOpacity(0.5)),
-                                      ),
-                                      Text(
-                                        '\u{20B9} 42000.00',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            color: AppColor.black),
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                              Divider(
+                                color: AppColor.black.withOpacity(0.3),
+                                thickness: 1.3,
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 25.h,
-                        ),
-                        GridView.count(
-                          // padding: EdgeInsets.all(7.r),
-                          scrollDirection: Axis.vertical,
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 20.0,
-                          mainAxisSpacing: 20.0,
-                          shrinkWrap: true,
-                          children: List.generate(
-                            4,
-                            (index) {
-                              return Column(
+                              Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.all(6.r),
-                                    height: 78.h,
-                                    width: 170.w,
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 6.r, vertical: 3.r),
                                     decoration: BoxDecoration(
-                                        color: Colors.teal,
                                         borderRadius:
-                                            BorderRadius.circular(10.r),
-                                        image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: AssetImage(
-                                                AppImage.home_banner))),
-                                  ),
-                                  Text(
-                                    'By DR. Arvind Otta',
-                                    style: TextStyle(
-                                        fontSize: 15.r,
-                                        // fontWeight: FontWeight.w600,
-                                        color: AppColor.black.withOpacity(0.6)),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: SizedBox(
-                                      height: 70.h,
-                                      width: 140.w,
-                                      child: Text(
-                                        'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 14.r,
-                                            color: AppColor.black),
-                                      ),
+                                            BorderRadius.circular(5),
+                                        color: AppColor.green),
+                                    child: Text(
+                                      '9% off',
+                                      style:
+                                          TextStyle(color: AppColor.white),
                                     ),
                                   ),
-                                  Wrap(
-                                    children: [
-                                      Text(
-                                        '4.5',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 15.r,
-                                            color: AppColor.black),
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        size: 18.r,
-                                        color: Colors.amber,
-                                      )
-                                    ],
-                                  ),
-                                  Divider(
-                                    color: AppColor.black.withOpacity(0.3),
-                                    thickness: 1.3,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '\u{20B9} 53000.00',
-                                        style: TextStyle(
-                                            decoration:
-                                                TextDecoration.lineThrough,
-                                            fontWeight: FontWeight.w400,
-                                            color: AppColor.black
-                                                .withOpacity(0.5)),
-                                      ),
-                                      Text(
-                                        '\u{20B9} 42000.00',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            color: AppColor.black),
-                                      ),
-                                    ],
+                                  Text(
+                                    '\u{20B9} 42000.00',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColor.black),
                                   ),
                                 ],
-                              );
-                            },
+                              ),
+                            ],
                           ),
                         ),
-                      ]),
-                ),
-              ],
+                        Container(
+                          height: 190,
+                          width: 150.w,
+                          padding: EdgeInsets.all(2.r),
+                          child: Column(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                // padding: EdgeInsets.all(10.r),
+                                height: 78.h,
+                                width: 150.w,
+                                decoration: BoxDecoration(
+                                    color: Colors.teal,
+                                    borderRadius: BorderRadius.circular(15),
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                            AppImage.home_banner))),
+                              ),
+                              Text(
+                                'By DR. Arvind Otta',
+                                style: TextStyle(
+                                    fontSize: 15.r,
+                                    // fontWeight: FontWeight.w600,
+                                    color: AppColor.black.withOpacity(0.6)),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: SizedBox(
+                                  height: 70.h,
+                                  width: 140.w,
+                                  child: Text(
+                                    'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
+                                    maxLines: 2,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 14.r,
+                                        color: AppColor.black),
+                                  ),
+                                ),
+                              ),
+                              Wrap(
+                                children: [
+                                  Text(
+                                    '4.5',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 15.r,
+                                        color: AppColor.black),
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
+                                  )
+                                ],
+                              ),
+                              Divider(
+                                color: AppColor.black.withOpacity(0.3),
+                                thickness: 1.3,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    '\u{20B9} 53000.00',
+                                    style: TextStyle(
+                                        decoration:
+                                            TextDecoration.lineThrough,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColor.black
+                                            .withOpacity(0.5)),
+                                  ),
+                                  Text(
+                                    '\u{20B9} 42000.00',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColor.black),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 25.h,
+                    ),
+                    GridView.count(
+                      // padding: EdgeInsets.all(7.r),
+                      scrollDirection: Axis.vertical,
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 20.0,
+                      mainAxisSpacing: 20.0,
+                      shrinkWrap: true,
+                      children: List.generate(
+                        4,
+                        (index) {
+                          return Column(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(6.r),
+                                height: 78.h,
+                                width: 170.w,
+                                decoration: BoxDecoration(
+                                    color: Colors.teal,
+                                    borderRadius:
+                                        BorderRadius.circular(10.r),
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                            AppImage.home_banner))),
+                              ),
+                              Text(
+                                'By DR. Arvind Otta',
+                                style: TextStyle(
+                                    fontSize: 15.r,
+                                    // fontWeight: FontWeight.w600,
+                                    color: AppColor.black.withOpacity(0.6)),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: SizedBox(
+                                  height: 70.h,
+                                  width: 140.w,
+                                  child: Text(
+                                    'UGC NET JRF & M.Phil Clinical Psychology Entrance - Classroom',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 14.r,
+                                        color: AppColor.black),
+                                  ),
+                                ),
+                              ),
+                              Wrap(
+                                children: [
+                                  Text(
+                                    '4.5',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 15.r,
+                                        color: AppColor.black),
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 18.r,
+                                    color: Colors.amber,
+                                  )
+                                ],
+                              ),
+                              Divider(
+                                color: AppColor.black.withOpacity(0.3),
+                                thickness: 1.3,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    '\u{20B9} 53000.00',
+                                    style: TextStyle(
+                                        decoration:
+                                            TextDecoration.lineThrough,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColor.black
+                                            .withOpacity(0.5)),
+                                  ),
+                                  Text(
+                                    '\u{20B9} 42000.00',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColor.black),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+                  ]),
             ),
+          ],
+        ),
           ),
-        )));
+        ));
   }
 }

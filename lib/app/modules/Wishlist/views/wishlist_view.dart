@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 import '../controllers/wishlist_controller.dart';
@@ -12,23 +13,21 @@ class WishlistView extends GetView<WishlistController> {
     var controller = Get.put(WishlistController());
     return Scaffold(
       backgroundColor: AppColor.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-            child: Column(
-          children: [
-            SizedBox(
-              height: 10.h,
-            ),
-            buildCard(),
-            buildCard(),
-            buildCard(),
-            buildCard(),
-            SizedBox(
-              height: 10.h,
-            ),
-          ],
-        )),
-      ),
+      body: SingleChildScrollView(
+          child: Column(
+        children: [
+          SizedBox(
+            height: 10.h,
+          ),
+          buildCard(),
+          buildCard(),
+          buildCard(),
+          buildCard(),
+          SizedBox(
+            height: 10.h,
+          ),
+        ],
+      )),
     );
   }
 

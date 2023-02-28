@@ -5,9 +5,14 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 final getBox = GetStorage();
+var BASE_URL = "http://mob.upseducation.in";
 const String USER_ID = "user_id";
+const String USER_TOKEN = "TOKEN";
 const String USER_EMAIL = "user_email";
-const String LOGIN_TRUE = "login_true";
+const String USER_LOGIN = "login_true";
+var isDebugMode = true.obs;
+
+
 void SHOW_SNACKBAR({int? duration, String? message, bool? isSuccess}) {
   final snackbar = GetSnackBar(
       backgroundColor: (isSuccess ?? true) ? Colors.green : Colors.red,

@@ -25,6 +25,16 @@ abstract class Routes {
   static const QUIZ_START = _Paths.QUIZ_START;
   static const VIDEOS = _Paths.VIDEOS;
   static const LOGIN = _Paths.LOGIN;
+  static const FULL_SCREEN_VIDEO = _Paths.FULL_SCREEN_VIDEO;
+  static const ABOUT_US = _Paths.ABOUT_US;
+  static const CONTACT_US = _Paths.CONTACT_US;
+  static const FREE_NOTES = _Paths.FREE_NOTES;
+  static const OUR_SUCCESSFUL_STUDENT = _Paths.OUR_SUCCESSFUL_STUDENT;
+  static const TESTIMONIALS = _Paths.TESTIMONIALS;
+  static const LATEST_UPDATE = _Paths.LATEST_UPDATE;
+  static const SUGGESTED_VIDEOS = _Paths.SUGGESTED_VIDEOS;
+  static const SEARCH = _Paths.SEARCH;
+  static const LIVE = _Paths.LIVE;
 }
 
 abstract class _Paths {
@@ -49,4 +59,14 @@ abstract class _Paths {
   static const QUIZ_START = '/quiz-start';
   static const VIDEOS = '/videos';
   static const LOGIN = '/login';
+  static const FULL_SCREEN_VIDEO = '/full-screen-video';
+  static const ABOUT_US = '/about-us';
+  static const CONTACT_US = '/contact-us';
+  static const FREE_NOTES = '/free-notes';
+  static const OUR_SUCCESSFUL_STUDENT = '/our-successful-student';
+  static const TESTIMONIALS = '/testimonials';
+  static const LATEST_UPDATE = '/latest-update';
+  static const SUGGESTED_VIDEOS = '/suggested-videos';
+  static const SEARCH = '/search';
+  static const LIVE = '/live';
 }

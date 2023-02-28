@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/home_latest_update.dart';
 import 'package:ups_education/app/modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
@@ -34,16 +32,14 @@ class ExamInfoView extends GetView<ExamInfoController> {
           ),
         ),
         title: Text(
-          'Intership',
+          'Exam Info',
           style: TextStyle(color: AppColor.black, fontSize: 16.w),
         ),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(15.r),
-            child: const HomeLatestUpdate(),
-          ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(15.r),
+          child: const HomeLatestUpdate(),
         ),
       ),
     );

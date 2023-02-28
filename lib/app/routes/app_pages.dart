@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/AboutUs/bindings/about_us_binding.dart';
+import '../modules/AboutUs/views/about_us_view.dart';
 import '../modules/BottomNavigationBar/bindings/bottom_navigation_bar_binding.dart';
 import '../modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
 import '../modules/Cart/bindings/cart_binding.dart';
@@ -8,18 +10,30 @@ import '../modules/CartDetails/bindings/cart_details_binding.dart';
 import '../modules/CartDetails/views/cart_details_view.dart';
 import '../modules/ChangePassword/bindings/change_password_binding.dart';
 import '../modules/ChangePassword/views/change_password_view.dart';
+import '../modules/ContactUs/bindings/contact_us_binding.dart';
+import '../modules/ContactUs/views/contact_us_view.dart';
 import '../modules/EditProfile/bindings/edit_profile_binding.dart';
 import '../modules/EditProfile/views/edit_profile_view.dart';
 import '../modules/ExamInfo/bindings/exam_info_binding.dart';
 import '../modules/ExamInfo/views/exam_info_view.dart';
+import '../modules/FreeNotes/bindings/free_notes_binding.dart';
+import '../modules/FreeNotes/views/free_notes_view.dart';
+import '../modules/FullScreenVideo/bindings/full_screen_video_binding.dart';
+import '../modules/FullScreenVideo/views/full_screen_video_view.dart';
 import '../modules/Internship/bindings/internship_binding.dart';
 import '../modules/Internship/views/internship_view.dart';
+import '../modules/LatestUpdate/bindings/latest_update_binding.dart';
+import '../modules/LatestUpdate/views/latest_update_view.dart';
+import '../modules/Live/bindings/live_binding.dart';
+import '../modules/Live/views/live_view.dart';
 import '../modules/Login/bindings/login_binding.dart';
 import '../modules/Login/views/login_view.dart';
 import '../modules/MyAccount/bindings/my_account_binding.dart';
 import '../modules/MyAccount/views/my_account_view.dart';
 import '../modules/MyCourse/bindings/my_course_binding.dart';
 import '../modules/MyCourse/views/my_course_view.dart';
+import '../modules/OurSuccessfulStudent/bindings/our_successful_student_binding.dart';
+import '../modules/OurSuccessfulStudent/views/our_successful_student_view.dart';
 import '../modules/PsychologyEntrance/bindings/psychology_entrance_binding.dart';
 import '../modules/PsychologyEntrance/views/psychology_entrance_view.dart';
 import '../modules/Quiz/bindings/quiz_binding.dart';
@@ -28,6 +42,12 @@ import '../modules/QuizResult/bindings/quiz_result_binding.dart';
 import '../modules/QuizResult/views/quiz_result_view.dart';
 import '../modules/QuizStart/bindings/quiz_start_binding.dart';
 import '../modules/QuizStart/views/quiz_start_view.dart';
+import '../modules/Search/bindings/search_binding.dart';
+import '../modules/Search/views/search_view.dart';
+import '../modules/SuggestedVideos/bindings/suggested_videos_binding.dart';
+import '../modules/SuggestedVideos/views/suggested_videos_view.dart';
+import '../modules/Testimonials/bindings/testimonials_binding.dart';
+import '../modules/Testimonials/views/testimonials_view.dart';
 import '../modules/Wishlist/bindings/wishlist_binding.dart';
 import '../modules/Wishlist/views/wishlist_view.dart';
 import '../modules/Workshop/bindings/workshop_binding.dart';
@@ -149,6 +169,56 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.FULL_SCREEN_VIDEO,
+      page: () => const FullScreenVideoView(),
+      binding: FullScreenVideoBinding(),
+    ),
+    GetPage(
+      name: _Paths.ABOUT_US,
+      page: () => const AboutUsView(),
+      binding: AboutUsBinding(),
+    ),
+    GetPage(
+      name: _Paths.CONTACT_US,
+      page: () => const ContactUsView(),
+      binding: ContactUsBinding(),
+    ),
+    GetPage(
+      name: _Paths.FREE_NOTES,
+      page: () => const FreeNotesView(),
+      binding: FreeNotesBinding(),
+    ),
+    GetPage(
+      name: _Paths.OUR_SUCCESSFUL_STUDENT,
+      page: () => const OurSuccessfulStudentView(),
+      binding: OurSuccessfulStudentBinding(),
+    ),
+    GetPage(
+      name: _Paths.TESTIMONIALS,
+      page: () => const TestimonialsView(),
+      binding: TestimonialsBinding(),
+    ),
+    GetPage(
+      name: _Paths.LATEST_UPDATE,
+      page: () => const LatestUpdateView(),
+      binding: LatestUpdateBinding(),
+    ),
+    GetPage(
+      name: _Paths.SUGGESTED_VIDEOS,
+      page: () => const SuggestedVideosView(),
+      binding: SuggestedVideosBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCH,
+      page: () => const SearchView(),
+      binding: SearchBinding(),
+    ),
+    GetPage(
+      name: _Paths.LIVE,
+      page: () => const LiveView(),
+      binding: LiveBinding(),
     ),
   ];
 }

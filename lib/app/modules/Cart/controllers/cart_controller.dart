@@ -1,10 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:ups_education/app/data/config/config.dart';
+import 'package:ups_education/app/data/function/dio_post.dart';
+import 'package:ups_education/app/data/model/cart_model.dart';
 
 class CartController extends GetxController {
- 
+var refreshControllerForCart = RefreshController();
+
+   var cartModel = CartModel().obs;
+
+  @override
+  void onInit() {
+    cartData();
+    super.onInit();
+  }
+
+  Future cartData() async {
+    var data = {
+      "user_id": getBox.read(USER_ID)
+    };
+    var response = await dioPost(endUrl: "/appcartlist",data: data);
+
+    if (response.statusCode == 200) {
+      return cartModel(CartModel.fromJson(response.data));
+    }
+  }
   buildRemove() {
     Get.defaultDialog(
         title: '',
