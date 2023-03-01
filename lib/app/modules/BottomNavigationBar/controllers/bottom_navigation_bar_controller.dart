@@ -11,4 +11,10 @@ class BottomNavigationBarController extends GetxController {
 
   var refreshController = RefreshController();
   var homeController = Get.put(HomeController());
+
+  @override
+  void onInit() {
+    homeController.getHomePageData();
+    super.onInit();
+  }
 }

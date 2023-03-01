@@ -12,6 +12,7 @@ class MyAccountView extends GetView<MyAccountController> {
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
     var controller = Get.put(MyAccountController());
+    controller.myAccountData();
     return Scaffold(
         backgroundColor: AppColor.black,
         body: SingleChildScrollView(

@@ -12,9 +12,7 @@ class TestimonialsController extends GetxController {
   }
 
   Future getHomePageData() async {
-    String? userid = 
-   getBox.read(USER_ID);
-    var response = await dioGet(ApiUrls.homePage(userid.toString()));
+    var response = await dioGet("/apphome?user_id=${getBox.read(USER_ID)}");
 
     if (response.statusCode == 200) {
       return homeviewModel(HomePageModel.fromJson(response.data));

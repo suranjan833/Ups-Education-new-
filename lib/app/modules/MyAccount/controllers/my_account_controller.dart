@@ -13,12 +13,11 @@ class MyAccountController extends GetxController {
   }
 
   Future myAccountData() async {
-    // var userid = getBox.read(USER_ID);
     var data = {"user_id": getBox.read(USER_ID)};
     var response = await dioPost(endUrl: "/appmyaccount", data: data);
 
     if (response.statusCode == 200) {
-      return response.data;
+      return myAccountModel(MyAccountModel.fromJson(response.data));
     }
   }
 

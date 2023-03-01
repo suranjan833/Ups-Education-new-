@@ -158,6 +158,7 @@ class AppDrawer extends StatelessWidget {
                     ),
                   ),
                   ListTile(
+                    onTap: () {},
                     minLeadingWidth: 2,
                     horizontalTitleGap: 12,
                     leading: Container(
@@ -171,16 +172,53 @@ class AppDrawer extends StatelessWidget {
                       child: SvgPicture.asset(
                           AppImage.workshop), //AppImage.internship
                     ),
-                    title: Text(
-                      controller
-                              .homeviewModel.value.data?.sidebarmenu![3].name ??
-                          "Psychology Entrance",
-                      style: TextStyle(
-                          color: AppColor.black.withOpacity(0.7),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14.r),
+                    // title: Text(
+                    //   controller
+                    //           .homeviewModel.value.data?.sidebarmenu![3].name ??
+                    //       "Psychology Entrance",
+                    //   style: TextStyle(
+                    //       color: AppColor.black.withOpacity(0.7),
+                    //       fontWeight: FontWeight.w400,
+                    //       fontSize: 14.r),
+                    // ),
+                    title: DropdownButtonHideUnderline(
+                      child: DropdownButtonFormField<String>(
+                        hint: Text(
+                            "${controller.allCategoryModel.value.data?[1].name}"),
+                        icon: const Icon(Icons.keyboard_arrow_down),
+                        isExpanded: true,
+                        decoration: InputDecoration(
+                            border: UnderlineInputBorder(
+                                borderSide: BorderSide(color: AppColor.white))),
+                        dropdownColor: AppColor.white,
+                        value: controller
+                            .allCategoryModel.value.data![1].child![0].name
+                            .toString(),
+                        items: controller.allCategoryModel.value.data?[1].child!
+                            .map<DropdownMenuItem<String>>((value) {
+                          return DropdownMenuItem<String>(
+                            onTap: () {},
+                            enabled: true,
+                            alignment: Alignment.centerLeft,
+                            value: value.name.toString(),
+                            child: Text(
+                              value.name.toString(),
+                              style: TextStyle(
+                                  color: AppColor.black.withOpacity(0.7),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14.r),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          var data = controller
+                              .allCategoryModel.value.data?[1].child!
+                              .where((element) => element.name == newValue)
+                              .toList();
+                          controller.categoryItem = data![0].name;
+                        },
+                      ),
                     ),
-                    trailing: const Icon(Icons.keyboard_arrow_down),
                   ),
                   ListTile(
                     minLeadingWidth: 2,
@@ -197,8 +235,7 @@ class AppDrawer extends StatelessWidget {
                       ),
                     ),
                     title: Text(
-                      controller
-                              .homeviewModel.value.data?.sidebarmenu![2].name ??
+                      controller.allCategoryModel.value.data?[0].name ??
                           "Workshops",
                       style: TextStyle(
                           color: AppColor.black.withOpacity(0.7),
@@ -206,7 +243,10 @@ class AppDrawer extends StatelessWidget {
                           fontSize: 14.r),
                     ),
                     onTap: () {
-                      Get.to(const WorkshopView());
+                      Get.to(const WorkshopView(), arguments: {
+                        "id": controller.allCategoryModel.value.data?[0].id
+                            .toString()
+                      });
                     },
                   ),
                   ListTile(

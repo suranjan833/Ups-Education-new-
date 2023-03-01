@@ -148,7 +148,9 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                     MaterialButton(
                       height: 50,
                       minWidth: 150,
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.back();
+                      },
                       shape: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                           borderSide: const BorderSide(color: Colors.red)),

@@ -367,7 +367,9 @@ class EditProfileView extends GetView<EditProfileController> {
                     MaterialButton(
                       height: 50.h,
                       minWidth: 145.w,
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.back();
+                      },
                       shape: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                           borderSide: const BorderSide(color: Colors.red)),
