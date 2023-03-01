@@ -1,10 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:ups_education/app/data/config/config.dart';
+import 'package:ups_education/app/data/function/dio_post.dart';
+import 'package:ups_education/app/data/model/wishlist_model.dart';
 
 class WishlistController extends GetxController {
   var refreshControllerForWishList = RefreshController();
-  buildRemove() {
+  var wishlistModel = WishlistModel().obs;
+  @override
+  void onInit() {
+    wishlistData();
+    super.onInit();
+  }
+
+  Future wishlistData() async {
+    var response =
+        await dioPost(endUrl: "/appwishlist", data: {"user_id": "6798"});
+    if (response.statusCode == 200) {
+      return wishlistModel(WishlistModel.fromJson(response.data));
+    }
+  }
+
+  Future removewishlistData(String id) async {
+    var response = await dioPost(
+        endUrl: "/appwishlistremove",
+        data: {"user_id": "${getBox.read(USER_ID)}", "id": id});
+    if (response.statusCode == 200) {
+      SHOW_SNACKBAR(isSuccess: true, message: "Wishlist Removed !!");
+    }
+    wishlistData();
+  }
+
+  buildRemove(String id) {
     Get.defaultDialog(
         title: '',
         content: Container(
@@ -44,6 +71,7 @@ class WishlistController extends GetxController {
                   ),
                   InkWell(
                     onTap: () {
+                      removewishlistData(id);
                       Get.back();
                     },
                     child: Container(

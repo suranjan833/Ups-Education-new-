@@ -10,8 +10,10 @@ class SearchController extends GetxController {
   var searchModel = SearchModel().obs;
 
   Future<SearchModel> searchData(String keyword) async {
-    var data = {"keyword": keyword};
-    var response = await dioPost(data: data, endUrl: ApiUrls.search);
+    var data = {
+      "keyword": keyword
+      };
+    var response = await dioPost(data: data, endUrl: "/appsearch");
     return searchModel(SearchModel.fromJson(response.data));
   }
 

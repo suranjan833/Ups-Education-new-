@@ -19,6 +19,7 @@ import 'package:ups_education/app/modules/PsychologyEntrance/views/psychology_en
 import 'package:ups_education/app/modules/Quiz/views/quiz_view.dart';
 import 'package:ups_education/app/modules/Search/views/search_view.dart';
 import 'package:ups_education/app/modules/Workshop/views/workshop_view.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -26,7 +27,6 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-  
     var controller = Get.put(HomeController());
     controller.getHomePageData();
     return Scaffold(
@@ -696,7 +696,7 @@ class HomeView extends GetView<HomeController> {
               flex: 1,
               child: SizedBox(
                 height: 20.h,
-                width: 70.w,
+                width: 100.w,
                 child: Center(
                   child: Text(
                     title,
@@ -728,90 +728,80 @@ class HomeView extends GetView<HomeController> {
                   itemBuilder: (context, index) {
                     var data =
                         controller.suggestedVideoModel.value.data![index];
-                    return SizedBox(
-                      height: 135.h,
-                      width: 235.w,
-                      child: Stack(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(right: 10.w),
-                            decoration: BoxDecoration(
-                                color: AppColor.white,
-                                borderRadius: BorderRadius.circular(15.r)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                  height: 85.h,
-                                  width: 230.w,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10.r),
-                                        topRight: Radius.circular(10.r),
-                                      ),
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(
-                                              data.image.toString()))),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 8.h, horizontal: 18.w),
-                                  child: Text(
-                                    data.name.toString(),
-                                    maxLines: 2,
-                                    style: TextStyle(
-                                        fontSize: 14.w,
-                                        fontWeight: FontWeight.w400),
+                    return InkWell(
+                      onTap: () async {
+                        var videoUrl = data.videourl.toString();
+                        if (await canLaunch(videoUrl)) {
+                          await launch(videoUrl);
+                        }
+                      },
+                      child: SizedBox(
+                        height: 135.h,
+                        width: 235.w,
+                        child: Stack(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(right: 10.w),
+                              decoration: BoxDecoration(
+                                  color: AppColor.white,
+                                  borderRadius: BorderRadius.circular(15.r)),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    height: 85.h,
+                                    width: 230.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10.r),
+                                          topRight: Radius.circular(10.r),
+                                        ),
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(
+                                                data.image.toString()))),
                                   ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: REdgeInsets.only(right: 20, top: 40),
-                            alignment: Alignment.centerRight,
-                            child: CircleAvatar(
-                              radius: 20,
-                              backgroundColor:
-                                  AppColor.greenaa.withOpacity(0.4),
-                              child: CircleAvatar(
-                                radius: 15,
-                                backgroundColor: AppColor.white,
-                                child: Icon(
-                                  Icons.play_arrow,
-                                  size: 25.w,
-                                  color: AppColor.green,
-                                ),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 8.h, horizontal: 18.w),
+                                    child: Text(
+                                      data.name.toString(),
+                                      maxLines: 2,
+                                      style: TextStyle(
+                                          fontSize: 14.w,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                          )
-                        ],
+                            Container(
+                              margin: REdgeInsets.only(right: 20, top: 40),
+                              alignment: Alignment.centerRight,
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor:
+                                    AppColor.greenaa.withOpacity(0.4),
+                                child: CircleAvatar(
+                                  radius: 15,
+                                  backgroundColor: AppColor.white,
+                                  child: Icon(
+                                    Icons.play_arrow,
+                                    size: 25.w,
+                                    color: AppColor.green,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   }),
             )
           : const Center(child: CircularProgressIndicator()),
     );
-    // SingleChildScrollView(
-    //   scrollDirection: Axis.horizontal,
-    //   child: Wrap(
-    //     spacing: 18,
-    //     children: [
-    //       buildVideoScroll(),
-    //       buildVideoScroll(),
-    //       buildVideoScroll(),
-    //       buildVideoScroll(),
-    //       buildVideoScroll()
-    //       // buildVideoScroll(
-    //       //     "https://www.youtube.com/live/3xKq9CtYLqw?feature=share"),
-    //       // buildVideoScroll("https://youtu.be/lE6RYpe9IT0"),
-    //       // buildVideoScroll("https://youtu.be/eKFTSSKCzWA"),
-    //       // buildVideoScroll("https://youtu.be/Hg1-NHJ7-sY"),
-    //       // buildVideoScroll("https://www.youtube.com/watch?v=jPwWa6InIHU"),
-    //     ],
-    //   ),
-    // );
   }
 
   buildVideoScroll() {

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/modules/home/controllers/home_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeFreeNotes extends StatelessWidget {
   const HomeFreeNotes({Key? key}) : super(key: key);
@@ -41,54 +42,62 @@ class HomeFreeNotes extends StatelessWidget {
                           itemBuilder: (BuildContext ctx, i) {
                             var data = controller.homeviewModel.value.data
                                 ?.upshomelist![index].items![i];
-                            return Container(
-                              height: 90.h,
-                              width: 380.w,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 5.w,
-                              ),
-                              margin: EdgeInsets.only(
-                                  right: 7.w, bottom: 5.h, top: 3.h),
-                              decoration: BoxDecoration(
-                                  color: AppColor.white,
-                                  borderRadius: BorderRadius.circular(12.r)),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    alignment: Alignment.topLeft,
-                                    height: 60.h,
-                                    width: 80.w,
-                                    decoration: BoxDecoration(
-                                        color: Colors.deepOrangeAccent,
-                                        borderRadius:
-                                            BorderRadius.circular(13.r),
-                                        image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                data!.image.toString()))),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(
-                                        width: 190.w,
-                                        height: 60.h,
-                                        padding: EdgeInsets.only(
-                                            bottom: 3.h,
-                                            top: 3.h,
-                                            left: 13.w,
-                                            right: 8.w),
-                                        child: Text(
-                                          data.name.toString(),
-                                          maxLines: 3,
-                                          style: TextStyle(
-                                              fontSize: 14.w,
-                                              fontWeight: FontWeight.w400),
-                                        )),
-                                  )
-                                ],
+                            return InkWell(
+                              onTap: () async {
+                                var videoUrl = data.videourl.toString();
+                                if (await canLaunch(videoUrl)) {
+                                  await launch(videoUrl);
+                                }
+                              },
+                              child: Container(
+                                height: 90.h,
+                                width: 380.w,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 5.w,
+                                ),
+                                margin: EdgeInsets.only(
+                                    right: 7.w, bottom: 5.h, top: 3.h),
+                                decoration: BoxDecoration(
+                                    color: AppColor.white,
+                                    borderRadius: BorderRadius.circular(12.r)),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      alignment: Alignment.topLeft,
+                                      height: 60.h,
+                                      width: 80.w,
+                                      decoration: BoxDecoration(
+                                          color: Colors.deepOrangeAccent,
+                                          borderRadius:
+                                              BorderRadius.circular(13.r),
+                                          image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: NetworkImage(
+                                                  data!.image.toString()))),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Container(
+                                          width: 190.w,
+                                          height: 60.h,
+                                          padding: EdgeInsets.only(
+                                              bottom: 3.h,
+                                              top: 3.h,
+                                              left: 13.w,
+                                              right: 8.w),
+                                          child: Text(
+                                            data.name.toString(),
+                                            maxLines: 3,
+                                            style: TextStyle(
+                                                fontSize: 14.w,
+                                                fontWeight: FontWeight.w400),
+                                          )),
+                                    )
+                                  ],
+                                ),
                               ),
                             );
                           }),
@@ -200,7 +209,6 @@ class HomeFreeNotes extends StatelessWidget {
           )
         ],
       ),
-     
     );
   }
 }

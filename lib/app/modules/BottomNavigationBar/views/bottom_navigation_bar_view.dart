@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/app_drawer.dart';
 import 'package:ups_education/app/modules/Cart/views/cart_view.dart';
@@ -24,7 +23,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
         child: SizedBox(
           height: 65,
           child: BottomNavigationBar(
-            elevation: 10,
+            elevation: 3,
             showUnselectedLabels: true,
             showSelectedLabels: true,
             onTap: bcontroller.changeTabIndex,
@@ -32,13 +31,13 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             backgroundColor: AppColor.white,
             unselectedItemColor: Colors.black38.withOpacity(0.5),
             selectedItemColor: AppColor.green,
-            iconSize: 24,
+            iconSize: 20,
             unselectedLabelStyle: unselectedLabelStyle,
             selectedLabelStyle: selectedLabelStyle,
             items: [
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  size: 22,
+                  size: 20,
                   AssetImage(AppImage.home_b),
                 ),
                 label: 'Home',
@@ -46,7 +45,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  size: 22,
+                  size: 20,
                   AssetImage(AppImage.my_contact),
                 ),
                 label: 'My account',
@@ -54,21 +53,21 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  size: 22,
+                  size: 20,
                   AssetImage(AppImage.cart_b),
                 ),
                 label: 'Cart',
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  size: 22,
+                  size: 20,
                   AssetImage(AppImage.wishlist),
                 ),
                 label: 'Wishlist',
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  size: 22,
+                  size: 20,
                   AssetImage(AppImage.updates),
                 ),
                 label: 'updates',
@@ -80,9 +79,9 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
 
   @override
   Widget build(BuildContext context) {
-    final BottomNavigationBarController controller =
-        Get.put<BottomNavigationBarController>(BottomNavigationBarController(),
-            permanent: false);
+    var controller = Get.put<BottomNavigationBarController>(
+        BottomNavigationBarController(),
+        permanent: true);
     return Scaffold(
       drawer: const Drawer(
         child: AppDrawer(),
@@ -161,17 +160,16 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
       ),
       body: Obx(
         () => IndexedStack(
-            index: controller.tabIndex.value,
-            children: const [
-              HomeView(),
-              MyAccountView(),
-              CartView(),
-              WishlistView(),
-              HomeView(),
-            ],
-          ),
+          index: controller.tabIndex.value,
+          children: const [
+            HomeView(),
+            MyAccountView(),
+            CartView(),
+            WishlistView(),
+            HomeView(),
+          ],
         ),
-      
+      ),
     );
   }
 }
