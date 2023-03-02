@@ -11,7 +11,6 @@ class WorkshopView extends GetView<WorkshopController> {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(WorkshopController());
-    print(controller.argumentData["id"]);
     return Scaffold(
         appBar: AppBar(
           backgroundColor: AppColor.white,
