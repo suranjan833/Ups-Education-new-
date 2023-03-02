@@ -35,8 +35,8 @@ class HomeView extends GetView<HomeController> {
           child: Container(
             margin: REdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child:
-                //  Obx(
-                //   () =>
+                 Obx(
+                  () =>
                 Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -235,8 +235,9 @@ class HomeView extends GetView<HomeController> {
                       :
                       //   //  //end before registeation page
                       //    //start after register page
-                      Obx(
-                          () => Column(
+                      // Obx(
+                      //     () =>
+                           Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
@@ -566,19 +567,21 @@ class HomeView extends GetView<HomeController> {
                                         ),
                                       ),
                               ]),
-                        )
+                        // )
 
                   // //end after registration page
                 ]),
           ),
         )
-        // )
+        )
         );
   }
 
   Widget scrollablePage() {
-    return Obx(
-      () => controller.homeviewModel.value.data?.allbanner != null
+    return
+    //  Obx(
+    //   () => 
+      controller.homeviewModel.value.data?.allbanner != null
           ? Column(
               children: [
                 Container(
@@ -621,7 +624,8 @@ class HomeView extends GetView<HomeController> {
                 )
               ],
             )
-          : const Center(child: CircularProgressIndicator()),
+          : const Center(child: CircularProgressIndicator()
+          // ),
     );
   }
 
@@ -716,8 +720,10 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget scrollVideo() {
-    return Obx(
-      () => controller.suggestedVideoModel.value.data != null
+    return 
+    // Obx(
+    //   () =>
+       controller.suggestedVideoModel.value.data != null
           ? SizedBox(
               height: 145.h,
               width: 428.w,
@@ -799,7 +805,8 @@ class HomeView extends GetView<HomeController> {
                     );
                   }),
             )
-          : const Center(child: CircularProgressIndicator()),
+          : const Center(child: CircularProgressIndicator()
+          // ),
     );
   }
 
@@ -842,29 +849,6 @@ class HomeView extends GetView<HomeController> {
               ],
             ),
           ),
-          // AnyLinkPreview(
-          //   urlLaunchMode: LaunchMode.platformDefault,
-          //   link: link,
-          //   displayDirection: UIDirection.uiDirectionVertical,
-          //   bodyMaxLines: 2,
-          //   bodyTextOverflow: TextOverflow.ellipsis,
-          //   titleStyle: TextStyle(
-          //     color: AppColor.black,
-          //     fontWeight: FontWeight.w400,
-          //     fontSize: 14.w,
-          //   ),
-          //   bodyStyle: const TextStyle(color: Colors.grey, fontSize: 12),
-          //   backgroundColor: AppColor.white,
-          //   borderRadius: 30.r,
-          //   removeElevation: true,
-          //   boxShadow: [BoxShadow(blurRadius: 3.r, color: Colors.grey)],
-          //   onTap: () async {
-          //     var url = link;
-          //     if (await canLaunch(url)) {
-          //       await launch(url);
-          //     }
-          //   },
-          // ),
           Container(
             margin: REdgeInsets.only(right: 20, top: 40),
             alignment: Alignment.centerRight,

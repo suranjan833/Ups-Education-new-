@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/modules/home/controllers/home_controller.dart';

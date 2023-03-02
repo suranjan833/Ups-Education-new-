@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../BottomNavigationBar/views/bottom_navigation_bar_view.dart';
 import '../controllers/my_course_controller.dart';
@@ -12,6 +15,7 @@ class MyCourseView extends GetView<MyCourseController> {
     var controller = Get.put(MyCourseController());
     return Scaffold(
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: AppColor.white,
           leading: Padding(
             padding: EdgeInsets.all(8.0.r),
@@ -57,59 +61,69 @@ class MyCourseView extends GetView<MyCourseController> {
                             itemBuilder: (context, i) {
                               var data = controller.homeviewModel.value.data
                                   ?.upshomelist![index].items![i];
-                              return Container(
-                                margin: EdgeInsets.symmetric(
-                                    horizontal: 10.r, vertical: 15),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                        height: 130.h,
-                                        width: 340.w,
-                                        decoration: BoxDecoration(
-                                            color: AppColor.grey,
-                                            borderRadius:
-                                                BorderRadius.circular(19.r),
-                                            image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: NetworkImage(
-                                                    data!.image.toString())))),
-                                    SizedBox(
-                                      height: 12.h,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        SizedBox(
-                                          width: 240.w,
-                                          child: Text(
-                                            data.name.toString(),
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14.5.r,
-                                                color: AppColor.black),
-                                          ),
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 13.r, vertical: 10.r),
+                              return InkWell(
+                                onTap: () async {
+                                  var videoUrl = data.videourl.toString();
+                                  if (await canLaunch(videoUrl)) {
+                                    await launch(videoUrl);
+                                  }
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(
+                                      horizontal: 10.r, vertical: 15),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                          height: 130.h,
+                                          width: 340.w,
                                           decoration: BoxDecoration(
-                                            color: AppColor.green,
-                                            borderRadius:
-                                                BorderRadius.circular(20),
+                                              color: AppColor.grey,
+                                              borderRadius:
+                                                  BorderRadius.circular(19.r),
+                                              image: DecorationImage(
+                                                  fit: BoxFit.cover,
+                                                  image: NetworkImage(data!
+                                                      .image
+                                                      .toString())))),
+                                      SizedBox(
+                                        height: 12.h,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          SizedBox(
+                                            width: 240.w,
+                                            child: Text(
+                                              data.name.toString(),
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14.5.r,
+                                                  color: AppColor.black),
+                                            ),
                                           ),
-                                          child: Text(
-                                            'Start Study',
-                                            style: TextStyle(
-                                                color: AppColor.white),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    const Divider(
-                                      thickness: 1.4,
-                                    )
-                                  ],
+                                          Container(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 13.r,
+                                                vertical: 10.r),
+                                            decoration: BoxDecoration(
+                                              color: AppColor.green,
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                            child: Text(
+                                              'Start Study',
+                                              style: TextStyle(
+                                                  color: AppColor.white),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const Divider(
+                                        thickness: 1.4,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               );
                             },

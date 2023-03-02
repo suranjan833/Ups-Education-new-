@@ -17,13 +17,17 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(HomeController());
+    controller.getHomePageData();
     return Scaffold(
       body: Obx(
         () => Drawer(
           child: Padding(
             padding: REdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: SingleChildScrollView(
-              child: Column(
+              child:
+                  //  Obx(
+                  //   () =>
+                  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
@@ -37,23 +41,25 @@ class AppDrawer extends StatelessWidget {
                       height: 20.h,
                     ),
                   ),
-                  Padding(
-                    padding: REdgeInsets.symmetric(horizontal: 18),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Wrap(
-                          spacing: 6,
-                          children: [
-                            Text(
-                              'Hello!',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 17.r),
-                            ),
-                            Obx(
-                              () => Text(
+                  Obx(
+                    () => Padding(
+                      padding: REdgeInsets.symmetric(horizontal: 18),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Wrap(
+                            spacing: 6,
+                            children: [
+                              Text(
+                                'Hello!',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 17.r),
+                              ),
+                              // Obx(
+                              //   () =>
+                              Text(
                                 controller.homeviewModel.value.data!
                                             .firstname !=
                                         null
@@ -64,22 +70,23 @@ class AppDrawer extends StatelessWidget {
                                     fontWeight: FontWeight.w400,
                                     fontSize: 15.r),
                               ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'UTS-19-6798',
-                          style: TextStyle(
-                              color: Colors.red.withOpacity(0.7),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16.r),
-                        )
-                      ],
+                              // ),
+                            ],
+                          ),
+                          Text(
+                            'UTS-19-6798',
+                            style: TextStyle(
+                                color: Colors.red.withOpacity(0.7),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16.r),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   ListTile(
                     onTap: () {
-                      Get.to(BottomNavigationBarView());
+                      Get.back();
                     },
                     minLeadingWidth: 2,
                     horizontalTitleGap: 12,
@@ -440,6 +447,7 @@ class AppDrawer extends StatelessWidget {
           ),
         ),
       ),
+      // ),
     );
   }
 

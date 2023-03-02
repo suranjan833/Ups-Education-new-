@@ -3,6 +3,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:ups_education/app/data/function/dio_get.dart';
 import 'package:ups_education/app/data/model/all_category_model.dart';
 import 'package:ups_education/app/data/models/suggested_video_model.dart';
+import 'package:ups_education/app/modules/MyAccount/controllers/my_account_controller.dart';
 
 import '../../../data/config/config.dart';
 import '../../../data/model/home_page_model.dart';
@@ -12,18 +13,18 @@ class HomeController extends GetxController {
   var allCategoryModel = AllCategoryModel().obs;
   // ignore: prefer_typing_uninitialized_variables
   var categoryItem;
+  var index = 0.obs;
   var refreshControllerForHome = RefreshController();
   // var ourSuccessfulStudent = OurSuccessfulStudentModel().obs;
   // var studentSuggestedModel = SuggestedVideo().obs;
   var suggestedVideoModel = SuggestedVideo().obs;
   RxBool assessment = false.obs;
-  // var userid = getBox.read(USER_ID);
-  // ignore: prefer_typing_uninitialized_variables
   var pageController;
   @override
   void onInit() {
     getHomePageData();
     allCategoryData();
+
     // ourSuccessFulstudentData(1);
     studentSuggested();
 
@@ -47,6 +48,9 @@ class HomeController extends GetxController {
     if (response.statusCode == 200) {
       return homeviewModel(HomePageModel.fromJson(response.data));
     }
+    
+    await Get.find<MyAccountController>().myAccountData();
+
   }
 
   // Future ourSuccessFulstudentData(page) async {
@@ -66,19 +70,6 @@ class HomeController extends GetxController {
       // StudentSuggestedModel.fromJson(response.data));
     }
   }
-
-  // Future getSearchResult(String keyword) async {
-  //   var data = {"keyword": keyword};
-  //   var response = await dioPost(data: data, endUrl: ApiUrls.search);
-  //   List<SearchModel> searchModel = [];
-  //   if (response.statusCode == 200) {
-  //     searchModel = json.decode(response.data);
-  //   return searchModel.map((data) => SearchModel.fromJson(keyword));
-  //     } else {
-  //       return ApiResponse(
-  //           isSuccess: false, errorCause: "No Result Found", resObject: null);
-  //     }
-  // }
 
   @override
   void refresh() {
