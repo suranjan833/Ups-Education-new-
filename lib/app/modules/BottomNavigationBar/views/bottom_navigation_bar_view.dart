@@ -21,7 +21,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
     return Obx(() => MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
         child: SizedBox(
-          height: 65,
+          height: 95.sp,
           child: BottomNavigationBar(
             elevation: 3,
             showUnselectedLabels: true,
@@ -81,7 +81,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
   Widget build(BuildContext context) {
     var controller = Get.put<BottomNavigationBarController>(
         BottomNavigationBarController(),
-        permanent: true);
+        permanent: false);
     return Scaffold(
       drawer: const Drawer(
         child: AppDrawer(),

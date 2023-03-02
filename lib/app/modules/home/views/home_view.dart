@@ -678,7 +678,7 @@ class HomeView extends GetView<HomeController> {
       child: Container(
         width: 87.w,
         height: 100.h,
-        padding: EdgeInsets.all(14.r),
+        padding: EdgeInsets.all(10.sp),
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(7.r),
@@ -693,10 +693,9 @@ class HomeView extends GetView<HomeController> {
               child: SvgPicture.asset(height: 30.h, width: 30.w, image),
             ),
             Expanded(
-              flex: 1,
               child: SizedBox(
-                height: 20.h,
-                width: 100.w,
+                height: 40.h,
+                width: 190.w,
                 child: Center(
                   child: Text(
                     title,
