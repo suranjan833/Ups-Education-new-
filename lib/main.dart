@@ -4,7 +4,17 @@ import 'package:get/get.dart';
 
 import 'app/routes/app_pages.dart';
 
-void main() {
+void main() async {
+  // await GetStorage.init();
+
+  // WidgetsFlutterBinding.ensureInitialized();
+
+  // await PushNotificationService().setupInteractedMessage();
+//  FirebaseMessaging.instance.getToken().then((value) {
+//         String? token = value;
+//         log('this is a token : $token');
+//       });
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     ScreenUtilInit(
         designSize: const Size(360, 690),
@@ -23,4 +33,8 @@ void main() {
           );
         }),
   );
+
+  // RemoteMessage? initialMessage =
+  //     await FirebaseMessaging.instance.getInitialMessage();
+  // if (initialMessage != null) {}
 }

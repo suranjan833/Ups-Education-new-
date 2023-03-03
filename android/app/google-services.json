@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "893345787357",
+    "project_id": "ups-education",
+    "storage_bucket": "ups-education.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893345787357:android:424314033c94e6c9cd9a34",
+        "android_client_info": {
+          "package_name": "com.example.ups_education"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893345787357-akomu39lp9guq6sq9pfa2mr754erhoga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWXSMJIPao2nFy_COSmvR6hwK1CGafDSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893345787357-akomu39lp9guq6sq9pfa2mr754erhoga.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "893345787357-k16i0nad2lh0h23fd0l4qm3223cu72fu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.upsEducation"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

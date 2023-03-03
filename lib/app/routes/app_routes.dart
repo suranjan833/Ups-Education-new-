@@ -35,6 +35,7 @@ abstract class Routes {
   static const SUGGESTED_VIDEOS = _Paths.SUGGESTED_VIDEOS;
   static const SEARCH = _Paths.SEARCH;
   static const LIVE = _Paths.LIVE;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
 }
 
 abstract class _Paths {
@@ -69,4 +70,5 @@ abstract class _Paths {
   static const SUGGESTED_VIDEOS = '/suggested-videos';
   static const SEARCH = '/search';
   static const LIVE = '/live';
+  static const NOTIFICATION = '/notification';
 }

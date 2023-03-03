@@ -32,6 +32,8 @@ import '../modules/MyAccount/bindings/my_account_binding.dart';
 import '../modules/MyAccount/views/my_account_view.dart';
 import '../modules/MyCourse/bindings/my_course_binding.dart';
 import '../modules/MyCourse/views/my_course_view.dart';
+import '../modules/Notification/bindings/notification_binding.dart';
+import '../modules/Notification/views/notification_view.dart';
 import '../modules/OurSuccessfulStudent/bindings/our_successful_student_binding.dart';
 import '../modules/OurSuccessfulStudent/views/our_successful_student_view.dart';
 import '../modules/PsychologyEntrance/bindings/psychology_entrance_binding.dart';
@@ -219,6 +221,11 @@ class AppPages {
       name: _Paths.LIVE,
       page: () => const LiveView(),
       binding: LiveBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => const NotificationView(),
+      binding: NotificationBinding(),
     ),
   ];
 }
