@@ -1,7 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
 class AppImage {
-   static var home_banner = 'assets/image/home_b1.png';
+  static var logo = 'assets/image/Logo.png';
+  static String get upsLogo => "assets/image/Logo.png";
+  static var home_banner = 'assets/image/home_b1.png';
   static var logout = 'assets/image/logout.svg';
   static var menubar = 'assets/image/324.svg';
   static var about = 'assets/image/about.svg';
@@ -46,14 +48,14 @@ class AppImage {
   static var youtube = 'assets/image/youtube.svg';
   static var xce = 'assets/image/xce.svg';
   static var a = 'assets/image/2.svg';
-   static var edu = 'assets/image/edu.svg';
-    static var internship = 'assets/image/internship.svg';
-     static var search = 'assets/image/search.svg';
-      static var id_card = 'assets/image/id-card.svg';
-      static var cart_b = 'assets/image/cart_b.png';
-      static var home_b = 'assets/image/home_b.png';
-      static var wishlist = 'assets/image/wishlist.png';
-      static var updates = 'assets/image/updates.png';
-      static var my_contact = 'assets/image/my_contact.png';
-      //  static var a = 'assets/image/2.svg';
+  static var edu = 'assets/image/edu.svg';
+  static var internship = 'assets/image/internship.svg';
+  static var search = 'assets/image/search.svg';
+  static var id_card = 'assets/image/id-card.svg';
+  static var cart_b = 'assets/image/cart_b.png';
+  static var home_b = 'assets/image/home_b.png';
+  static var wishlist = 'assets/image/wishlist.png';
+  static var updates = 'assets/image/updates.png';
+  static var my_contact = 'assets/image/my_contact.png';
+  //  static var a = 'assets/image/2.svg';
 }
