@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/home_app_bar.dart';
 import 'package:ups_education/app/modules/AboutUs/views/about_us_view.dart';
-import 'package:ups_education/app/modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
 import 'package:ups_education/app/modules/ContactUs/views/contact_us_view.dart';
 import 'package:ups_education/app/modules/Internship/views/internship_view.dart';
-import 'package:ups_education/app/modules/Login/views/login_view.dart';
 import 'package:ups_education/app/modules/Workshop/views/workshop_view.dart';
 import 'package:ups_education/app/modules/home/controllers/home_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -105,32 +103,6 @@ class AppDrawer extends StatelessWidget {
                       controller
                               .homeviewModel.value.data?.sidebarmenu![0].name ??
                           "Home",
-                      style: TextStyle(
-                          color: AppColor.black.withOpacity(0.7),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14.r),
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      Get.to(const LoginView());
-                    },
-                    minLeadingWidth: 2,
-                    horizontalTitleGap: 12,
-                    leading: Container(
-                      height: 42.h,
-                      width: 38.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(14.r),
-                        color: AppColor.litegrey,
-                      ),
-                      child: Icon(
-                        Icons.login,
-                        color: AppColor.black.withOpacity(0.6),
-                      ),
-                    ),
-                    title: Text(
-                      'Login',
                       style: TextStyle(
                           color: AppColor.black.withOpacity(0.7),
                           fontWeight: FontWeight.w400,

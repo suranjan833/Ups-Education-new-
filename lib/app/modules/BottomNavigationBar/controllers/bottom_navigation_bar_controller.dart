@@ -4,6 +4,7 @@ import 'package:ups_education/app/modules/home/controllers/home_controller.dart'
 
 class BottomNavigationBarController extends GetxController {
   var tabIndex = 0.obs;
+  //  NotificationService notificationService = NotificationService();
 
   void changeTabIndex(int index) {
     tabIndex.value = index;
@@ -15,6 +16,15 @@ class BottomNavigationBarController extends GetxController {
   @override
   void onInit() {
     homeController.getHomePageData();
+    //  notificationService.requestNotificationPermission();
+    // notificationService.firebaseInit(Get.context!);
+    // notificationService.setupInteractMessage(Get.context!);
+    // // notificationService.isTokenRefresh();
+    // notificationService.getDeviceToken().then((value) {
+    //   log("device Token");
+    //   log(value.toString());
+    // });
+
     super.onInit();
   }
 }

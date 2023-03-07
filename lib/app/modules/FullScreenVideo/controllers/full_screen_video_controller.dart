@@ -5,18 +5,17 @@ import 'package:get/get.dart';
 import 'package:youtube_plyr_iframe/youtube_plyr_iframe.dart';
 
 class FullScreenVideoController extends GetxController {
- late YoutubePlayerController controller;
- late String videoID;
+  late YoutubePlayerController controller;
+  late String videoID;
   late String title;
-
 
   @override
   void onInit() {
     super.onInit();
-     controller = YoutubePlayerController(
+    controller = YoutubePlayerController(
       initialVideoId: videoID,
       params: const YoutubePlayerParams(
-        startAt: const Duration(seconds: 1),
+        startAt: Duration(seconds: 1),
         autoPlay: true,
         desktopMode: false,
         showControls: true,
@@ -36,5 +35,4 @@ class FullScreenVideoController extends GetxController {
       log('Exited Fullscreen');
     };
   }
-
 }
