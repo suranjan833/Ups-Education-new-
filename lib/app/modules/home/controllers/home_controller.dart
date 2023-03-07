@@ -19,6 +19,7 @@ class HomeController extends GetxController {
   // var studentSuggestedModel = SuggestedVideo().obs;
   var suggestedVideoModel = SuggestedVideo().obs;
   RxBool assessment = false.obs;
+  // ignore: prefer_typing_uninitialized_variables
   var pageController;
   @override
   void onInit() {

@@ -21,6 +21,7 @@ class CartView extends GetView<CartController> {
                     itemCount:
                         controller.cartModel.value.data?.cartdata?.length,
                     itemBuilder: (context, index) {
+                      // ignore: unused_local_variable
                       var data =
                           controller.cartModel.value.data?.cartdata![index];
                       return Column(

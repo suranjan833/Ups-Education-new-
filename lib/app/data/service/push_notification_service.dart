@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:developer';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -53,6 +55,7 @@ class PushNotificationService {
     // );
     final NotificationAppLaunchDetails? notificationAppLaunchDetails =
         await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
+    // ignore: non_constant_identifier_names
     var IOS = const IOSInitializationSettings();
     var initSettings =
         InitializationSettings(android: androidSettings, iOS: IOS);

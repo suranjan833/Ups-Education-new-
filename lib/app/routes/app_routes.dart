@@ -36,6 +36,11 @@ abstract class Routes {
   static const SEARCH = _Paths.SEARCH;
   static const LIVE = _Paths.LIVE;
   static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
+  static const VERIFY_OTP = _Paths.VERIFY_OTP;
+  static const CREATE_PASSWORD = _Paths.CREATE_PASSWORD;
+  static const PASSWORD_RESET = _Paths.PASSWORD_RESET;
+  static const SIGNUP = _Paths.SIGNUP;
 }
 
 abstract class _Paths {
@@ -71,4 +76,9 @@ abstract class _Paths {
   static const SEARCH = '/search';
   static const LIVE = '/live';
   static const NOTIFICATION = '/notification';
+  static const FORGOT_PASSWORD = '/forgot-password';
+  static const VERIFY_OTP = '/verify-otp';
+  static const CREATE_PASSWORD = '/create-password';
+  static const PASSWORD_RESET = '/password-reset';
+  static const SIGNUP = '/signup';
 }

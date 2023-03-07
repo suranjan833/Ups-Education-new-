@@ -12,10 +12,14 @@ import '../modules/ChangePassword/bindings/change_password_binding.dart';
 import '../modules/ChangePassword/views/change_password_view.dart';
 import '../modules/ContactUs/bindings/contact_us_binding.dart';
 import '../modules/ContactUs/views/contact_us_view.dart';
+import '../modules/CreatePassword/bindings/create_password_binding.dart';
+import '../modules/CreatePassword/views/create_password_view.dart';
 import '../modules/EditProfile/bindings/edit_profile_binding.dart';
 import '../modules/EditProfile/views/edit_profile_view.dart';
 import '../modules/ExamInfo/bindings/exam_info_binding.dart';
 import '../modules/ExamInfo/views/exam_info_view.dart';
+import '../modules/ForgotPassword/bindings/forgot_password_binding.dart';
+import '../modules/ForgotPassword/views/forgot_password_view.dart';
 import '../modules/FreeNotes/bindings/free_notes_binding.dart';
 import '../modules/FreeNotes/views/free_notes_view.dart';
 import '../modules/FullScreenVideo/bindings/full_screen_video_binding.dart';
@@ -36,6 +40,8 @@ import '../modules/Notification/bindings/notification_binding.dart';
 import '../modules/Notification/views/notification_view.dart';
 import '../modules/OurSuccessfulStudent/bindings/our_successful_student_binding.dart';
 import '../modules/OurSuccessfulStudent/views/our_successful_student_view.dart';
+import '../modules/PasswordReset/bindings/password_reset_binding.dart';
+import '../modules/PasswordReset/views/password_reset_view.dart';
 import '../modules/PsychologyEntrance/bindings/psychology_entrance_binding.dart';
 import '../modules/PsychologyEntrance/views/psychology_entrance_view.dart';
 import '../modules/Quiz/bindings/quiz_binding.dart';
@@ -46,10 +52,14 @@ import '../modules/QuizStart/bindings/quiz_start_binding.dart';
 import '../modules/QuizStart/views/quiz_start_view.dart';
 import '../modules/Search/bindings/search_binding.dart';
 import '../modules/Search/views/search_view.dart';
+import '../modules/Signup/bindings/signup_binding.dart';
+import '../modules/Signup/views/signup_view.dart';
 import '../modules/SuggestedVideos/bindings/suggested_videos_binding.dart';
 import '../modules/SuggestedVideos/views/suggested_videos_view.dart';
 import '../modules/Testimonials/bindings/testimonials_binding.dart';
 import '../modules/Testimonials/views/testimonials_view.dart';
+import '../modules/VerifyOtp/bindings/verify_otp_binding.dart';
+import '../modules/VerifyOtp/views/verify_otp_view.dart';
 import '../modules/Wishlist/bindings/wishlist_binding.dart';
 import '../modules/Wishlist/views/wishlist_view.dart';
 import '../modules/Workshop/bindings/workshop_binding.dart';
@@ -226,6 +236,31 @@ class AppPages {
       name: _Paths.NOTIFICATION,
       page: () => const NotificationView(),
       binding: NotificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGOT_PASSWORD,
+      page: () => const ForgotPasswordView(),
+      binding: ForgotPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFY_OTP,
+      page: () => const VerifyOtpView(),
+      binding: VerifyOtpBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE_PASSWORD,
+      page: () => const CreatePasswordView(),
+      binding: CreatePasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.PASSWORD_RESET,
+      page: () => const PasswordResetView(),
+      binding: PasswordResetBinding(),
+    ),
+    GetPage(
+      name: _Paths.SIGNUP,
+      page: () => const SignupView(),
+      binding: SignupBinding(),
     ),
   ];
 }

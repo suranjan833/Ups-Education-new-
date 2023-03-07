@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:ups_education/app/data/service/notification_service.dart';
 import 'package:ups_education/app/modules/home/controllers/home_controller.dart';
 
 class BottomNavigationBarController extends GetxController {

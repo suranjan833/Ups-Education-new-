@@ -10,6 +10,7 @@ class FullScreenVideoView extends GetView<FullScreenVideoController> {
   const FullScreenVideoView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_typing_uninitialized_variables
     var videoId;
     var controllerr = Get.put(FullScreenVideoController());
     const player = YoutubePlayerIFrame();

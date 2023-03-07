@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/widgets/app_drawer.dart';
 import 'package:ups_education/app/modules/Cart/views/cart_view.dart';
-import 'package:ups_education/app/modules/MyAccount/controllers/my_account_controller.dart';
 import 'package:ups_education/app/modules/MyAccount/views/my_account_view.dart';
 import 'package:ups_education/app/modules/Notification/views/notification_view.dart';
 import 'package:ups_education/app/modules/Wishlist/views/wishlist_view.dart';
@@ -85,7 +83,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
     var controller = Get.put<BottomNavigationBarController>(
         BottomNavigationBarController(),
         permanent: false);
- controller.homeController.getHomePageData();
+    controller.homeController.getHomePageData();
     return Scaffold(
       drawer: const Drawer(
         child: AppDrawer(),
@@ -163,16 +161,16 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
         ],
       ),
       body: Obx(
-        () =>  IndexedStack(
-            index: controller.tabIndex.value,
-            children: const [
-              HomeView(),
-              MyAccountView(),
-              CartView(),
-              WishlistView(),
-             NotificationView()
-            ],
-          
+        () => IndexedStack(
+          index: controller.tabIndex.value,
+          children: const [
+            // HomeView(),
+            NotificationView(),
+            MyAccountView(),
+            CartView(),
+            WishlistView(),
+            NotificationView()
+          ],
         ),
       ),
     );

@@ -4,6 +4,11 @@ class AppImage {
   static var logo = 'assets/image/Logo.png';
   static String get upsLogo => "assets/image/Logo.png";
   static var home_banner = 'assets/image/home_b1.png';
+   static var bbanner = 'assets/image/banner1.svg';
+    static var banner = 'assets/image/banner.png';
+    static var user = 'assets/image/user.svg';
+     static var check = 'assets/image/checks.svg';
+      static var lock1 = 'assets/image/lock1.svg';
   static var logout = 'assets/image/logout.svg';
   static var menubar = 'assets/image/324.svg';
   static var about = 'assets/image/about.svg';

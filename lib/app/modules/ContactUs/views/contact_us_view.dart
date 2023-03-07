@@ -8,6 +8,7 @@ class ContactUsView extends GetView<ContactUsController> {
   const ContactUsView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var controller = Get.put(ContactUsController());
     return Scaffold(
       backgroundColor: AppColor.white,
