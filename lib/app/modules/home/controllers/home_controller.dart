@@ -11,18 +11,19 @@ import '../../../data/model/home_page_model.dart';
 class HomeController extends GetxController {
   var homeviewModel = HomePageModel().obs;
   var allCategoryModel = AllCategoryModel().obs;
+  // var ourSuccessfulStudent = OurSuccessfulStudentModel().obs;
+  // var studentSuggestedModel = SuggestedVideo().obs;
   // ignore: prefer_typing_uninitialized_variables
   var categoryItem;
   var index = 0.obs;
   var refreshControllerForHome = RefreshController();
-  // var ourSuccessfulStudent = OurSuccessfulStudentModel().obs;
-  // var studentSuggestedModel = SuggestedVideo().obs;
   var suggestedVideoModel = SuggestedVideo().obs;
   RxBool assessment = false.obs;
   // ignore: prefer_typing_uninitialized_variables
   var pageController;
   @override
   void onInit() {
+    print("${getBox.read(USER_ID)}user_id ");
     getHomePageData();
     allCategoryData();
 
@@ -49,9 +50,8 @@ class HomeController extends GetxController {
     if (response.statusCode == 200) {
       return homeviewModel(HomePageModel.fromJson(response.data));
     }
-    
-    await Get.find<MyAccountController>().myAccountData();
 
+    await Get.find<MyAccountController>().myAccountData();
   }
 
   // Future ourSuccessFulstudentData(page) async {
@@ -65,10 +65,8 @@ class HomeController extends GetxController {
 
   Future studentSuggested() async {
     var response = await dioGet("/appsuggestedvideo");
-
     if (response.statusCode == 200) {
       return suggestedVideoModel(SuggestedVideo.fromJson(response.data));
-      // StudentSuggestedModel.fromJson(response.data));
     }
   }
 

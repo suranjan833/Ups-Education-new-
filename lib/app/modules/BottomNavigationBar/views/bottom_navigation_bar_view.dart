@@ -164,8 +164,8 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
         () => IndexedStack(
           index: controller.tabIndex.value,
           children: const [
-            // HomeView(),
-            NotificationView(),
+            HomeView(),
+            // NotificationView(),
             MyAccountView(),
             CartView(),
             WishlistView(),

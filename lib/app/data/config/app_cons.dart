@@ -11,6 +11,9 @@ const String IS_USER_LOGGED_IN = "IS_USER_LOGGED_IN";
 const String USER_TOKEN = "TOKEN";
 const String USER_EMAIL = "user_email";
 const String USER_LOGIN = "login_true";
+const String HIDEBUYNOW = "buy_now";
+const String USER_OTP = "MY OTP";
+const String FORGOTFIELD = "forgot-feild-data";
 var isDebugMode = true.obs;
 
 void SHOW_SNACKBAR({int? duration, String? message, bool? isSuccess}) {

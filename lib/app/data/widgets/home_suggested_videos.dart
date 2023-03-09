@@ -24,7 +24,7 @@ class HomeSuggestedVideos extends StatelessWidget {
                       "Suggested Video") {
                     return SizedBox(
                       height: 160.h,
-                      width: 428.w,
+                      width: 328.w,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: controller.homeviewModel.value.data

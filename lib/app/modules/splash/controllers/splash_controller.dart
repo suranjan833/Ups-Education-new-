@@ -8,8 +8,10 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    // ignore: avoid_print
+    print("${getBox.read(USER_ID)}userid");
 
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 4), () {
       Get.offAll((getBox.read(IS_USER_LOGGED_IN) ?? false)
           ? BottomNavigationBarView()
           : const LoginView());
