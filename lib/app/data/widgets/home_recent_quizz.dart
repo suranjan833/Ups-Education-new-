@@ -15,6 +15,7 @@ class HomeRecentQuizze extends StatelessWidget {
             height: 160.h,
             width: 428.w,
             child: ListView.builder(
+                physics: const AlwaysScrollableScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount:
                     controller.homeviewModel.value.data?.upshomelist?.length,
@@ -24,7 +25,7 @@ class HomeRecentQuizze extends StatelessWidget {
                       "Latest Quizzes ") {
                     return SizedBox(
                         height: 160.h,
-                        width: 428.w,
+                        width: 328.w,
                         child: ListView.builder(
                             physics: const AlwaysScrollableScrollPhysics(),
                             scrollDirection: Axis.horizontal,

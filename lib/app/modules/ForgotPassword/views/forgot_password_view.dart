@@ -101,7 +101,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                         height: 50.h,
                         minWidth: 90.w,
                         onPressed: () {
-                          Get.to(const VerifyOtpView());
+                          controller.forgotPassword();
                         },
                         color: AppColor.apcolor,
                         child: Text(

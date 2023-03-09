@@ -24,7 +24,7 @@ class HomeFeatureCourse extends StatelessWidget {
                       "Featured Course") {
                     return SizedBox(
                       height: 214.h,
-                      width: 420.w,
+                      width: 330.w,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: controller.homeviewModel.value.data

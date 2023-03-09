@@ -76,164 +76,164 @@ class HomeView extends GetView<HomeController> {
                   ),
                   categoryCard(),
                   // //start   before registrations page
-                  // getBox.read(USER_ID) == null
-                  //     ? Column(
-                  //         crossAxisAlignment: CrossAxisAlignment.start,
-                  //         children: [
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //             children: [
-                  //               Padding(
-                  //                 padding: REdgeInsets.symmetric(vertical: 19),
-                  //                 child: Text(
-                  //                   'Suggested Videos',
-                  //                   style: TextStyle(
-                  //                       fontSize: 15.w,
-                  //                       fontWeight: FontWeight.w500),
-                  //                 ),
-                  //               ),
-                  //               TextButton(
-                  //                   onPressed: () {
-                  //                     // Get.to(const SuggestedVideosView());
-                  //                   },
-                  //                   child: const Text('View all'))
-                  //             ],
-                  //           ),
-                  //           const HomeSuggestedVideos(),
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //             children: [
-                  //               Padding(
-                  //                 padding: REdgeInsets.symmetric(vertical: 19),
-                  //                 child: Text(
-                  //                   'Free Notes',
-                  //                   style: TextStyle(
-                  //                       fontSize: 15.w,
-                  //                       fontWeight: FontWeight.w500),
-                  //                 ),
-                  //               ),
-                  //               TextButton(
-                  //                   onPressed: () {
-                  //                     // Get.to(const FreeNotesView());
-                  //                   },
-                  //                   child: const Text('View all'))
-                  //             ],
-                  //           ),
-                  //           const HomeFreeNotes(),
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //             children: [
-                  //               Padding(
-                  //                 padding: REdgeInsets.symmetric(vertical: 19),
-                  //                 child: Text(
-                  //                   'Featured Course',
-                  //                   style: TextStyle(
-                  //                       fontSize: 15.w,
-                  //                       fontWeight: FontWeight.w500),
-                  //                 ),
-                  //               ),
-                  //               TextButton(
-                  //                   onPressed: () {
-                  //                     // Get.to(const MyCourseView());
-                  //                   },
-                  //                   child: const Text('View all'))
-                  //             ],
-                  //           ),
-                  //           const HomeFeatureCourse(),
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //             children: [
-                  //               Padding(
-                  //                 padding: REdgeInsets.symmetric(vertical: 19),
-                  //                 child: Text(
-                  //                   'Recent Quizzes',
-                  //                   style: TextStyle(
-                  //                       fontSize: 15.w,
-                  //                       fontWeight: FontWeight.w500),
-                  //                 ),
-                  //               ),
-                  //               TextButton(
-                  //                   onPressed: () {
-                  //                     // Get.to(const QuizView());
-                  //                   },
-                  //                   child: const Text('View all'))
-                  //             ],
-                  //           ),
-                  //           const HomeRecentQuizze(),
-                  //           Container(
-                  //             margin: EdgeInsets.only(top: 14.h),
-                  //             color: AppColor.apcolor,
-                  //             child: Image(
-                  //                 color: Colors.amber,
-                  //                 height: 150.h,
-                  //                 width: 400.w,
-                  //                 fit: BoxFit.fill,
-                  //                 image: AssetImage(AppImage.home_banner)),
-                  //           ),
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //             children: [
-                  //               Padding(
-                  //                 padding: REdgeInsets.symmetric(vertical: 19),
-                  //                 child: Text(
-                  //                   'Latest Updates',
-                  //                   style: TextStyle(
-                  //                       fontSize: 15.w,
-                  //                       fontWeight: FontWeight.w500),
-                  //                 ),
-                  //               ),
-                  //               TextButton(
-                  //                   onPressed: () {
-                  //                     // Get.to(const LatestUpdateView());
-                  //                   },
-                  //                   child: const Text('View all'))
-                  //             ],
-                  //           ),
-                  //           const HomeLatestUpdate(),
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //             children: [
-                  //               Padding(
-                  //                 padding: REdgeInsets.symmetric(vertical: 19),
-                  //                 child: Text(
-                  //                   'Our Successful Students',
-                  //                   style: TextStyle(
-                  //                       fontSize: 15.w,
-                  //                       fontWeight: FontWeight.w500),
-                  //                 ),
-                  //               ),
-                  //               TextButton(
-                  //                   onPressed: () {
-                  //                     // Get.to(const OurSuccessfulStudentView());
-                  //                   },
-                  //                   child: const Text('View all'))
-                  //             ],
-                  //           ),
-                  //           const HomeOurSuccessfulStudent(),
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //             children: [
-                  //               Padding(
-                  //                 padding: REdgeInsets.symmetric(vertical: 19),
-                  //                 child: Text(
-                  //                   'Testmonials',
-                  //                   style: TextStyle(
-                  //                       fontSize: 15.w,
-                  //                       fontWeight: FontWeight.w500),
-                  //                 ),
-                  //               ),
-                  //               TextButton(
-                  //                   onPressed: () {
-                  //                     // Get.to(const TestimonialsView());
-                  //                   },
-                  //                   child: const Text('View all'))
-                  //             ],
-                  //           ),
-                  //           const HomeTestimonials(),
-                  //         ],
-                  //       )
+                 ( getBox.read(IS_USER_LOGGED_IN) ?? false)
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Suggested Videos',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const SuggestedVideosView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeSuggestedVideos(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Free Notes',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const FreeNotesView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeFreeNotes(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Featured Course',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const MyCourseView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeFeatureCourse(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Recent Quizzes',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const QuizView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeRecentQuizze(),
+                            Container(
+                              margin: EdgeInsets.only(top: 14.h),
+                              color: AppColor.apcolor,
+                              child: Image(
+                                  color: Colors.amber,
+                                  height: 150.h,
+                                  width: 400.w,
+                                  fit: BoxFit.fill,
+                                  image: AssetImage(AppImage.home_banner)),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Latest Updates',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const LatestUpdateView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeLatestUpdate(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Our Successful Students',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const OurSuccessfulStudentView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeOurSuccessfulStudent(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: REdgeInsets.symmetric(vertical: 19),
+                                  child: Text(
+                                    'Testmonials',
+                                    style: TextStyle(
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      // Get.to(const TestimonialsView());
+                                    },
+                                    child: const Text('View all'))
+                              ],
+                            ),
+                            const HomeTestimonials(),
+                          ],
+                        )
                     
-                      // :
+                      :
                       //   //  //end before registeation page
                       //    //start after register page
                       // Obx(

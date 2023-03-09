@@ -2,6 +2,7 @@
 
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +77,12 @@ class PushNotificationService {
     //    messages.add(initialMessage);
     // }
     FirebaseMessaging.onMessage.listen((RemoteMessage? message) async {
+       FirebaseFirestore.instance.collection('notification').add({
+    'title': message?.notification!.title,
+    'body': message?.notification!.body,
+    'data': message?.data,
+    'timestamp': FieldValue.serverTimestamp(),
+  });
       analytics.logEvent(name: 'message_received', parameters: {
         'message_id': message?.messageId,
         'title': message?.notification?.title,

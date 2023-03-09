@@ -11,6 +11,7 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
   Widget build(BuildContext context) {
     Get.put(VerifyOtpController());
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color.fromARGB(255, 243, 239, 239),
         body: SafeArea(
           child: Padding(
@@ -68,7 +69,7 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
                       children: [
                         TextButton(
                             onPressed: () {
-                              // Get.to(const ForgotPasswordView());
+                              controller.forgotPassword();
                             },
                             child: const Text(
                               'Resend OTP',
@@ -79,7 +80,15 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
                           height: 50.h,
                           minWidth: 90.w,
                           onPressed: () {
-                            Get.to(const CreatePasswordView());
+                            if (controller.pinController.text.isNotEmpty &&
+                                (controller.pinController.text.toString() ==
+                                    getBox.read(USER_OTP).toString())) {
+                              Get.to(const CreatePasswordView());
+                            } else {
+                              SHOW_SNACKBAR(
+                                  isSuccess: false,
+                                  message: 'please enter valid otp');
+                            }
                           },
                           color: AppColor.apcolor,
                           child: Text(
@@ -101,16 +110,16 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
   Widget darkRoundedPinPut() {
     return Pinput(
       defaultPinTheme: PinTheme(
-          margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10),
+          // margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10),
           height: 60,
           width: 60,
           decoration: BoxDecoration(color: AppColor.white)),
       closeKeyboardWhenCompleted: true,
 
-      length: 4,
-      // androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsRetrieverApi,
+      length: 6,
+      androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsRetrieverApi,
       // enabled: true,
-      // autofocus: true,
+      autofocus: true,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       // mouseCursor: MouseCursor.uncontrolled,
       controller: controller.pinController,
