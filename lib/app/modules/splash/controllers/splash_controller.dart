@@ -13,9 +13,9 @@ class SplashController extends GetxController {
 
     Timer(const Duration(seconds: 4), () {
       Get.offAll(
-        // (getBox.read(IS_USER_LOGGED_IN) ?? false)
-        //   ? BottomNavigationBarView()
-        //   : 
+        (getBox.read(IS_USER_LOGGED_IN) ?? false)
+          ? BottomNavigationBarView()
+          : 
           const LoginView());
     });
   }
