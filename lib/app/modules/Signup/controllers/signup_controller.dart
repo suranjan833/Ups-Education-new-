@@ -5,7 +5,6 @@ import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/controller/country_state_gender_controller.dart';
 import 'package:ups_education/app/data/function/dio_post.dart';
 import 'package:ups_education/app/modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
-import 'package:ups_education/app/modules/VerifyOtp/views/verify_otp_view.dart';
 
 class SignupController extends GetxController {
   final formKey = GlobalKey<FormState>();
@@ -56,7 +55,7 @@ class SignupController extends GetxController {
         getBox.write(USER_ID, response.data["data"]["userid"]);
         getBox.write(HIDEBUYNOW, response.data["data"]["hidebuynow"]);
         getBox.write(USER_EMAIL, response.data["data"]["email"]);
-        Get.offAll( BottomNavigationBarView());
+        Get.offAll(BottomNavigationBarView());
       }
       if (response.data["message"] == "This email already in our database") {
         SHOW_SNACKBAR(

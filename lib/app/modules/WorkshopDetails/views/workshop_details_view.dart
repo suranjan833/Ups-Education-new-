@@ -201,7 +201,9 @@ class WorkshopDetailsView extends GetView<WorkshopDetailsController> {
                         MaterialButton(
                           height: 50,
                           minWidth: 160,
-                          onPressed: () {},
+                          onPressed: () {
+                            controller.checkDevice();
+                          },
                           shape: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(25),
                               borderSide: BorderSide(
