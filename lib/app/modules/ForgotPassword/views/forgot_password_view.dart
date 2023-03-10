@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
-import 'package:ups_education/app/modules/VerifyOtp/views/verify_otp_view.dart';
 
 import '../controllers/forgot_password_controller.dart';
 

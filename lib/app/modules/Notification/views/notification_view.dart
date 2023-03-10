@@ -10,6 +10,7 @@ class NotificationView extends GetView<NotificationController> {
   const NotificationView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var controller = Get.put(NotificationController());
     CollectionReference collectionReference =
         FirebaseFirestore.instance.collection('notification');

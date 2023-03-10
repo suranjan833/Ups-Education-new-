@@ -177,10 +177,10 @@ class HomeFacultySuggestions extends StatelessWidget {
           //   // removeElevation: true,
           //   boxShadow: [BoxShadow(blurRadius: 3.r, color: Colors.grey)],
           //   onTap: () async {
-          //     var url = link;
-          //     if (await canLaunch(url)) {
-          //       await launch(url);
-          //     }
+              // var url = link;
+              // if (await canLaunch(url)) {
+              //   await launch(url);
+              // }
           //   },
           // ),
           Container(

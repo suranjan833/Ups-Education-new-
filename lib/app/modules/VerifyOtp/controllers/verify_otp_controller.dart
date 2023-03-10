@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
 import 'package:ups_education/app/data/function/dio_post.dart';
