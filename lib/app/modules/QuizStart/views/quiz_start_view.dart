@@ -53,13 +53,18 @@ class QuizStartView extends GetView<QuizStartController> {
           padding: EdgeInsets.symmetric(vertical: 8.r, horizontal: 16.r),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text('Total Questions: 10'),
-              Text(
-                'Time Left: 02:45',
-                style:
-                    TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
-              ),
+            children: [
+              const Text('Total Questions: 10'),
+              Obx(
+                () => Visibility(
+                  visible: !(controller.start.value < 1),
+                  child: Text(
+                    'Time Left: ${controller.start.value}',
+                    style: const TextStyle(
+                        color: Colors.red, fontWeight: FontWeight.w500),
+                  ),
+                ),
+              )
             ],
           ),
         ),

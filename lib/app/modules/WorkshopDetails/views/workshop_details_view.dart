@@ -208,12 +208,18 @@ class WorkshopDetailsView extends GetView<WorkshopDetailsController> {
                               borderRadius: BorderRadius.circular(25),
                               borderSide: BorderSide(
                                   color: AppColor.black.withOpacity(0.5))),
-                          child: Text(
-                            'Add to Cart',
-                            style: TextStyle(
-                                color: AppColor.black.withOpacity(0.8),
-                                fontWeight: FontWeight.w400,
-                                fontSize: 15.r),
+                          child: Obx(
+                                      () => (controller
+                                              .isButtonLoading.value)
+                                          ? const CircularProgressIndicator(
+                                              color: Colors.green,
+                                            ) : Text(
+                              'Add to Cart',
+                              style: TextStyle(
+                                  color: AppColor.black.withOpacity(0.8),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15.r),
+                            ),
                           ),
                         ),
                         MaterialButton(

@@ -1,7 +1,35 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ups_education/app/data/config/config.dart';
 
 class QuizStartController extends GetxController {
+  Rx<int> start = 165.obs;
+  Rx<int> startTime = 0.obs;
+  void reduceTime() async {
+    startTime.value = start.value % 60;
+  }
+
+  void startTimer() {
+    const onSec = Duration(seconds: 1);
+    Timer.periodic(onSec, (timer) {
+      if (start.value == 0) {
+        timer.cancel();
+        // isNextButtonLoading(false);
+      } else {
+        start(start.value - 1);
+      }
+    });
+  }
+
+  @override
+  void onInit() {
+    start(165);
+    startTimer();
+
+    super.onInit();
+  }
+
   Widget customQuestion() {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:ups_education/app/data/config/config.dart';
@@ -83,20 +85,34 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
                             if (controller.pinController.text.isNotEmpty &&
                                 (controller.pinController.text.toString() ==
                                     getBox.read(USER_OTP).toString())) {
-                              Get.to(const CreatePasswordView());
+                              controller.isButtonLoading(true);
+                              Timer(const Duration(seconds: 1), () {
+                                controller.isButtonLoading(false);
+                                Get.off(const CreatePasswordView());
+                              });
                             } else {
+                              controller.isButtonLoading(true);
                               SHOW_SNACKBAR(
                                   isSuccess: false,
                                   message: 'please enter valid otp');
+                              Timer(const Duration(seconds: 2), () {
+                                controller.isButtonLoading(false);
+                              });
                             }
                           },
                           color: AppColor.apcolor,
-                          child: Text(
-                            'Done',
-                            style: TextStyle(
-                                color: AppColor.white,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 19),
+                          child: Obx(
+                            () => (controller.isButtonLoading.value)
+                                ? const CircularProgressIndicator(
+                                    color: Colors.white,
+                                  )
+                                : Text(
+                                    'Done',
+                                    style: TextStyle(
+                                        color: AppColor.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 19),
+                                  ),
                           ),
                         ),
                       ],

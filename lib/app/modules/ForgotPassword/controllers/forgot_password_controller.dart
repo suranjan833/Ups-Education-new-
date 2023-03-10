@@ -5,8 +5,9 @@ import 'package:ups_education/app/modules/VerifyOtp/views/verify_otp_view.dart';
 
 class ForgotPasswordController extends GetxController {
   var email = TextEditingController();
-
+ Rx<bool> isButtonLoading = false.obs;
   Future forgotPassword() async {
+     isButtonLoading(true);
     var response = await dioPost(
         endUrl: "/mobile-forgotpassword", data: {"user_name": email.text});
 
@@ -29,7 +30,7 @@ class ForgotPasswordController extends GetxController {
     } else {
       SHOW_SNACKBAR(isSuccess: false, message: 'Something went wrong');
     }
-
+ isButtonLoading(false);
     return;
   }
 }

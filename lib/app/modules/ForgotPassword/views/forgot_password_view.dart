@@ -103,7 +103,12 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                           controller.forgotPassword();
                         },
                         color: AppColor.apcolor,
-                        child: Text(
+                        child: Obx(
+                                      () => (controller
+                                              .isButtonLoading.value)
+                                          ? const CircularProgressIndicator(
+                                              color: Colors.white,
+                                            ) : Text(
                           'Send OTP',
                           style: TextStyle(
                               color: AppColor.white,
@@ -111,7 +116,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                               fontSize: 18),
                         ),
                       ),
-                    ),
+                     ) ),
                   ]))),
     );
   }
