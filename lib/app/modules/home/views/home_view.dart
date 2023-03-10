@@ -67,8 +67,8 @@ class HomeView extends GetView<HomeController> {
                     ),
                   ),
                   categoryCard(),
-                  // //start   before registrations page
-                  (getBox.read(IS_USER_LOGGED_IN) ?? false)
+                  // // //start   before registrations page
+                  (getBox.read(USER_ID) == null)
                       ? const HomeBeforeRegistration()
                       :
                       //   //  //end before registeation page
