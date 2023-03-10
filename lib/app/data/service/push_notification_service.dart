@@ -47,6 +47,27 @@ class PushNotificationService {
         ?.createNotificationChannel(channel);
     const AndroidInitializationSettings androidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
+ IOSInitializationSettings IOS = IOSInitializationSettings(
+      requestSoundPermission: true,
+      requestBadgePermission: true,
+      defaultPresentAlert: true,
+      defaultPresentBadge: true,
+      defaultPresentSound: true,
+      onDidReceiveLocalNotification: (id, title, body, payload) async {
+        return;
+      },
+      requestAlertPermission: true,
+    );
+    final IOSInitializationSettings initializationSettingsIOS =
+        // ignore: prefer_const_constructors
+        IOSInitializationSettings(
+      requestSoundPermission: false,
+      requestBadgePermission: false,
+      requestAlertPermission: false,
+      onDidReceiveLocalNotification: (id, title, body, payload) async {
+        return;
+      },
+    );
 
     //  DarwinInitializationSettings iOSSettings =
     // DarwinInitializationSettings(
@@ -56,8 +77,9 @@ class PushNotificationService {
     // );
     final NotificationAppLaunchDetails? notificationAppLaunchDetails =
         await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
+
     // ignore: non_constant_identifier_names
-    var IOS = const IOSInitializationSettings();
+    // var IOS = const IOSInitializationSettings();
     var initSettings =
         InitializationSettings(android: androidSettings, iOS: IOS);
     flutterLocalNotificationsPlugin.initialize(
@@ -77,12 +99,12 @@ class PushNotificationService {
     //    messages.add(initialMessage);
     // }
     FirebaseMessaging.onMessage.listen((RemoteMessage? message) async {
-       FirebaseFirestore.instance.collection('notification').add({
-    'title': message?.notification!.title,
-    'body': message?.notification!.body,
-    'data': message?.data,
-    'timestamp': FieldValue.serverTimestamp(),
-  });
+      FirebaseFirestore.instance.collection('notification').add({
+        'title': message?.notification!.title,
+        'body': message?.notification!.body,
+        'data': message?.data,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
       analytics.logEvent(name: 'message_received', parameters: {
         'message_id': message?.messageId,
         'title': message?.notification?.title,
@@ -108,7 +130,14 @@ class PushNotificationService {
           notification.title,
           notification.body,
           payload: "item x",
-          NotificationDetails(
+          
+             NotificationDetails(
+            iOS: IOSNotificationDetails(
+              badgeNumber: 1,
+              presentAlert: true,
+              subtitle: notification.body,
+              presentBadge: true,
+            ),
             android: AndroidNotificationDetails(
               channel.id,
               channel.description,
@@ -168,3 +197,10 @@ class PushNotificationService {
     }
   }
 }
+
+Future<void> onDidReceiveLocalNotification({
+  int? id,
+  String? title,
+  String? body,
+  String? payload,
+}) async {}

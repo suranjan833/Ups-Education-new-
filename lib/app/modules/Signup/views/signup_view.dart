@@ -534,12 +534,18 @@ class SignupView extends GetView<SignupController> {
                             }
                           },
                           color: AppColor.apcolor,
-                          child: Text(
-                            'Sign Up',
-                            style: TextStyle(
-                                color: AppColor.white,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 19),
+                          child: Obx(
+                                      () => (controller
+                                              .isButtonLoading.value)
+                                          ? const CircularProgressIndicator(
+                                              color: Colors.white,
+                                            ) : Text(
+                              'Sign Up',
+                              style: TextStyle(
+                                  color: AppColor.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 19),
+                            ),
                           ),
                         ),
                       ),

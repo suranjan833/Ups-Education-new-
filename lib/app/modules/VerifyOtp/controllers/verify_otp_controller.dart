@@ -7,8 +7,10 @@ import 'package:ups_education/app/modules/VerifyOtp/views/verify_otp_view.dart';
 
 class VerifyOtpController extends GetxController {
   var pinController = TextEditingController();
+   Rx<bool> isButtonLoading = false.obs;
   // var forgotController = Get.put(ForgotPasswordController());
   Future forgotPassword() async {
+     
     var response = await dioPost(
         endUrl: "/mobile-forgotpassword",
         data: {"user_name": "${getBox.read(FORGOTFIELD)}"});

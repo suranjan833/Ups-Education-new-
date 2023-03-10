@@ -7,6 +7,7 @@ import 'package:ups_education/app/data/function/dio_post.dart';
 import 'package:ups_education/app/modules/BottomNavigationBar/views/bottom_navigation_bar_view.dart';
 
 class SignupController extends GetxController {
+   Rx<bool> isButtonLoading = false.obs;
   final formKey = GlobalKey<FormState>();
   var fname = TextEditingController();
   var lname = TextEditingController();
@@ -29,6 +30,7 @@ class SignupController extends GetxController {
   var dday;
 
   Future signUp() async {
+     isButtonLoading(true);
     var data = {
       "firstname": fname.text,
       "lastname": lname.text,
@@ -67,7 +69,7 @@ class SignupController extends GetxController {
     } else {
       SHOW_SNACKBAR(isSuccess: false, message: 'Something went wrong');
     }
-
+ isButtonLoading(false);
     return;
   }
 

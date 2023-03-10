@@ -161,24 +161,31 @@ class LoginView extends GetView<LoginController> {
                   }
                 },
                 color: AppColor.green,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Login',
-                      style: TextStyle(
-                          color: AppColor.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17),
-                    ),
-                    Center(
-                      child: Icon(
-                        Icons.arrow_right_alt,
-                        color: AppColor.white,
+                child: Obx(
+                                      () => (controller
+                                              .isLoginButtonLoading.value)
+                                          ? const CircularProgressIndicator(
+                                              color: Colors.white,
+                                            )
+                  : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Login',
+                        style: TextStyle(
+                            color: AppColor.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 17),
                       ),
-                    )
-                  ],
+                      Center(
+                        child: Icon(
+                          Icons.arrow_right_alt,
+                          color: AppColor.white,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
